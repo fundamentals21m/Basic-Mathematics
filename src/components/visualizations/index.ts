@@ -48,3 +48,6 @@ export { LogarithmCalculator } from './LogarithmCalculator';
 export { MappingComposer } from './MappingComposer';
 export { FunctionIterator } from './FunctionIterator';
 export { PermutationCalculator } from './PermutationCalculator';
+export { TruthTableBuilder } from './TruthTableBuilder';
+export { ImplicationExplorer } from './ImplicationExplorer';
+export { QuantifierNegator } from './QuantifierNegator';

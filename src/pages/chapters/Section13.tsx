@@ -6,6 +6,7 @@ import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section13Questions } from '../../data/quizzes';
 import { useGamification } from '../../contexts/GamificationContext';
+import { TruthTableBuilder, ImplicationExplorer, QuantifierNegator } from '../../components/visualizations';
 
 const REQUIRED_XP = 2000;
 
@@ -205,6 +206,8 @@ export default function Section13() {
         </div>
       </div>
 
+      <TruthTableBuilder />
+
       {/* Quantifiers */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Quantifiers</h2>
 
@@ -270,6 +273,8 @@ export default function Section13() {
         </div>
       </Example>
 
+      <QuantifierNegator />
+
       {/* Implications and Converses */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Implications, Converses, and Contrapositives</h2>
 
@@ -319,6 +324,8 @@ export default function Section13() {
           <li><strong>Contrapositive:</strong> "If not divisible by 2, then not divisible by 6" — TRUE</li>
         </ul>
       </Example>
+
+      <ImplicationExplorer />
 
       {/* If and Only If */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">If and Only If (Biconditional)</h2>
