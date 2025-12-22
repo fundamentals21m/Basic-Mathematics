@@ -41,3 +41,7 @@ export { IntervalNotationExplorer } from './IntervalNotationExplorer';
 export { CompletingSquareDemo } from './CompletingSquareDemo';
 export { QuadraticFormulaSolver } from './QuadraticFormulaSolver';
 export { DiscriminantExplorer } from './DiscriminantExplorer';
+export { FunctionEvaluator } from './FunctionEvaluator';
+export { PolynomialExplorer } from './PolynomialExplorer';
+export { ExponentialGrapher } from './ExponentialGrapher';
+export { LogarithmCalculator } from './LogarithmCalculator';
