@@ -26,3 +26,7 @@ export { SolutionVerifier } from './SolutionVerifier';
 export { RealNumberLineExplorer } from './RealNumberLineExplorer';
 export { RealNumberPropertiesDemo } from './RealNumberPropertiesDemo';
 export { AlgebraicIdentitiesVisualizer } from './AlgebraicIdentitiesVisualizer';
+export { PositivityExplorer } from './PositivityExplorer';
+export { SquareRootCalculator } from './SquareRootCalculator';
+export { AbsoluteValueVisualizer } from './AbsoluteValueVisualizer';
+export { RationalizingDemo } from './RationalizingDemo';

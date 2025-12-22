@@ -4,6 +4,7 @@ import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section09Questions } from '../../data/quizzes';
+import { PositivityExplorer, SquareRootCalculator, AbsoluteValueVisualizer, RationalizingDemo } from '../../components/visualizations';
 
 export default function Section09() {
   return (
@@ -83,6 +84,8 @@ export default function Section09() {
         </p>
       </Theorem>
 
+      <PositivityExplorer />
+
       {/* Square Roots */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Square Roots</h2>
 
@@ -122,6 +125,8 @@ export default function Section09() {
         </ul>
       </Example>
 
+      <SquareRootCalculator />
+
       {/* Absolute Value */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Absolute Value</h2>
 
@@ -148,6 +153,8 @@ export default function Section09() {
           on the number line. Distance is always non-negative!
         </p>
       </Callout>
+
+      <AbsoluteValueVisualizer />
 
       {/* Solving Absolute Value Equations */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Solving Absolute Value Equations</h2>
@@ -189,6 +196,8 @@ export default function Section09() {
           <p className="text-dark-400 text-sm mt-2">(This form is useful in calculus!)</p>
         </div>
       </Example>
+
+      <RationalizingDemo />
 
       {/* Summary */}
       <div className="mt-12 p-6 rounded-2xl bg-dark-800/40 border border-dark-700/50">
