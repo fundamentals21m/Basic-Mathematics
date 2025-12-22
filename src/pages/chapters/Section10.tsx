@@ -4,6 +4,7 @@ import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section10Questions } from '../../data/quizzes';
+import { ExponentExplorer, NthRootCalculator, FractionalExponentDemo, PowerRulesDemo } from '../../components/visualizations';
 
 export default function Section10() {
   return (
@@ -65,6 +66,8 @@ export default function Section10() {
         </ul>
       </Example>
 
+      <ExponentExplorer />
+
       {/* n-th Roots */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">n-th Roots</h2>
 
@@ -94,6 +97,8 @@ export default function Section10() {
         </ul>
       </Example>
 
+      <NthRootCalculator />
+
       {/* Fractional Exponents */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Fractional Exponents</h2>
 
@@ -122,6 +127,8 @@ export default function Section10() {
         </ul>
       </Example>
 
+      <FractionalExponentDemo />
+
       {/* Power Rules */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">The Power Rules</h2>
 
@@ -149,6 +156,8 @@ export default function Section10() {
           <li><Math>(9 \cdot 4)^{'{1/2}'} = 9^{'{1/2}'} \cdot 4^{'{1/2}'} = 3 \cdot 2 = 6</Math></li>
         </ul>
       </Example>
+
+      <PowerRulesDemo />
 
       {/* Simplification */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Simplifying Expressions</h2>

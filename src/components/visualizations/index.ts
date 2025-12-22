@@ -30,3 +30,7 @@ export { PositivityExplorer } from './PositivityExplorer';
 export { SquareRootCalculator } from './SquareRootCalculator';
 export { AbsoluteValueVisualizer } from './AbsoluteValueVisualizer';
 export { RationalizingDemo } from './RationalizingDemo';
+export { ExponentExplorer } from './ExponentExplorer';
+export { NthRootCalculator } from './NthRootCalculator';
+export { FractionalExponentDemo } from './FractionalExponentDemo';
+export { PowerRulesDemo } from './PowerRulesDemo';
