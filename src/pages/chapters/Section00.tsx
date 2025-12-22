@@ -3,6 +3,8 @@ import { Definition, Example, Axiom } from '../../components/common/ContentBlock
 import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { NumberLine } from '../../components/visualizations/NumberLine';
+import { SectionQuiz } from '../../components/quiz/SectionQuiz';
+import { section00Questions } from '../../data/quizzes';
 
 export default function Section00() {
   return (
@@ -188,6 +190,9 @@ export default function Section00() {
           </li>
         </ul>
       </div>
+
+      {/* Section Quiz */}
+      <SectionQuiz sectionTitle="The Integers" questions={section00Questions} />
     </LessonLayout>
   );
 }

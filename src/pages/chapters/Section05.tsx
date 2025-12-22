@@ -2,6 +2,8 @@ import { LessonLayout } from '../../components/layout/LessonLayout';
 import { Definition, Example, Theorem, Axiom } from '../../components/common/ContentBlocks';
 import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
+import { SectionQuiz } from '../../components/quiz/SectionQuiz';
+import { section05Questions } from '../../data/quizzes';
 
 export default function Section05() {
   return (
@@ -207,6 +209,9 @@ export default function Section05() {
           </li>
         </ul>
       </div>
+
+      {/* Section Quiz */}
+      <SectionQuiz sectionTitle="Multiplicative Inverses" questions={section05Questions} />
     </LessonLayout>
   );
 }

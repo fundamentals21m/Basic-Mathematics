@@ -2,6 +2,8 @@ import { LessonLayout } from '../../components/layout/LessonLayout';
 import { Definition, Example, Axiom, Theorem } from '../../components/common/ContentBlocks';
 import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
+import { SectionQuiz } from '../../components/quiz/SectionQuiz';
+import { section09Questions } from '../../data/quizzes';
 
 export default function Section09() {
   return (
@@ -218,6 +220,9 @@ export default function Section09() {
           </li>
         </ul>
       </div>
+
+      {/* Section Quiz */}
+      <SectionQuiz sectionTitle="Positivity" questions={section09Questions} />
     </LessonLayout>
   );
 }

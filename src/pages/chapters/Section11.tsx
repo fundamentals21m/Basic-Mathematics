@@ -2,6 +2,8 @@ import { LessonLayout } from '../../components/layout/LessonLayout';
 import { Definition, Example, Axiom, Theorem } from '../../components/common/ContentBlocks';
 import { Math } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
+import { SectionQuiz } from '../../components/quiz/SectionQuiz';
+import { section11Questions } from '../../data/quizzes';
 
 export default function Section11() {
   return (
@@ -216,6 +218,9 @@ export default function Section11() {
           </li>
         </ul>
       </div>
+
+      {/* Section Quiz */}
+      <SectionQuiz sectionTitle="Inequalities" questions={section11Questions} />
     </LessonLayout>
   );
 }

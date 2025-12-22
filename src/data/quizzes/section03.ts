@@ -1,0 +1,134 @@
+import type { SectionQuizQuestion } from '../../components/quiz/SectionQuiz';
+
+export const section03Questions: SectionQuizQuestion[] = [
+  // EASY
+  {
+    id: 1,
+    difficulty: 'easy',
+    question: 'Is 12 even or odd?',
+    options: ['Even', 'Odd', 'Neither', 'Both'],
+    correctIndex: 0,
+    explanation: '12 = 2 × 6, so 12 is divisible by 2, making it even.',
+  },
+  {
+    id: 2,
+    difficulty: 'easy',
+    question: 'What is even + odd?',
+    options: ['Even', 'Odd', 'Could be either', 'Zero'],
+    correctIndex: 1,
+    explanation: 'Even + Odd = Odd. For example: 4 + 3 = 7 (odd).',
+  },
+  {
+    id: 3,
+    difficulty: 'easy',
+    question: 'Is 15 divisible by 3?',
+    options: ['Yes', 'No'],
+    correctIndex: 0,
+    explanation: '15 ÷ 3 = 5 with no remainder, so yes, 15 is divisible by 3.',
+  },
+  {
+    id: 4,
+    difficulty: 'easy',
+    question: 'What is odd × odd?',
+    options: ['Even', 'Odd', 'Could be either', 'Prime'],
+    correctIndex: 1,
+    explanation: 'Odd × Odd = Odd. For example: 3 × 5 = 15 (odd).',
+  },
+  {
+    id: 5,
+    difficulty: 'easy',
+    question: 'Which number is a factor of 24?',
+    options: ['5', '7', '8', '9'],
+    correctIndex: 2,
+    explanation: '24 = 8 × 3, so 8 is a factor of 24.',
+  },
+
+  // MEDIUM
+  {
+    id: 6,
+    difficulty: 'medium',
+    question: 'What is even × even?',
+    options: ['Even', 'Odd', 'Could be either', 'Divisible by 4'],
+    correctIndex: 0,
+    explanation: 'Even × Even = Even. In fact, it\'s divisible by 4: (2m)(2n) = 4mn.',
+  },
+  {
+    id: 7,
+    difficulty: 'medium',
+    question: 'If n² is even, what can we conclude about n?',
+    options: ['n is even', 'n is odd', 'n could be either', 'n = 0'],
+    correctIndex: 0,
+    explanation: 'If n were odd, n² would be odd. So n must be even.',
+  },
+  {
+    id: 8,
+    difficulty: 'medium',
+    question: 'What is the GCD of 12 and 18?',
+    options: ['2', '3', '6', '36'],
+    correctIndex: 2,
+    explanation: '12 = 2² × 3 and 18 = 2 × 3². GCD = 2 × 3 = 6.',
+  },
+  {
+    id: 9,
+    difficulty: 'medium',
+    question: 'If a | b and b | c, then:',
+    options: ['a | c', 'c | a', 'a = c', 'a + c = b'],
+    correctIndex: 0,
+    explanation: 'Divisibility is transitive: if a divides b and b divides c, then a divides c.',
+  },
+  {
+    id: 10,
+    difficulty: 'medium',
+    question: 'Which statement about even and odd is FALSE?',
+    options: [
+      'Even + Even = Even',
+      'Odd + Odd = Even',
+      'Even × Odd = Odd',
+      'Odd × Odd = Odd'
+    ],
+    correctIndex: 2,
+    explanation: 'Even × Odd = Even (not odd). For example: 2 × 3 = 6.',
+  },
+
+  // HARD
+  {
+    id: 11,
+    difficulty: 'hard',
+    question: 'If n is an integer and n² + n is odd, what can we say about n?',
+    options: ['n is even', 'n is odd', 'This is impossible', 'n could be either'],
+    correctIndex: 2,
+    explanation: 'n² + n = n(n + 1). Since n and n+1 are consecutive, one is even, so their product is always even. n² + n can never be odd.',
+  },
+  {
+    id: 12,
+    difficulty: 'hard',
+    question: 'What is the LCM of 12 and 18?',
+    options: ['6', '36', '72', '216'],
+    correctIndex: 1,
+    explanation: '12 = 2² × 3 and 18 = 2 × 3². LCM = 2² × 3² = 4 × 9 = 36.',
+  },
+  {
+    id: 13,
+    difficulty: 'hard',
+    question: 'If a | (b + c) and a | b, then:',
+    options: ['a | c', 'a | bc', 'c | a', 'b | c'],
+    correctIndex: 0,
+    explanation: 'If a | (b + c) and a | b, then a | (b + c - b) = a | c.',
+  },
+  {
+    id: 14,
+    difficulty: 'hard',
+    question: 'How many positive divisors does 36 have?',
+    options: ['6', '8', '9', '12'],
+    correctIndex: 2,
+    explanation: '36 = 2² × 3². Number of divisors = (2+1)(2+1) = 9. They are: 1, 2, 3, 4, 6, 9, 12, 18, 36.',
+  },
+  {
+    id: 15,
+    difficulty: 'hard',
+    question: 'If GCD(a, b) × LCM(a, b) = 72 and a = 6, what is b?',
+    options: ['8', '12', '18', '36'],
+    correctIndex: 1,
+    explanation: 'GCD(a,b) × LCM(a,b) = a × b. So 72 = 6 × b, giving b = 12.',
+  },
+];

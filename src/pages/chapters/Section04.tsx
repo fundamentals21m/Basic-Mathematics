@@ -2,6 +2,8 @@ import { LessonLayout } from '../../components/layout/LessonLayout';
 import { Definition, Example, Theorem } from '../../components/common/ContentBlocks';
 import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
+import { SectionQuiz } from '../../components/quiz/SectionQuiz';
+import { section04Questions } from '../../data/quizzes';
 
 export default function Section04() {
   return (
@@ -204,6 +206,9 @@ export default function Section04() {
           </li>
         </ul>
       </div>
+
+      {/* Section Quiz */}
+      <SectionQuiz sectionTitle="Rational Numbers" questions={section04Questions} />
     </LessonLayout>
   );
 }

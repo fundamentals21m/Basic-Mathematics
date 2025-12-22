@@ -2,6 +2,8 @@ import { LessonLayout } from '../../components/layout/LessonLayout';
 import { Definition, Example, Theorem } from '../../components/common/ContentBlocks';
 import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
+import { SectionQuiz } from '../../components/quiz/SectionQuiz';
+import { section12Questions } from '../../data/quizzes';
 
 export default function Section12() {
   return (
@@ -213,6 +215,9 @@ export default function Section12() {
           </li>
         </ul>
       </div>
+
+      {/* Section Quiz */}
+      <SectionQuiz sectionTitle="Completing the Square" questions={section12Questions} />
     </LessonLayout>
   );
 }

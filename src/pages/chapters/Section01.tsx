@@ -3,6 +3,8 @@ import { Definition, Example, Axiom, Theorem } from '../../components/common/Con
 import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { NumberLine } from '../../components/visualizations/NumberLine';
+import { SectionQuiz } from '../../components/quiz/SectionQuiz';
+import { section01Questions } from '../../data/quizzes';
 
 export default function Section01() {
   return (
@@ -204,6 +206,9 @@ export default function Section01() {
           </li>
         </ul>
       </div>
+
+      {/* Section Quiz */}
+      <SectionQuiz sectionTitle="Rules for Addition" questions={section01Questions} />
     </LessonLayout>
   );
 }
