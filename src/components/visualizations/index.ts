@@ -23,3 +23,6 @@ export { SpecialCasesExplorer } from './SpecialCasesExplorer';
 export { ThreeVarSystemSolver } from './ThreeVarSystemSolver';
 export { EliminationStepsDemo } from './EliminationStepsDemo';
 export { SolutionVerifier } from './SolutionVerifier';
+export { RealNumberLineExplorer } from './RealNumberLineExplorer';
+export { RealNumberPropertiesDemo } from './RealNumberPropertiesDemo';
+export { AlgebraicIdentitiesVisualizer } from './AlgebraicIdentitiesVisualizer';

@@ -4,6 +4,7 @@ import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section08Questions } from '../../data/quizzes';
+import { RealNumberLineExplorer, RealNumberPropertiesDemo, AlgebraicIdentitiesVisualizer } from '../../components/visualizations';
 
 export default function Section08() {
   return (
@@ -43,6 +44,8 @@ export default function Section08() {
           fundamental to analysis.
         </p>
       </Callout>
+
+      <RealNumberLineExplorer />
 
       {/* Properties of Addition */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Properties of Addition</h2>
@@ -107,6 +110,8 @@ export default function Section08() {
         </Axiom>
       </div>
 
+      <RealNumberPropertiesDemo />
+
       {/* Important Formulas */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Important Algebraic Identities</h2>
 
@@ -128,6 +133,8 @@ export default function Section08() {
           <MathBlock>(a + b)(a - b) = a^2 - b^2</MathBlock>
         </div>
       </div>
+
+      <AlgebraicIdentitiesVisualizer />
 
       {/* Key Insight */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">The Power of Axioms</h2>
