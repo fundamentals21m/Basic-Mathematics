@@ -5,130 +5,200 @@ export const section13Questions: SectionQuizQuestion[] = [
   {
     id: 1,
     difficulty: 'easy',
-    question: 'If f(x) = x², what is f(3)?',
-    options: ['3', '6', '9', '27'],
+    question: 'Which of the following is a mathematical statement?',
+    options: [
+      'Is x positive?',
+      'Let n = 5',
+      '2 + 3 = 5',
+      'x + 3 = 7'
+    ],
     correctIndex: 2,
-    explanation: 'f(3) = 3² = 9.',
+    explanation: 'A statement is a sentence that is either true or false. "2 + 3 = 5" is true, making it a statement. Questions, commands, and open sentences with variables are not statements.',
   },
   {
     id: 2,
     difficulty: 'easy',
-    question: 'What is the degree of the polynomial 3x⁴ − 2x² + x − 5?',
-    options: ['2', '3', '4', '5'],
-    correctIndex: 2,
-    explanation: 'The degree is the highest power of x, which is 4.',
+    question: '"P and Q" is true when:',
+    options: [
+      'P is true or Q is true',
+      'P is true and Q is true',
+      'P is false and Q is false',
+      'Either P or Q is false'
+    ],
+    correctIndex: 1,
+    explanation: 'A conjunction (AND) is true only when both P and Q are true.',
   },
   {
     id: 3,
     difficulty: 'easy',
-    question: 'What is log₂(8)?',
-    options: ['2', '3', '4', '8'],
-    correctIndex: 1,
-    explanation: 'log₂(8) = 3 because 2³ = 8.',
+    question: 'What is the negation of "x > 5"?',
+    options: [
+      'x < 5',
+      'x = 5',
+      'x ≤ 5',
+      'x ≥ 5'
+    ],
+    correctIndex: 2,
+    explanation: 'The negation of "x > 5" is "x is NOT greater than 5", which means x ≤ 5.',
   },
   {
     id: 4,
     difficulty: 'easy',
-    question: 'If f(x) = x + 5, what is f(0)?',
-    options: ['0', '5', '-5', 'undefined'],
-    correctIndex: 1,
-    explanation: 'f(0) = 0 + 5 = 5.',
+    question: '"P or Q" is false when:',
+    options: [
+      'P is true and Q is true',
+      'P is false and Q is true',
+      'P is true and Q is false',
+      'P is false and Q is false'
+    ],
+    correctIndex: 3,
+    explanation: 'A disjunction (OR) is false only when both P and Q are false.',
   },
   {
     id: 5,
     difficulty: 'easy',
-    question: 'What is 2⁰?',
-    options: ['0', '1', '2', 'undefined'],
+    question: 'The symbol ∀ represents which quantifier?',
+    options: [
+      'There exists',
+      'For all',
+      'If and only if',
+      'Implies'
+    ],
     correctIndex: 1,
-    explanation: 'Any positive number raised to the power 0 equals 1.',
+    explanation: '∀ is the universal quantifier, meaning "for all" or "for every".',
   },
 
   // MEDIUM
   {
     id: 6,
     difficulty: 'medium',
-    question: 'If f(x) = x² and g(x) = x + 1, what is (fg)(2)?',
-    options: ['6', '8', '9', '12'],
-    correctIndex: 3,
-    explanation: '(fg)(2) = f(2) · g(2) = 4 · 3 = 12.',
+    question: 'What is the contrapositive of "If it rains, then the ground is wet"?',
+    options: [
+      'If the ground is wet, then it rains',
+      'If it doesn\'t rain, then the ground isn\'t wet',
+      'If the ground isn\'t wet, then it doesn\'t rain',
+      'The ground is wet or it doesn\'t rain'
+    ],
+    correctIndex: 2,
+    explanation: 'The contrapositive of "If P then Q" is "If not Q then not P". So: "If the ground isn\'t wet, then it doesn\'t rain."',
   },
   {
     id: 7,
     difficulty: 'medium',
-    question: 'A polynomial of degree 5 can have at most how many roots?',
-    options: ['4', '5', '6', '10'],
-    correctIndex: 1,
-    explanation: 'A polynomial of degree n has at most n roots.',
+    question: 'The negation of "For all x, P(x)" is:',
+    options: [
+      'For all x, not P(x)',
+      'There exists x such that P(x)',
+      'There exists x such that not P(x)',
+      'For no x, P(x)'
+    ],
+    correctIndex: 2,
+    explanation: 'To negate a universal statement, switch to existential and negate the predicate: "There exists x such that not P(x)".',
   },
   {
     id: 8,
     difficulty: 'medium',
-    question: 'Simplify: log₃(9) + log₃(3)',
-    options: ['2', '3', '5', '6'],
-    correctIndex: 1,
-    explanation: 'log₃(9) = 2 and log₃(3) = 1, so 2 + 1 = 3. Or: log₃(9·3) = log₃(27) = 3.',
+    question: '"P if and only if Q" means:',
+    options: [
+      'If P then Q',
+      'If Q then P',
+      'Both "If P then Q" and "If Q then P"',
+      'Neither P nor Q'
+    ],
+    correctIndex: 2,
+    explanation: 'A biconditional "P iff Q" requires both directions: P implies Q AND Q implies P.',
   },
   {
     id: 9,
     difficulty: 'medium',
-    question: 'Which value of x is a root of f(x) = x² − 4x + 3?',
-    options: ['0', '1', '2', '4'],
-    correctIndex: 1,
-    explanation: 'f(1) = 1 − 4 + 3 = 0, so x = 1 is a root.',
+    question: 'Which statement is equivalent to "If P then Q"?',
+    options: [
+      'If Q then P (converse)',
+      'If not P then not Q (inverse)',
+      'If not Q then not P (contrapositive)',
+      'P and not Q'
+    ],
+    correctIndex: 2,
+    explanation: 'An implication is logically equivalent to its contrapositive. The converse and inverse are NOT equivalent to the original.',
   },
   {
     id: 10,
     difficulty: 'medium',
-    question: 'If 2ˣ = 16, what is x?',
-    options: ['2', '3', '4', '8'],
+    question: 'The negation of "There exists a prime p > 100" is:',
+    options: [
+      'There exists a prime p ≤ 100',
+      'For all primes p, p > 100',
+      'For all primes p, p ≤ 100',
+      'No number greater than 100 exists'
+    ],
     correctIndex: 2,
-    explanation: '2⁴ = 16, so x = 4.',
+    explanation: 'To negate an existential, switch to universal and negate: "For all primes p, p ≤ 100" (i.e., no prime is greater than 100).',
   },
 
   // HARD
   {
     id: 11,
     difficulty: 'hard',
-    question: 'If f(x) = x³ − 6x² + 11x − 6 and f(1) = 0, factor out (x − 1):',
+    question: 'Consider: "If n² is even, then n is even." Which proof technique proves this by showing "If n is odd, then n² is odd"?',
     options: [
-      'x² − 5x + 6',
-      'x² − 5x − 6',
-      'x² + 5x + 6',
-      'x² − 6x + 6'
+      'Direct proof',
+      'Proof by contradiction',
+      'Proof by contrapositive',
+      'Proof by cases'
     ],
-    correctIndex: 0,
-    explanation: 'Since f(1) = 0, (x−1) is a factor. Dividing: x³ − 6x² + 11x − 6 = (x−1)(x² − 5x + 6).',
+    correctIndex: 2,
+    explanation: 'Proving "If n is odd, then n² is odd" is proving the contrapositive. Since an implication and its contrapositive are equivalent, this proves the original statement.',
   },
   {
     id: 12,
     difficulty: 'hard',
-    question: 'Simplify: log₂(32) − log₂(4)',
-    options: ['2', '3', '4', '8'],
-    correctIndex: 1,
-    explanation: 'log₂(32) = 5, log₂(4) = 2, so 5 − 2 = 3. Or: log₂(32/4) = log₂(8) = 3.',
+    question: 'The statement "If x = 2, then x² = 4" has which truth value when x = 3?',
+    options: [
+      'True',
+      'False',
+      'Undefined',
+      'Neither true nor false'
+    ],
+    correctIndex: 0,
+    explanation: 'An implication "If P then Q" is false ONLY when P is true and Q is false. When x = 3, P ("x = 2") is false, so the entire implication is true regardless of Q.',
   },
   {
     id: 13,
     difficulty: 'hard',
-    question: 'If f(x) = 3ˣ, what is f(2) + f(-1)?',
-    options: ['9⅓', '8⅔', '9', '10'],
-    correctIndex: 0,
-    explanation: 'f(2) = 9 and f(-1) = 1/3, so 9 + 1/3 = 9⅓.',
+    question: 'Which of these is the negation of "All students passed the exam"?',
+    options: [
+      'No students passed the exam',
+      'All students failed the exam',
+      'At least one student did not pass the exam',
+      'Some students passed the exam'
+    ],
+    correctIndex: 2,
+    explanation: 'The negation of "For all x, P(x)" is "There exists x such that not P(x)". So: "At least one student did not pass."',
   },
   {
     id: 14,
     difficulty: 'hard',
-    question: 'Find log₁₀(1000) + log₁₀(0.01):',
-    options: ['1', '2', '3', '5'],
-    correctIndex: 0,
-    explanation: 'log₁₀(1000) = 3 and log₁₀(0.01) = log₁₀(10⁻²) = -2, so 3 + (-2) = 1.',
+    question: 'In a proof by contradiction, to prove statement P, you:',
+    options: [
+      'Assume P is true and derive Q',
+      'Assume not P and derive a contradiction',
+      'Assume Q is true and show P follows',
+      'Show P is equivalent to a known truth'
+    ],
+    correctIndex: 1,
+    explanation: 'In proof by contradiction, assume the negation of what you want to prove (not P), then derive a logical contradiction. This forces P to be true.',
   },
   {
     id: 15,
     difficulty: 'hard',
-    question: 'The population P(t) = 100·2^t. When does P(t) = 800?',
-    options: ['t = 2', 't = 3', 't = 4', 't = 8'],
-    correctIndex: 1,
-    explanation: '800 = 100·2^t → 8 = 2^t → 2³ = 2^t → t = 3.',
+    question: 'Consider: "x² = 4 if and only if x = 2". This statement is:',
+    options: [
+      'True',
+      'False, because the "if" direction fails',
+      'False, because the "only if" direction fails',
+      'False, because both directions fail'
+    ],
+    correctIndex: 2,
+    explanation: 'The "if" direction (x = 2 → x² = 4) is true. But the "only if" direction (x² = 4 → x = 2) is false because x could also be -2. The biconditional is false.',
   },
 ];
