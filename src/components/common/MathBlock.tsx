@@ -1,19 +1,30 @@
 import { useEffect, useRef } from 'react';
+import type { ReactNode } from 'react';
 import katex from 'katex';
 
+// Helper to convert ReactNode children to string
+function childrenToString(children: ReactNode): string {
+  if (typeof children === 'string') return children;
+  if (typeof children === 'number') return String(children);
+  if (Array.isArray(children)) return children.map(childrenToString).join('');
+  if (children === null || children === undefined) return '';
+  return '';
+}
+
 interface MathProps {
-  children: string;
+  children: ReactNode;
   display?: boolean;
   className?: string;
 }
 
 export function Math({ children, display = false, className = '' }: MathProps) {
   const containerRef = useRef<HTMLSpanElement>(null);
+  const latex = childrenToString(children);
 
   useEffect(() => {
     if (containerRef.current) {
       try {
-        katex.render(children, containerRef.current, {
+        katex.render(latex, containerRef.current, {
           displayMode: display,
           throwOnError: false,
           strict: false,
@@ -21,11 +32,11 @@ export function Math({ children, display = false, className = '' }: MathProps) {
       } catch (error) {
         console.error('KaTeX error:', error);
         if (containerRef.current) {
-          containerRef.current.textContent = children;
+          containerRef.current.textContent = latex;
         }
       }
     }
-  }, [children, display]);
+  }, [latex, display]);
 
   if (display) {
     return (
@@ -39,7 +50,7 @@ export function Math({ children, display = false, className = '' }: MathProps) {
 }
 
 interface MathBlockProps {
-  children: string;
+  children: ReactNode;
   className?: string;
   label?: string;
 }
