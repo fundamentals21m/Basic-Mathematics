@@ -8,6 +8,9 @@ interface SidebarProps {
   onClose: () => void;
 }
 
+const INTERLUDE_SECTION_ID = 13;
+const INTERLUDE_REQUIRED_XP = 2000;
+
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const { state } = useGamification();
 
@@ -20,6 +23,9 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
   const isCompleted = (sectionId: number) => {
     return state.user.sectionsCompleted.includes(sectionId);
   };
+
+  // Check if the Interlude is locked
+  const isInterludeLocked = state.user.totalXP < INTERLUDE_REQUIRED_XP;
 
   return (
     <>
@@ -57,46 +63,64 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
               </div>
 
               <ul className="space-y-0.5">
-                {chapter.sections.map((section) => (
-                  <li key={section.id}>
-                    <NavLink
-                      to={`/section/${section.id}`}
-                      onClick={() => onClose()}
-                      className={({ isActive }) =>
-                        `group flex items-center gap-3 px-3 py-2.5 text-sm rounded-xl transition-all duration-200 ${
-                          isActive
-                            ? 'text-primary-400 bg-primary-500/10 shadow-sm shadow-primary-500/5'
-                            : 'text-dark-400 hover:text-dark-100 hover:bg-dark-800/50'
-                        }`
-                      }
-                    >
-                      {({ isActive }) => {
-                        const mastery = getMasteryLevel(section.id);
-                        const completed = isCompleted(section.id);
-                        return (
-                          <>
-                            <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-medium transition-all duration-200 ${
-                              isActive
-                                ? 'bg-primary-500/20 text-primary-400'
-                                : completed
-                                ? 'bg-emerald-500/20 text-emerald-400'
-                                : 'bg-dark-800/50 text-dark-500 group-hover:bg-dark-700/50 group-hover:text-dark-300'
-                            }`}>
-                              {completed ? '✓' : section.id}
-                            </span>
-                            <span className="truncate flex-1">{section.title}</span>
-                            <div className="ml-auto flex items-center gap-1">
-                              {mastery !== 'none' && <MasteryIndicator level={mastery} />}
-                              {isActive && (
-                                <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
-                              )}
-                            </div>
-                          </>
-                        );
-                      }}
-                    </NavLink>
-                  </li>
-                ))}
+                {chapter.sections.map((section) => {
+                  const isSectionLocked = section.id === INTERLUDE_SECTION_ID && isInterludeLocked;
+
+                  return (
+                    <li key={section.id}>
+                      <NavLink
+                        to={`/section/${section.id}`}
+                        onClick={() => onClose()}
+                        className={({ isActive }) =>
+                          `group flex items-center gap-3 px-3 py-2.5 text-sm rounded-xl transition-all duration-200 ${
+                            isSectionLocked
+                              ? 'text-dark-600 cursor-pointer'
+                              : isActive
+                              ? 'text-primary-400 bg-primary-500/10 shadow-sm shadow-primary-500/5'
+                              : 'text-dark-400 hover:text-dark-100 hover:bg-dark-800/50'
+                          }`
+                        }
+                      >
+                        {({ isActive }) => {
+                          const mastery = getMasteryLevel(section.id);
+                          const completed = isCompleted(section.id);
+                          return (
+                            <>
+                              <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-medium transition-all duration-200 ${
+                                isSectionLocked
+                                  ? 'bg-dark-800/50 text-dark-600'
+                                  : isActive
+                                  ? 'bg-primary-500/20 text-primary-400'
+                                  : completed
+                                  ? 'bg-emerald-500/20 text-emerald-400'
+                                  : 'bg-dark-800/50 text-dark-500 group-hover:bg-dark-700/50 group-hover:text-dark-300'
+                              }`}>
+                                {isSectionLocked ? (
+                                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                                  </svg>
+                                ) : completed ? '✓' : section.id}
+                              </span>
+                              <span className="truncate flex-1">{section.title}</span>
+                              <div className="ml-auto flex items-center gap-1">
+                                {isSectionLocked ? (
+                                  <span className="text-xs text-dark-600">2K XP</span>
+                                ) : (
+                                  <>
+                                    {mastery !== 'none' && <MasteryIndicator level={mastery} />}
+                                    {isActive && (
+                                      <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
+                                    )}
+                                  </>
+                                )}
+                              </div>
+                            </>
+                          );
+                        }}
+                      </NavLink>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
