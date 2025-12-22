@@ -4,6 +4,7 @@ import { Math } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section11Questions } from '../../data/quizzes';
+import { InequalityNumberLine, InequalityRulesDemo, LinearInequalitySolver, IntervalNotationExplorer } from '../../components/visualizations';
 
 export default function Section11() {
   return (
@@ -38,6 +39,8 @@ export default function Section11() {
           Similarly, <Math>a \leq b</Math> means <Math>a {'<'} b</Math> or <Math>a = b</Math>.
         </p>
       </Definition>
+
+      <InequalityNumberLine />
 
       {/* Inequality Rules */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Rules for Inequalities</h2>
@@ -77,6 +80,8 @@ export default function Section11() {
           Example: <Math>1 {'<'} 3</Math>, but <Math>-2 \cdot 1 = -2 {'>'} -6 = -2 \cdot 3</Math>
         </p>
       </Callout>
+
+      <InequalityRulesDemo />
 
       {/* More Properties */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Additional Properties</h2>
@@ -119,6 +124,8 @@ export default function Section11() {
           <p className="mt-3"><strong>Solution:</strong> All <Math>x \geq -2</Math></p>
         </div>
       </Example>
+
+      <LinearInequalitySolver />
 
       {/* Rational Inequalities */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Rational Inequalities</h2>
@@ -187,6 +194,8 @@ export default function Section11() {
           <li><Math>x \leq 0</Math> is the interval <Math>(-\infty, 0]</Math></li>
         </ul>
       </Example>
+
+      <IntervalNotationExplorer />
 
       {/* Summary */}
       <div className="mt-12 p-6 rounded-2xl bg-dark-800/40 border border-dark-700/50">

@@ -34,3 +34,7 @@ export { ExponentExplorer } from './ExponentExplorer';
 export { NthRootCalculator } from './NthRootCalculator';
 export { FractionalExponentDemo } from './FractionalExponentDemo';
 export { PowerRulesDemo } from './PowerRulesDemo';
+export { InequalityNumberLine } from './InequalityNumberLine';
+export { InequalityRulesDemo } from './InequalityRulesDemo';
+export { LinearInequalitySolver } from './LinearInequalitySolver';
+export { IntervalNotationExplorer } from './IntervalNotationExplorer';
