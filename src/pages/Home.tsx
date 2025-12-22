@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom';
 import { curriculum, getPartTitle } from '../data/curriculum';
+import { useGamification } from '../contexts/GamificationContext';
+import { DailyGoalCard } from '../components/gamification/DailyGoalCard';
+import { ProgressStats } from '../components/gamification/ProgressStats';
+import { AchievementGrid } from '../components/gamification/AchievementGrid';
 
 export default function Home() {
+  const { state } = useGamification();
+  const hasProgress = state.user.totalXP > 0;
   // Group chapters by part
   const parts = [1, 2, 3];
 
@@ -56,6 +62,19 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Gamification Dashboard - only shown if user has progress */}
+      {hasProgress && (
+        <section className="relative py-12 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              <DailyGoalCard />
+              <ProgressStats />
+            </div>
+            <AchievementGrid />
+          </div>
+        </section>
+      )}
 
       {/* Stats Section */}
       <section className="relative py-16 px-6 border-y border-dark-800/50 bg-dark-900/30 backdrop-blur">

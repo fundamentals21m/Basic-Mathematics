@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { XPDisplay } from '../gamification/XPDisplay';
+import { StreakBadge } from '../gamification/StreakBadge';
 
 interface HeaderProps {
   sidebarOpen: boolean;
@@ -55,7 +57,13 @@ export function Header({ sidebarOpen, onToggleSidebar }: HeaderProps) {
           </Link>
         </div>
 
-        <nav className="flex items-center gap-1">
+        <nav className="flex items-center gap-2">
+          {/* Gamification stats - hidden on small screens */}
+          <div className="hidden md:flex items-center gap-2">
+            <StreakBadge />
+            <XPDisplay compact />
+          </div>
+
           <Link
             to="/"
             className="px-4 py-2 text-sm font-medium text-dark-400 hover:text-dark-100 hover:bg-dark-800/50 rounded-xl transition-all duration-200"

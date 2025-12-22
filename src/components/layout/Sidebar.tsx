@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { curriculum } from '../../data/curriculum';
+import { useGamification } from '../../contexts/GamificationContext';
+import { MasteryIndicator } from '../gamification/MasteryIndicator';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -7,6 +9,18 @@ interface SidebarProps {
 }
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
+  const { state } = useGamification();
+
+  // Get mastery level for a section
+  const getMasteryLevel = (sectionId: number) => {
+    return state.sections[sectionId]?.masteryLevel ?? 'none';
+  };
+
+  // Check if section is completed
+  const isCompleted = (sectionId: number) => {
+    return state.user.sectionsCompleted.includes(sectionId);
+  };
+
   return (
     <>
       {/* Overlay for mobile */}
@@ -56,21 +70,30 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                         }`
                       }
                     >
-                      {({ isActive }) => (
-                        <>
-                          <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-medium transition-all duration-200 ${
-                            isActive
-                              ? 'bg-primary-500/20 text-primary-400'
-                              : 'bg-dark-800/50 text-dark-500 group-hover:bg-dark-700/50 group-hover:text-dark-300'
-                          }`}>
-                            {section.id}
-                          </span>
-                          <span className="truncate">{section.title}</span>
-                          {isActive && (
-                            <div className="ml-auto w-1.5 h-1.5 rounded-full bg-primary-400" />
-                          )}
-                        </>
-                      )}
+                      {({ isActive }) => {
+                        const mastery = getMasteryLevel(section.id);
+                        const completed = isCompleted(section.id);
+                        return (
+                          <>
+                            <span className={`w-6 h-6 rounded-lg flex items-center justify-center text-xs font-medium transition-all duration-200 ${
+                              isActive
+                                ? 'bg-primary-500/20 text-primary-400'
+                                : completed
+                                ? 'bg-emerald-500/20 text-emerald-400'
+                                : 'bg-dark-800/50 text-dark-500 group-hover:bg-dark-700/50 group-hover:text-dark-300'
+                            }`}>
+                              {completed ? '✓' : section.id}
+                            </span>
+                            <span className="truncate flex-1">{section.title}</span>
+                            <div className="ml-auto flex items-center gap-1">
+                              {mastery !== 'none' && <MasteryIndicator level={mastery} />}
+                              {isActive && (
+                                <div className="w-1.5 h-1.5 rounded-full bg-primary-400" />
+                              )}
+                            </div>
+                          </>
+                        );
+                      }}
                     </NavLink>
                   </li>
                 ))}

@@ -227,7 +227,7 @@ export default function Section02() {
       </div>
 
       {/* Section Quiz */}
-      <SectionQuiz sectionTitle="Rules for Multiplication" questions={section02Questions} />
+      <SectionQuiz sectionId={2} sectionTitle="Rules for Multiplication" questions={section02Questions} />
     </LessonLayout>
   );
 }

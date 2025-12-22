@@ -233,7 +233,7 @@ x + y = 8 & \\text{(total time)} \\\\
       </div>
 
       {/* Section Quiz */}
-      <SectionQuiz sectionTitle="Two Unknowns" questions={section06Questions} />
+      <SectionQuiz sectionId={6} sectionTitle="Two Unknowns" questions={section06Questions} />
     </LessonLayout>
   );
 }

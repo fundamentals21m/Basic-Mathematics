@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Sidebar } from './components/layout/Sidebar';
+import { GamificationProvider } from './contexts/GamificationContext';
+import { AchievementToastContainer } from './components/gamification';
 import Home from './pages/Home';
 import {
   Section00,
@@ -60,8 +62,10 @@ function QuizPage({ children, title }: { children: React.ReactNode; title: strin
 
 function App() {
   return (
-    <HashRouter>
-      <AppLayout>
+    <GamificationProvider>
+      <AchievementToastContainer />
+      <HashRouter>
+        <AppLayout>
         <Routes>
           <Route path="/" element={<Home />} />
 
@@ -134,9 +138,10 @@ function App() {
               </QuizPage>
             }
           />
-        </Routes>
-      </AppLayout>
-    </HashRouter>
+          </Routes>
+        </AppLayout>
+      </HashRouter>
+    </GamificationProvider>
   );
 }
 

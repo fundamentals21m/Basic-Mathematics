@@ -1,4 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { useGamification } from '../../contexts/GamificationContext';
+import { calculateQuizXP } from '../../lib/gamification/xpCalculator';
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
@@ -12,6 +14,7 @@ export interface SectionQuizQuestion {
 }
 
 interface SectionQuizProps {
+  sectionId: number;
   sectionTitle: string;
   questions: SectionQuizQuestion[];
   questionsPerQuiz?: number; // How many questions to show per quiz attempt
@@ -45,13 +48,17 @@ const difficultyConfig = {
   },
 };
 
-export function SectionQuiz({ sectionTitle, questions, questionsPerQuiz = 5 }: SectionQuizProps) {
+export function SectionQuiz({ sectionId, sectionTitle, questions, questionsPerQuiz = 5 }: SectionQuizProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>([]);
   const [showResults, setShowResults] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
   const [shuffledQuestions, setShuffledQuestions] = useState<SectionQuizQuestion[]>([]);
+  const [xpEarned, setXpEarned] = useState(0);
+  const hasReportedRef = useRef(false);
+
+  const { recordQuiz } = useGamification();
 
   // Generate a new shuffled set of questions for the given difficulty
   const generateQuizQuestions = useCallback((difficulty: Difficulty) => {
@@ -67,6 +74,17 @@ export function SectionQuiz({ sectionTitle, questions, questionsPerQuiz = 5 }: S
   const correctCount = selectedAnswers.filter(
     (a, i) => a === shuffledQuestions[i]?.correctIndex
   ).length;
+
+  // Report quiz results to gamification context
+  useEffect(() => {
+    if (showResults && selectedDifficulty && !hasReportedRef.current) {
+      hasReportedRef.current = true;
+      const percentage = Math.round((correctCount / shuffledQuestions.length) * 100);
+      const earnedXP = calculateQuizXP(selectedDifficulty, percentage);
+      setXpEarned(earnedXP);
+      recordQuiz(sectionId, selectedDifficulty, percentage, correctCount, shuffledQuestions.length);
+    }
+  }, [showResults, selectedDifficulty, correctCount, shuffledQuestions.length, sectionId, recordQuiz]);
 
   const handleSelectDifficulty = (difficulty: Difficulty) => {
     setSelectedDifficulty(difficulty);
@@ -105,6 +123,8 @@ export function SectionQuiz({ sectionTitle, questions, questionsPerQuiz = 5 }: S
     setCurrentQuestion(0);
     setShowResults(false);
     setShowExplanation(false);
+    setXpEarned(0);
+    hasReportedRef.current = false;
   };
 
   const handleChangeDifficulty = () => {
@@ -114,6 +134,8 @@ export function SectionQuiz({ sectionTitle, questions, questionsPerQuiz = 5 }: S
     setSelectedAnswers([]);
     setShowResults(false);
     setShowExplanation(false);
+    setXpEarned(0);
+    hasReportedRef.current = false;
   };
 
   // Difficulty selection screen
@@ -198,6 +220,12 @@ export function SectionQuiz({ sectionTitle, questions, questionsPerQuiz = 5 }: S
           <p className="text-dark-300">
             You got {correctCount} out of {shuffledQuestions.length} correct
           </p>
+          {xpEarned > 0 && (
+            <div className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/20 border border-yellow-500/30">
+              <span className="text-yellow-400">★</span>
+              <span className="text-yellow-300 font-semibold">+{xpEarned} XP</span>
+            </div>
+          )}
         </div>
 
         <div className="space-y-3 mb-8">

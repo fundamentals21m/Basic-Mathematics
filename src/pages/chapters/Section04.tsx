@@ -217,7 +217,7 @@ export default function Section04() {
       </div>
 
       {/* Section Quiz */}
-      <SectionQuiz sectionTitle="Rational Numbers" questions={section04Questions} />
+      <SectionQuiz sectionId={4} sectionTitle="Rational Numbers" questions={section04Questions} />
     </LessonLayout>
   );
 }

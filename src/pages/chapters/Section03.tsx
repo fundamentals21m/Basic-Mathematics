@@ -210,7 +210,7 @@ export default function Section03() {
       </div>
 
       {/* Section Quiz */}
-      <SectionQuiz sectionTitle="Even and Odd; Divisibility" questions={section03Questions} />
+      <SectionQuiz sectionId={3} sectionTitle="Even and Odd; Divisibility" questions={section03Questions} />
     </LessonLayout>
   );
 }

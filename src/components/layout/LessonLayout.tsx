@@ -1,6 +1,7 @@
-import type { ReactNode } from 'react';
+import { type ReactNode, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getSectionById, getChapterBySectionId, getAdjacentSections, getTotalSections } from '../../data/curriculum';
+import { useGamification } from '../../contexts/GamificationContext';
 
 interface LessonLayoutProps {
   sectionId: number;
@@ -12,6 +13,14 @@ export function LessonLayout({ sectionId, children }: LessonLayoutProps) {
   const chapter = getChapterBySectionId(sectionId);
   const { prev, next } = getAdjacentSections(sectionId);
   const totalSections = getTotalSections();
+  const { visitSection, completeSection, state } = useGamification();
+
+  // Track section visit
+  useEffect(() => {
+    visitSection(sectionId);
+  }, [sectionId, visitSection]);
+
+  const isCompleted = state.user.sectionsCompleted.includes(sectionId);
 
   if (!section || !chapter) {
     return (
@@ -166,15 +175,30 @@ export function LessonLayout({ sectionId, children }: LessonLayoutProps) {
               </div>
             </Link>
           ) : (
-            <Link
-              to="/"
-              className="group flex items-center justify-center gap-3 p-5 rounded-2xl bg-gradient-to-r from-primary-600 to-primary-500 text-white font-semibold shadow-lg shadow-primary-500/20 hover:shadow-xl hover:shadow-primary-500/30 hover:scale-[1.02] transition-all duration-300"
-            >
-              <span>Course Complete!</span>
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </Link>
+            <div className="flex flex-col gap-3">
+              {!isCompleted && (
+                <button
+                  onClick={() => completeSection(sectionId)}
+                  className="group flex items-center justify-center gap-3 p-5 rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-500 text-white font-semibold shadow-lg shadow-emerald-500/20 hover:shadow-xl hover:shadow-emerald-500/30 hover:scale-[1.02] transition-all duration-300"
+                >
+                  <span>Mark Complete</span>
+                  <span className="text-emerald-200 text-sm">+25 XP</span>
+                </button>
+              )}
+              <Link
+                to="/"
+                className={`group flex items-center justify-center gap-3 p-5 rounded-2xl font-semibold transition-all duration-300 ${
+                  isCompleted
+                    ? 'bg-gradient-to-r from-primary-600 to-primary-500 text-white shadow-lg shadow-primary-500/20 hover:shadow-xl hover:shadow-primary-500/30 hover:scale-[1.02]'
+                    : 'bg-dark-800/60 text-dark-300 hover:bg-dark-700/60'
+                }`}
+              >
+                <span>{isCompleted ? 'Course Complete!' : 'Return Home'}</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isCompleted ? "M5 13l4 4L19 7" : "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"} />
+                </svg>
+              </Link>
+            </div>
           )}
         </div>
       </nav>

@@ -208,7 +208,7 @@ export default function Section08() {
       </div>
 
       {/* Section Quiz */}
-      <SectionQuiz sectionTitle="Addition and Multiplication" questions={section08Questions} />
+      <SectionQuiz sectionId={8} sectionTitle="Addition and Multiplication" questions={section08Questions} />
     </LessonLayout>
   );
 }

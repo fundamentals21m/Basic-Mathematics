@@ -222,7 +222,7 @@ export default function Section05() {
       </div>
 
       {/* Section Quiz */}
-      <SectionQuiz sectionTitle="Multiplicative Inverses" questions={section05Questions} />
+      <SectionQuiz sectionId={5} sectionTitle="Multiplicative Inverses" questions={section05Questions} />
     </LessonLayout>
   );
 }

@@ -229,7 +229,7 @@ export default function Section11() {
       </div>
 
       {/* Section Quiz */}
-      <SectionQuiz sectionTitle="Inequalities" questions={section11Questions} />
+      <SectionQuiz sectionId={11} sectionTitle="Inequalities" questions={section11Questions} />
     </LessonLayout>
   );
 }

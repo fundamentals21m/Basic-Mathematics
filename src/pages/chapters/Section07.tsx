@@ -247,7 +247,7 @@ x + 2y - z = 2
       </div>
 
       {/* Section Quiz */}
-      <SectionQuiz sectionTitle="Three Unknowns" questions={section07Questions} />
+      <SectionQuiz sectionId={7} sectionTitle="Three Unknowns" questions={section07Questions} />
     </LessonLayout>
   );
 }
