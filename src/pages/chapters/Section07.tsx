@@ -4,6 +4,7 @@ import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section07Questions } from '../../data/quizzes';
+import { ThreeVarSystemSolver, EliminationStepsDemo, SolutionVerifier } from '../../components/visualizations';
 
 export default function Section07() {
   return (
@@ -138,6 +139,8 @@ x - 3y + z = -1 & \\text{(Equation 3)}
         </div>
       </Example>
 
+      <EliminationStepsDemo />
+
       {/* Verification */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Verifying Solutions</h2>
 
@@ -148,6 +151,8 @@ x - 3y + z = -1 & \\text{(Equation 3)}
           to verify.
         </p>
       </Callout>
+
+      <SolutionVerifier />
 
       {/* Practice Strategy */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Tips for Success</h2>
@@ -207,6 +212,8 @@ x + 2y - z = 2
           </p>
         </div>
       </Example>
+
+      <ThreeVarSystemSolver />
 
       {/* Summary */}
       <div className="mt-12 p-6 rounded-2xl bg-dark-800/40 border border-dark-700/50">

@@ -20,3 +20,6 @@ export { SystemSolver } from './SystemSolver';
 export { DeterminantCalculator } from './DeterminantCalculator';
 export { LineIntersectionVisualizer } from './LineIntersectionVisualizer';
 export { SpecialCasesExplorer } from './SpecialCasesExplorer';
+export { ThreeVarSystemSolver } from './ThreeVarSystemSolver';
+export { EliminationStepsDemo } from './EliminationStepsDemo';
+export { SolutionVerifier } from './SolutionVerifier';
