@@ -4,6 +4,7 @@ import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section04Questions } from '../../data/quizzes';
+import { FractionEqualityChecker, FractionReducer, FractionCalculator, IrrationalExplorer } from '../../components/visualizations';
 
 export default function Section04() {
   return (
@@ -62,6 +63,8 @@ export default function Section04() {
         </p>
       </Example>
 
+      <FractionEqualityChecker />
+
       {/* Cancellation */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Cancellation and Lowest Form</h2>
 
@@ -87,6 +90,8 @@ export default function Section04() {
           <li><Math>\frac{'{-14}'}{'{21}'} = \frac{'{-2}'}{'{3}'}</Math></li>
         </ul>
       </Example>
+
+      <FractionReducer />
 
       <Theorem title="Existence of Lowest Form" className="mt-6">
         <p>Any rational number can be expressed as a fraction in lowest form.</p>
@@ -123,6 +128,8 @@ export default function Section04() {
           <p><strong>Power:</strong> <Math>\left(\frac{'{1}'}{'{2}'}\right)^3 = \frac{'{1}'}{'{8}'}</Math></p>
         </div>
       </Example>
+
+      <FractionCalculator />
 
       {/* Negative Signs */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Negative Signs in Fractions</h2>
@@ -175,6 +182,8 @@ export default function Section04() {
           <li><Math>1.414^2 = 1.999396</Math> (very close!)</li>
         </ul>
       </Callout>
+
+      <IrrationalExplorer />
 
       {/* Summary */}
       <div className="mt-12 p-6 rounded-2xl bg-dark-800/40 border border-dark-700/50">

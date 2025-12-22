@@ -7,3 +7,7 @@ export { PowersExplorer } from './PowersExplorer';
 export { EvenOddExplorer } from './EvenOddExplorer';
 export { ParityCalculator } from './ParityCalculator';
 export { DivisibilityExplorer } from './DivisibilityExplorer';
+export { FractionEqualityChecker } from './FractionEqualityChecker';
+export { FractionReducer } from './FractionReducer';
+export { FractionCalculator } from './FractionCalculator';
+export { IrrationalExplorer } from './IrrationalExplorer';
