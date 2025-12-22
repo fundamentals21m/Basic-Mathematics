@@ -16,3 +16,7 @@ export { DivisionMultiplicationDemo } from './DivisionMultiplicationDemo';
 export { ZeroProductExplorer } from './ZeroProductExplorer';
 export { CrossMultiplicationSolver } from './CrossMultiplicationSolver';
 export { ComplexFractionSimplifier } from './ComplexFractionSimplifier';
+export { SystemSolver } from './SystemSolver';
+export { DeterminantCalculator } from './DeterminantCalculator';
+export { LineIntersectionVisualizer } from './LineIntersectionVisualizer';
+export { SpecialCasesExplorer } from './SpecialCasesExplorer';

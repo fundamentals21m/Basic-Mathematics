@@ -4,6 +4,7 @@ import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section06Questions } from '../../data/quizzes';
+import { SystemSolver, DeterminantCalculator, LineIntersectionVisualizer, SpecialCasesExplorer } from '../../components/visualizations';
 
 export default function Section06() {
   return (
@@ -83,6 +84,8 @@ cx + dy = f
         </p>
       </Example>
 
+      <SystemSolver />
+
       {/* Special Cases */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Special Cases</h2>
 
@@ -125,6 +128,8 @@ x + 2y = 3 \\\\
         </div>
       </div>
 
+      <SpecialCasesExplorer />
+
       <Theorem title="When Does a Unique Solution Exist?" className="mt-8">
         <p>For the system:</p>
         <MathBlock>
@@ -140,6 +145,8 @@ cx + dy = f
           The quantity <Math>ad - bc</Math> is called the <strong>determinant</strong> of the system.
         </p>
       </Theorem>
+
+      <DeterminantCalculator />
 
       {/* Application */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Application: Word Problem</h2>
@@ -191,6 +198,8 @@ x + y = 8 & \\text{(total time)} \\\\
           <li><strong>Infinite solutions:</strong> Lines are identical (same line)</li>
         </ul>
       </Callout>
+
+      <LineIntersectionVisualizer />
 
       {/* Summary */}
       <div className="mt-12 p-6 rounded-2xl bg-dark-800/40 border border-dark-700/50">
