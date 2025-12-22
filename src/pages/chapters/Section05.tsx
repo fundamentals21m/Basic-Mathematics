@@ -4,6 +4,7 @@ import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section05Questions } from '../../data/quizzes';
+import { ReciprocalExplorer, DivisionMultiplicationDemo, ZeroProductExplorer, CrossMultiplicationSolver, ComplexFractionSimplifier } from '../../components/visualizations';
 
 export default function Section05() {
   return (
@@ -45,6 +46,8 @@ export default function Section05() {
         </ul>
       </Example>
 
+      <ReciprocalExplorer />
+
       <Callout type="warning" title="Zero Has No Reciprocal">
         <p>
           Zero has no multiplicative inverse because there is no number <Math>x</Math> such
@@ -70,6 +73,8 @@ export default function Section05() {
           <li><Math>\frac{'{3/4}'}{'{5/7}'} = \frac{'{3}'}{'{4}'} \cdot \frac{'{7}'}{'{5}'} = \frac{'{21}'}{'{20}'}</Math></li>
         </ul>
       </Example>
+
+      <DivisionMultiplicationDemo />
 
       {/* Theorems */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Important Theorems</h2>
@@ -105,6 +110,8 @@ export default function Section05() {
       <Theorem title="Cancellation Law" className="mt-6">
         <p>If <Math>a \neq 0</Math> and <Math>ab = ac</Math>, then <Math>b = c</Math>.</p>
       </Theorem>
+
+      <ZeroProductExplorer />
 
       {/* Cross-Multiplication for Quotients */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Cross-Multiplication for Quotients</h2>
@@ -146,6 +153,8 @@ export default function Section05() {
         </div>
       </Example>
 
+      <CrossMultiplicationSolver />
+
       {/* Complex Fractions */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Complex Fractions</h2>
 
@@ -157,6 +166,8 @@ export default function Section05() {
           <p>Result: <Math>\frac{'{3/2}'}{'{2/3}'} = \frac{'{3}'}{'{2}'} \cdot \frac{'{3}'}{'{2}'} = \frac{'{9}'}{'{4}'}</Math></p>
         </div>
       </Example>
+
+      <ComplexFractionSimplifier />
 
       {/* Applications */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Applications</h2>

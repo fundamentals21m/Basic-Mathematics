@@ -11,3 +11,8 @@ export { FractionEqualityChecker } from './FractionEqualityChecker';
 export { FractionReducer } from './FractionReducer';
 export { FractionCalculator } from './FractionCalculator';
 export { IrrationalExplorer } from './IrrationalExplorer';
+export { ReciprocalExplorer } from './ReciprocalExplorer';
+export { DivisionMultiplicationDemo } from './DivisionMultiplicationDemo';
+export { ZeroProductExplorer } from './ZeroProductExplorer';
+export { CrossMultiplicationSolver } from './CrossMultiplicationSolver';
+export { ComplexFractionSimplifier } from './ComplexFractionSimplifier';
