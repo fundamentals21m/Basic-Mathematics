@@ -2,6 +2,7 @@ import { LessonLayout } from '../../components/layout/LessonLayout';
 import { Definition, Example, Axiom, Theorem } from '../../components/common/ContentBlocks';
 import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
+import { SignRulesDemo, DistributiveDemo, PowersExplorer } from '../../components/visualizations';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section02Questions } from '../../data/quizzes';
 
@@ -55,6 +56,9 @@ export default function Section02() {
         </ul>
       </Example>
 
+      {/* Interactive Distributive Demo */}
+      <DistributiveDemo />
+
       {/* Sign Rules */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Sign Rules for Multiplication</h2>
 
@@ -105,6 +109,9 @@ export default function Section02() {
         </ul>
       </Example>
 
+      {/* Interactive Sign Rules Demo */}
+      <SignRulesDemo />
+
       {/* Powers */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Powers (Exponents)</h2>
 
@@ -148,6 +155,9 @@ export default function Section02() {
           <li><Math>(2a^3)^5 = 2^5 \cdot (a^3)^5 = 32a^{'{15}'}</Math></li>
         </ul>
       </Example>
+
+      {/* Interactive Powers Explorer */}
+      <PowersExplorer />
 
       {/* Important Formulas */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Important Algebraic Formulas</h2>
