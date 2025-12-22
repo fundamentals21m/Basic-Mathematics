@@ -45,3 +45,6 @@ export { FunctionEvaluator } from './FunctionEvaluator';
 export { PolynomialExplorer } from './PolynomialExplorer';
 export { ExponentialGrapher } from './ExponentialGrapher';
 export { LogarithmCalculator } from './LogarithmCalculator';
+export { MappingComposer } from './MappingComposer';
+export { FunctionIterator } from './FunctionIterator';
+export { PermutationCalculator } from './PermutationCalculator';
