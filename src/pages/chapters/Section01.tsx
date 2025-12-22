@@ -2,7 +2,7 @@ import { LessonLayout } from '../../components/layout/LessonLayout';
 import { Definition, Example, Axiom, Theorem } from '../../components/common/ContentBlocks';
 import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
-import { NumberLine } from '../../components/visualizations/NumberLine';
+import { NumberLine, AssociativityDemo } from '../../components/visualizations';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section01Questions } from '../../data/quizzes';
 
@@ -62,6 +62,9 @@ export default function Section01() {
           parentheses. No matter how we group the terms, we'll get the same result.
         </p>
       </Callout>
+
+      {/* Interactive Associativity Demo */}
+      <AssociativityDemo />
 
       {/* Subtraction Notation */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Subtraction as Addition</h2>
