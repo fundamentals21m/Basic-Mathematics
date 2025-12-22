@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
@@ -14,6 +14,17 @@ export interface SectionQuizQuestion {
 interface SectionQuizProps {
   sectionTitle: string;
   questions: SectionQuizQuestion[];
+  questionsPerQuiz?: number; // How many questions to show per quiz attempt
+}
+
+// Fisher-Yates shuffle algorithm
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 }
 
 const difficultyConfig = {
@@ -34,28 +45,34 @@ const difficultyConfig = {
   },
 };
 
-export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
+export function SectionQuiz({ sectionTitle, questions, questionsPerQuiz = 5 }: SectionQuizProps) {
   const [selectedDifficulty, setSelectedDifficulty] = useState<Difficulty | null>(null);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswers, setSelectedAnswers] = useState<(number | null)[]>([]);
   const [showResults, setShowResults] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
+  const [shuffledQuestions, setShuffledQuestions] = useState<SectionQuizQuestion[]>([]);
 
-  const filteredQuestions = selectedDifficulty
-    ? questions.filter(q => q.difficulty === selectedDifficulty)
-    : [];
+  // Generate a new shuffled set of questions for the given difficulty
+  const generateQuizQuestions = useCallback((difficulty: Difficulty) => {
+    const filtered = questions.filter(q => q.difficulty === difficulty);
+    const shuffled = shuffleArray(filtered);
+    // Take only questionsPerQuiz questions (or all if fewer available)
+    return shuffled.slice(0, Math.min(questionsPerQuiz, shuffled.length));
+  }, [questions, questionsPerQuiz]);
 
-  const current = filteredQuestions[currentQuestion];
+  const current = shuffledQuestions[currentQuestion];
   const selectedAnswer = selectedAnswers[currentQuestion];
   const isCorrect = current ? selectedAnswer === current.correctIndex : false;
   const correctCount = selectedAnswers.filter(
-    (a, i) => a === filteredQuestions[i]?.correctIndex
+    (a, i) => a === shuffledQuestions[i]?.correctIndex
   ).length;
 
   const handleSelectDifficulty = (difficulty: Difficulty) => {
     setSelectedDifficulty(difficulty);
-    const filtered = questions.filter(q => q.difficulty === difficulty);
-    setSelectedAnswers(new Array(filtered.length).fill(null));
+    const quizQuestions = generateQuizQuestions(difficulty);
+    setShuffledQuestions(quizQuestions);
+    setSelectedAnswers(new Array(quizQuestions.length).fill(null));
     setCurrentQuestion(0);
     setShowResults(false);
     setShowExplanation(false);
@@ -71,7 +88,7 @@ export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
 
   const handleNext = () => {
     setShowExplanation(false);
-    if (currentQuestion < filteredQuestions.length - 1) {
+    if (currentQuestion < shuffledQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       setShowResults(true);
@@ -79,14 +96,20 @@ export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
   };
 
   const handleRestart = () => {
+    // Generate a new set of shuffled questions for a fresh quiz
+    if (selectedDifficulty) {
+      const quizQuestions = generateQuizQuestions(selectedDifficulty);
+      setShuffledQuestions(quizQuestions);
+      setSelectedAnswers(new Array(quizQuestions.length).fill(null));
+    }
     setCurrentQuestion(0);
-    setSelectedAnswers(new Array(filteredQuestions.length).fill(null));
     setShowResults(false);
     setShowExplanation(false);
   };
 
   const handleChangeDifficulty = () => {
     setSelectedDifficulty(null);
+    setShuffledQuestions([]);
     setCurrentQuestion(0);
     setSelectedAnswers([]);
     setShowResults(false);
@@ -107,9 +130,10 @@ export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
         <div className="grid gap-4 md:grid-cols-3">
           {(['easy', 'medium', 'hard'] as Difficulty[]).map(diff => {
             const config = difficultyConfig[diff];
-            const count = diff === 'easy' ? easyCount : diff === 'medium' ? mediumCount : hardCount;
+            const totalCount = diff === 'easy' ? easyCount : diff === 'medium' ? mediumCount : hardCount;
+            const quizCount = Math.min(questionsPerQuiz, totalCount);
 
-            if (count === 0) return null;
+            if (totalCount === 0) return null;
 
             return (
               <button
@@ -129,7 +153,12 @@ export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
                   }`}>
                     {config.label}
                   </span>
-                  <span className="text-dark-400 text-sm">{count} questions</span>
+                  <span className="text-dark-400 text-sm">
+                    {quizCount} question{quizCount !== 1 ? 's' : ''}
+                    {totalCount > questionsPerQuiz && (
+                      <span className="text-dark-500"> (from {totalCount})</span>
+                    )}
+                  </span>
                 </div>
                 <p className="text-dark-400 text-sm">{config.description}</p>
               </button>
@@ -142,7 +171,7 @@ export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
 
   // Results screen
   if (showResults) {
-    const percentage = Math.round((correctCount / filteredQuestions.length) * 100);
+    const percentage = Math.round((correctCount / shuffledQuestions.length) * 100);
     const config = difficultyConfig[selectedDifficulty];
 
     return (
@@ -167,12 +196,12 @@ export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
             </span>
           </div>
           <p className="text-dark-300">
-            You got {correctCount} out of {filteredQuestions.length} correct
+            You got {correctCount} out of {shuffledQuestions.length} correct
           </p>
         </div>
 
         <div className="space-y-3 mb-8">
-          {filteredQuestions.map((q, i) => {
+          {shuffledQuestions.map((q, i) => {
             const wasCorrect = selectedAnswers[i] === q.correctIndex;
             return (
               <div
@@ -235,7 +264,7 @@ export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
         </div>
         <div className="flex items-center gap-4">
           <span className="text-sm text-dark-400">
-            Question {currentQuestion + 1} of {filteredQuestions.length}
+            Question {currentQuestion + 1} of {shuffledQuestions.length}
           </span>
           <button
             onClick={handleChangeDifficulty}
@@ -254,7 +283,7 @@ export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
             selectedDifficulty === 'medium' ? 'bg-yellow-500' :
             'bg-red-500'
           }`}
-          style={{ width: `${((currentQuestion + 1) / filteredQuestions.length) * 100}%` }}
+          style={{ width: `${((currentQuestion + 1) / shuffledQuestions.length) * 100}%` }}
         />
       </div>
 
@@ -311,7 +340,7 @@ export function SectionQuiz({ sectionTitle, questions }: SectionQuizProps) {
           onClick={handleNext}
           className="w-full py-3 bg-primary-600 hover:bg-primary-500 text-white rounded-lg transition-colors"
         >
-          {currentQuestion < filteredQuestions.length - 1 ? 'Next Question' : 'See Results'}
+          {currentQuestion < shuffledQuestions.length - 1 ? 'Next Question' : 'See Results'}
         </button>
       )}
     </div>
