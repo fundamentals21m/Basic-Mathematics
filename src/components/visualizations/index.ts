@@ -4,3 +4,6 @@ export { SignRulesDemo } from './SignRulesDemo';
 export { AssociativityDemo } from './AssociativityDemo';
 export { DistributiveDemo } from './DistributiveDemo';
 export { PowersExplorer } from './PowersExplorer';
+export { EvenOddExplorer } from './EvenOddExplorer';
+export { ParityCalculator } from './ParityCalculator';
+export { DivisibilityExplorer } from './DivisibilityExplorer';

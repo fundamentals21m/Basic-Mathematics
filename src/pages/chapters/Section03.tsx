@@ -2,6 +2,7 @@ import { LessonLayout } from '../../components/layout/LessonLayout';
 import { Definition, Example, Theorem } from '../../components/common/ContentBlocks';
 import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
+import { EvenOddExplorer, ParityCalculator, DivisibilityExplorer } from '../../components/visualizations';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section03Questions } from '../../data/quizzes';
 
@@ -46,6 +47,9 @@ export default function Section03() {
         </p>
       </Callout>
 
+      {/* Interactive Even/Odd Explorer */}
+      <EvenOddExplorer />
+
       {/* Addition Rules */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Adding Even and Odd</h2>
 
@@ -80,6 +84,9 @@ export default function Section03() {
           Notice: Any product involving an even number is even.
         </p>
       </Theorem>
+
+      {/* Interactive Parity Calculator */}
+      <ParityCalculator />
 
       {/* Squares */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Squares of Even and Odd</h2>
@@ -139,6 +146,9 @@ export default function Section03() {
           For example, <Math>10 \div 3 = 3.33\ldots</Math>, but <Math>3 \nmid 10</Math>.
         </p>
       </Callout>
+
+      {/* Interactive Divisibility Explorer */}
+      <DivisibilityExplorer />
 
       {/* Properties of Divisibility */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Properties of Divisibility</h2>
