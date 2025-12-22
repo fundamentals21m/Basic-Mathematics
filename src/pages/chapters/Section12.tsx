@@ -4,6 +4,7 @@ import { Math, MathBlock } from '../../components/common/MathBlock';
 import { Callout } from '../../components/common/Callout';
 import { SectionQuiz } from '../../components/quiz/SectionQuiz';
 import { section12Questions } from '../../data/quizzes';
+import { CompletingSquareDemo, QuadraticFormulaSolver, DiscriminantExplorer } from '../../components/visualizations';
 
 export default function Section12() {
   return (
@@ -98,6 +99,8 @@ export default function Section12() {
         </div>
       </Example>
 
+      <CompletingSquareDemo />
+
       {/* The Quadratic Formula */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">The Quadratic Formula</h2>
 
@@ -121,6 +124,8 @@ export default function Section12() {
           <li><Math>b^2 - 4ac {'<'} 0</Math>: No real solutions</li>
         </ul>
       </Callout>
+
+      <DiscriminantExplorer />
 
       {/* Deriving the Formula */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Deriving the Formula</h2>
@@ -162,6 +167,8 @@ export default function Section12() {
           </p>
         </div>
       </Example>
+
+      <QuadraticFormulaSolver />
 
       {/* Factoring Connection */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Connection to Factoring</h2>

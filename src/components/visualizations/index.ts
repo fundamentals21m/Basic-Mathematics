@@ -38,3 +38,6 @@ export { InequalityNumberLine } from './InequalityNumberLine';
 export { InequalityRulesDemo } from './InequalityRulesDemo';
 export { LinearInequalitySolver } from './LinearInequalitySolver';
 export { IntervalNotationExplorer } from './IntervalNotationExplorer';
+export { CompletingSquareDemo } from './CompletingSquareDemo';
+export { QuadraticFormulaSolver } from './QuadraticFormulaSolver';
+export { DiscriminantExplorer } from './DiscriminantExplorer';
