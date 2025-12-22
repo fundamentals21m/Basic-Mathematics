@@ -82,6 +82,17 @@ export const ACHIEVEMENT_DEFINITIONS: AchievementDefinition[] = [
       return uniqueViz.size;
     },
   },
+
+  // MILESTONE
+  {
+    id: 'logic-unlocked',
+    name: 'Logic Unlocked',
+    description: 'Earn 2,000 XP to unlock the Logic Interlude',
+    icon: '🔓',
+    category: 'progress',
+    progressTarget: 2000,
+    condition: (state) => state.user.totalXP,
+  },
 ];
 
 /**
