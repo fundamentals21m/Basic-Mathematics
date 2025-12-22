@@ -4,8 +4,8 @@ export function AssociativityDemo() {
   const [a, setA] = useState(3);
   const [b, setB] = useState(5);
   const [c, setC] = useState(4);
-  const [activeGrouping, setActiveGrouping] = useState<'left' | 'right' | 'both'>('both');
-  const [animationStep, setAnimationStep] = useState(0);
+  const [activeGrouping, setActiveGrouping] = useState<'left' | 'right' | 'both'>('left');
+  const [animationStep, setAnimationStep] = useState(3);
 
   // Calculate intermediate and final results
   const leftFirst = a + b; // (a + b)
