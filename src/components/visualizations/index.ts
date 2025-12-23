@@ -67,3 +67,6 @@ export { FixedPointFinder } from './FixedPointFinder';
 export { CongruenceChecker } from './CongruenceChecker';
 export { TriangleCriteriaExplorer } from './TriangleCriteriaExplorer';
 export { CPCTCDemo } from './CPCTCDemo';
+export { ParallelogramAreaDemo } from './ParallelogramAreaDemo';
+export { AreaCalculator } from './AreaCalculator';
+export { ShearingDemo } from './ShearingDemo';
