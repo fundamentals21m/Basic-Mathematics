@@ -70,3 +70,6 @@ export { CPCTCDemo } from './CPCTCDemo';
 export { ParallelogramAreaDemo } from './ParallelogramAreaDemo';
 export { AreaCalculator } from './AreaCalculator';
 export { ShearingDemo } from './ShearingDemo';
+export { TriangleAreaDemo } from './TriangleAreaDemo';
+export { HeronCalculator } from './HeronCalculator';
+export { ShoelaceDemo } from './ShoelaceDemo';
