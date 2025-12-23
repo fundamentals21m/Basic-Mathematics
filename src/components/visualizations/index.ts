@@ -76,3 +76,6 @@ export { ShoelaceDemo } from './ShoelaceDemo';
 export { SquaresOnSidesDemo } from './SquaresOnSidesDemo';
 export { ProofByRearrangement } from './ProofByRearrangement';
 export { PythagorasProofDemo } from './PythagorasProofDemo';
+export { CoordinatePlaneExplorer } from './CoordinatePlaneExplorer';
+export { QuadrantIdentifier } from './QuadrantIdentifier';
+export { PointPlotter } from './PointPlotter';

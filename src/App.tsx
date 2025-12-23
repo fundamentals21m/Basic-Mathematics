@@ -31,6 +31,7 @@ import {
   Section20,
   Section21,
   Section22,
+  Section23,
   PlaceholderSection,
 } from './pages/chapters';
 import {
@@ -132,8 +133,11 @@ function App() {
           {/* Chapter 7: Pythagoras Theorem Proof (Section 22) */}
           <Route path="/section/22" element={<Section22 />} />
 
-          {/* Remaining sections (23-63) use placeholder */}
-          {Array.from({ length: 41 }, (_, i) => i + 23).map((id) => (
+          {/* Chapter 8: Coordinate Systems (Section 23) */}
+          <Route path="/section/23" element={<Section23 />} />
+
+          {/* Remaining sections (24-63) use placeholder */}
+          {Array.from({ length: 40 }, (_, i) => i + 24).map((id) => (
             <Route
               key={id}
               path={`/section/${id}`}
