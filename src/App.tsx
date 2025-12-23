@@ -32,6 +32,7 @@ import {
   Section21,
   Section22,
   Section23,
+  Section24,
   PlaceholderSection,
 } from './pages/chapters';
 import {
@@ -136,8 +137,11 @@ function App() {
           {/* Chapter 8: Coordinate Systems (Section 23) */}
           <Route path="/section/23" element={<Section23 />} />
 
-          {/* Remaining sections (24-63) use placeholder */}
-          {Array.from({ length: 40 }, (_, i) => i + 24).map((id) => (
+          {/* Chapter 8: Distance in the Plane (Section 24) */}
+          <Route path="/section/24" element={<Section24 />} />
+
+          {/* Remaining sections (25-63) use placeholder */}
+          {Array.from({ length: 39 }, (_, i) => i + 25).map((id) => (
             <Route
               key={id}
               path={`/section/${id}`}

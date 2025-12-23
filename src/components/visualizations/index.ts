@@ -79,3 +79,6 @@ export { PythagorasProofDemo } from './PythagorasProofDemo';
 export { CoordinatePlaneExplorer } from './CoordinatePlaneExplorer';
 export { QuadrantIdentifier } from './QuadrantIdentifier';
 export { PointPlotter } from './PointPlotter';
+export { DistanceFormulaDemo } from './DistanceFormulaDemo';
+export { DistanceCalculator } from './DistanceCalculator';
+export { PythagorasConnection } from './PythagorasConnection';
