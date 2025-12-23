@@ -25,3 +25,4 @@ export { section23Questions } from './section23';
 export { section24Questions } from './section24';
 export { section25Questions } from './section25';
 export { section26Questions } from './section26';
+export { section27Questions } from './section27';

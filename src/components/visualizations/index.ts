@@ -88,3 +88,6 @@ export { CompletingSquareCircle } from './CompletingSquareCircle';
 export { DilationExplorer } from './DilationExplorer';
 export { ReflectionExplorer } from './ReflectionExplorer';
 export { DilationReflectionComposer } from './DilationReflectionComposer';
+export { PointAdditionExplorer } from './PointAdditionExplorer';
+export { PointSubtractionDemo } from './PointSubtractionDemo';
+export { VectorOperationsDemo } from './VectorOperationsDemo';
