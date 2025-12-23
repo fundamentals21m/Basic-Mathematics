@@ -91,3 +91,6 @@ export { DilationReflectionComposer } from './DilationReflectionComposer';
 export { PointAdditionExplorer } from './PointAdditionExplorer';
 export { PointSubtractionDemo } from './PointSubtractionDemo';
 export { VectorOperationsDemo } from './VectorOperationsDemo';
+export { ParallelogramLawDemo } from './ParallelogramLawDemo';
+export { MidpointExplorer } from './MidpointExplorer';
+export { CentroidDemo } from './CentroidDemo';
