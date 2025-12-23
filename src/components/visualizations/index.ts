@@ -61,3 +61,6 @@ export { MatrixBuilder } from './MatrixBuilder';
 export { Determinant2x2Calculator } from './Determinant2x2Calculator';
 export { Determinant3x3Calculator } from './Determinant3x3Calculator';
 export { CramersRuleSolver } from './CramersRuleSolver';
+export { IsometryExplorer } from './IsometryExplorer';
+export { TransformationComposer } from './TransformationComposer';
+export { FixedPointFinder } from './FixedPointFinder';

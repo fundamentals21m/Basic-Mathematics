@@ -16,4 +16,5 @@ export { default as Section14 } from './Section14';
 export { default as Section15 } from './Section15';
 export { default as Section16 } from './Section16';
 export { default as Section17 } from './Section17';
+export { default as Section18 } from './Section18';
 export { default as PlaceholderSection } from './PlaceholderSection';
