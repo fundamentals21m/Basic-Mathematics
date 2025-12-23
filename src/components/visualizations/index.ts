@@ -64,3 +64,6 @@ export { CramersRuleSolver } from './CramersRuleSolver';
 export { IsometryExplorer } from './IsometryExplorer';
 export { TransformationComposer } from './TransformationComposer';
 export { FixedPointFinder } from './FixedPointFinder';
+export { CongruenceChecker } from './CongruenceChecker';
+export { TriangleCriteriaExplorer } from './TriangleCriteriaExplorer';
+export { CPCTCDemo } from './CPCTCDemo';
