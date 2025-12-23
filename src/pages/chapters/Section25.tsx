@@ -75,7 +75,28 @@ export default function Section25() {
         When the center is at the origin <Math>(0, 0)</Math>, the equation simplifies considerably.
       </p>
 
-      <Theorem title="Circle at the Origin">
+      <Theorem
+        title="Circle at the Origin"
+        proof={
+          <>
+            <p>
+              Start with the standard form <Math>(x - h)^2 + (y - k)^2 = r^2</Math>.
+            </p>
+            <p className="mt-2">
+              Substitute <Math>h = 0</Math> and <Math>k = 0</Math> for the origin:
+            </p>
+            <MathBlock>
+              {`(x - 0)^2 + (y - 0)^2 = r^2`}
+            </MathBlock>
+            <p className="mt-2">
+              Simplifying gives:
+            </p>
+            <MathBlock>
+              {`x^2 + y^2 = r^2`}
+            </MathBlock>
+          </>
+        }
+      >
         <p>
           The equation of a circle with center <Math>(0, 0)</Math> and radius <Math>r</Math> is:
         </p>
@@ -234,7 +255,31 @@ export default function Section25() {
       {/* Special Cases */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Special Cases</h2>
 
-      <Theorem title="When is it a Circle?">
+      <Theorem
+        title="When is it a Circle?"
+        proof={
+          <>
+            <p>
+              Starting with <Math>x^2 + y^2 + Dx + Ey + F = 0</Math>, complete the square:
+            </p>
+            <MathBlock>
+              {`\\left(x^2 + Dx + \\frac{D^2}{4}\\right) + \\left(y^2 + Ey + \\frac{E^2}{4}\\right) = -F + \\frac{D^2}{4} + \\frac{E^2}{4}`}
+            </MathBlock>
+            <p className="mt-2">This gives:</p>
+            <MathBlock>
+              {`\\left(x + \\frac{D}{2}\\right)^2 + \\left(y + \\frac{E}{2}\\right)^2 = \\frac{D^2 + E^2 - 4F}{4}`}
+            </MathBlock>
+            <p className="mt-2">
+              This is standard form with center <Math>\left(-\frac{'{D}'}{'{2}'}, -\frac{'{E}'}{'{2}'}\right)</Math> and <Math>r^2 = \frac{'{D^2 + E^2 - 4F}'}{'{4}'}</Math>.
+            </p>
+            <ul className="list-disc list-inside mt-2 space-y-1">
+              <li>If <Math>r^2 {'>'} 0</Math>, we have a circle with positive radius</li>
+              <li>If <Math>r^2 = 0</Math>, only the center point satisfies the equation</li>
+              <li>If <Math>r^2 {'<'} 0</Math>, no real points satisfy the equation</li>
+            </ul>
+          </>
+        }
+      >
         <p>The equation <Math>x^2 + y^2 + Dx + Ey + F = 0</Math> represents:</p>
         <ul className="list-disc list-inside mt-2 space-y-2">
           <li>A <strong>circle</strong> if <Math>\frac{'{D^2}'}{'{4}'} + \frac{'{E^2}'}{'{4}'} - F {'>'} 0</Math></li>
