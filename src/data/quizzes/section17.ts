@@ -106,9 +106,9 @@ export const section17Questions: SectionQuizQuestion[] = [
     id: 13,
     difficulty: 'hard',
     question: 'What is $\\det\\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 3 & 2 \\\\ 0 & 1 & 1 \\end{pmatrix}$?',
-    options: ['$3$', '$4$', '$5$', '$6$'],
+    options: ['$1$', '$2$', '$3$', '$4$'],
     correctIndex: 0,
-    explanation: 'Expanding along the first row: $2(3 \\cdot 1 - 2 \\cdot 1) - 1(1 \\cdot 1 - 2 \\cdot 0) + 0 = 2(1) - 1(1) = 1$. (Correction: full cofactor expansion gives $3$.)',
+    explanation: 'Expanding along the first row: $2 \\cdot \\det\\begin{pmatrix} 3 & 2 \\\\ 1 & 1 \\end{pmatrix} - 1 \\cdot \\det\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix} + 0 = 2(3-2) - 1(1-0) + 0 = 2 - 1 = 1$.',
   },
   {
     id: 14,
