@@ -53,28 +53,50 @@ export default function Section03() {
       {/* Addition Rules */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Adding Even and Odd</h2>
 
-      <Theorem title="Addition of Even and Odd Integers">
+      <Theorem
+        title="Addition of Even and Odd Integers"
+        proof={
+          <>
+            <p><strong>Even + Even = Even:</strong></p>
+            <p>Let <Math>a = 2m</Math> and <Math>b = 2n</Math> be even integers.</p>
+            <MathBlock>a + b = 2m + 2n = 2(m + n)</MathBlock>
+            <p className="mt-3"><strong>Odd + Odd = Even:</strong></p>
+            <p>Let <Math>a = 2m + 1</Math> and <Math>b = 2n + 1</Math> be odd integers.</p>
+            <MathBlock>a + b = (2m + 1) + (2n + 1) = 2m + 2n + 2 = 2(m + n + 1)</MathBlock>
+            <p className="mt-3"><strong>Even + Odd = Odd:</strong></p>
+            <p>Let <Math>a = 2m</Math> (even) and <Math>b = 2n + 1</Math> (odd).</p>
+            <MathBlock>a + b = 2m + 2n + 1 = 2(m + n) + 1</MathBlock>
+            <p className="mt-2">which has the form <Math>2k + 1</Math>, so it's odd.</p>
+          </>
+        }
+      >
         <ul className="space-y-2 mt-2">
           <li><strong>Even + Even = Even:</strong> <Math>4 + 6 = 10</Math></li>
           <li><strong>Odd + Odd = Even:</strong> <Math>3 + 5 = 8</Math></li>
           <li><strong>Even + Odd = Odd:</strong> <Math>4 + 5 = 9</Math></li>
           <li><strong>Odd + Even = Odd:</strong> <Math>3 + 6 = 9</Math></li>
         </ul>
-        <details className="mt-4">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show proof for Odd + Odd</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
-            <p>Let <Math>a = 2m + 1</Math> and <Math>b = 2n + 1</Math> be odd integers.</p>
-            <p className="mt-2">Then:</p>
-            <MathBlock>a + b = (2m + 1) + (2n + 1) = 2m + 2n + 2 = 2(m + n + 1)</MathBlock>
-            <p className="mt-2">Since <Math>m + n + 1</Math> is an integer, <Math>a + b</Math> is even.</p>
-          </div>
-        </details>
       </Theorem>
 
       {/* Multiplication Rules */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Multiplying Even and Odd</h2>
 
-      <Theorem title="Multiplication of Even and Odd Integers">
+      <Theorem
+        title="Multiplication of Even and Odd Integers"
+        proof={
+          <>
+            <p><strong>Even × Even = Even:</strong></p>
+            <p>Let <Math>a = 2m</Math> and <Math>b = 2n</Math>. Then:</p>
+            <MathBlock>ab = (2m)(2n) = 4mn = 2(2mn)</MathBlock>
+            <p className="mt-3"><strong>Odd × Odd = Odd:</strong></p>
+            <p>Let <Math>a = 2m + 1</Math> and <Math>b = 2n + 1</Math>. Then:</p>
+            <MathBlock>ab = (2m + 1)(2n + 1) = 4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1</MathBlock>
+            <p className="mt-3"><strong>Even × Odd = Even:</strong></p>
+            <p>Let <Math>a = 2m</Math> (even) and <Math>b = 2n + 1</Math> (odd). Then:</p>
+            <MathBlock>ab = (2m)(2n + 1) = 2m(2n + 1) = 2(m(2n + 1))</MathBlock>
+          </>
+        }
+      >
         <ul className="space-y-2 mt-2">
           <li><strong>Even × Even = Even:</strong> <Math>4 \times 6 = 24</Math></li>
           <li><strong>Odd × Odd = Odd:</strong> <Math>3 \times 5 = 15</Math></li>
@@ -91,14 +113,38 @@ export default function Section03() {
       {/* Squares */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Squares of Even and Odd</h2>
 
-      <Theorem title="Squares Preserve Parity">
+      <Theorem
+        title="Squares Preserve Parity"
+        proof={
+          <>
+            <p><strong>Even squared is even:</strong></p>
+            <p>Let <Math>a = 2m</Math>. Then <Math>a^2 = (2m)^2 = 4m^2 = 2(2m^2)</Math>, which is even.</p>
+            <p className="mt-3"><strong>Odd squared is odd:</strong></p>
+            <p>Let <Math>a = 2m + 1</Math>. Then:</p>
+            <MathBlock>a^2 = (2m + 1)^2 = 4m^2 + 4m + 1 = 2(2m^2 + 2m) + 1</MathBlock>
+            <p className="mt-2">which has the form <Math>2k + 1</Math>, so it's odd.</p>
+          </>
+        }
+      >
         <ul className="space-y-2 mt-2">
           <li>If <Math>a</Math> is <strong>even</strong>, then <Math>a^2</Math> is even.</li>
           <li>If <Math>a</Math> is <strong>odd</strong>, then <Math>a^2</Math> is odd.</li>
         </ul>
       </Theorem>
 
-      <Theorem title="Corollary: Detecting Parity from Squares" className="mt-6">
+      <Theorem
+        title="Corollary: Detecting Parity from Squares"
+        className="mt-6"
+        proof={
+          <>
+            <p>This follows by contrapositive from the previous theorem.</p>
+            <p className="mt-2">For the first statement: We want to show "if <Math>a^2</Math> is even, then <Math>a</Math> is even."</p>
+            <p className="mt-2">The contrapositive is: "if <Math>a</Math> is odd, then <Math>a^2</Math> is odd."</p>
+            <p className="mt-2">This is exactly what we proved above (odd squared is odd).</p>
+            <p className="mt-3">Similarly, "if <Math>a^2</Math> is odd, then <Math>a</Math> is odd" follows from "if <Math>a</Math> is even, then <Math>a^2</Math> is even."</p>
+          </>
+        }
+      >
         <ul className="space-y-2 mt-2">
           <li>If <Math>a^2</Math> is <strong>even</strong>, then <Math>a</Math> is even.</li>
           <li>If <Math>a^2</Math> is <strong>odd</strong>, then <Math>a</Math> is odd.</li>
@@ -153,20 +199,37 @@ export default function Section03() {
       {/* Properties of Divisibility */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Properties of Divisibility</h2>
 
-      <Theorem title="Divisibility is Transitive">
-        <p>If <Math>a \mid b</Math> and <Math>b \mid c</Math>, then <Math>a \mid c</Math>.</p>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show proof</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
+      <Theorem
+        title="Divisibility is Transitive"
+        proof={
+          <>
             <p>Since <Math>a \mid b</Math>, we have <Math>b = ak</Math> for some integer <Math>k</Math>.</p>
             <p className="mt-2">Since <Math>b \mid c</Math>, we have <Math>c = bm</Math> for some integer <Math>m</Math>.</p>
-            <p className="mt-2">Substituting: <Math>c = bm = (ak)m = a(km)</Math>.</p>
+            <p className="mt-2">Substituting:</p>
+            <MathBlock>c = bm = (ak)m = a(km)</MathBlock>
             <p className="mt-2">Since <Math>km</Math> is an integer, <Math>a \mid c</Math>.</p>
-          </div>
-        </details>
+          </>
+        }
+      >
+        <p>If <Math>a \mid b</Math> and <Math>b \mid c</Math>, then <Math>a \mid c</Math>.</p>
       </Theorem>
 
-      <Theorem title="Divisibility and Sums" className="mt-6">
+      <Theorem
+        title="Divisibility and Sums"
+        className="mt-6"
+        proof={
+          <>
+            <p>Since <Math>d \mid a</Math>, we have <Math>a = dk</Math> for some integer <Math>k</Math>.</p>
+            <p className="mt-2">Since <Math>d \mid b</Math>, we have <Math>b = dm</Math> for some integer <Math>m</Math>.</p>
+            <p className="mt-3"><strong>For the sum:</strong></p>
+            <MathBlock>a + b = dk + dm = d(k + m)</MathBlock>
+            <p className="mt-2">Since <Math>k + m</Math> is an integer, <Math>d \mid (a + b)</Math>.</p>
+            <p className="mt-3"><strong>For the difference:</strong></p>
+            <MathBlock>a - b = dk - dm = d(k - m)</MathBlock>
+            <p className="mt-2">Since <Math>k - m</Math> is an integer, <Math>d \mid (a - b)</Math>.</p>
+          </>
+        }
+      >
         <p>If <Math>d \mid a</Math> and <Math>d \mid b</Math>, then <Math>d \mid (a + b)</Math> and <Math>d \mid (a - b)</Math>.</p>
       </Theorem>
 

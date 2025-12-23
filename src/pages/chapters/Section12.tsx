@@ -104,7 +104,26 @@ export default function Section12() {
       {/* The Quadratic Formula */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">The Quadratic Formula</h2>
 
-      <Theorem title="The Quadratic Formula">
+      <Theorem
+        title="The Quadratic Formula"
+        proof={
+          <>
+            <p>Start with <Math>ax^2 + bx + c = 0</Math> where <Math>a \neq 0</Math>.</p>
+            <p className="mt-2">Move constant to the right:</p>
+            <MathBlock>ax^2 + bx = -c</MathBlock>
+            <p className="mt-2">Divide by <Math>a</Math>:</p>
+            <MathBlock>x^2 + \frac{'{b}'}{'{a}'}x = -\frac{'{c}'}{'{a}'}</MathBlock>
+            <p className="mt-2">Complete the square by adding <Math>\left(\frac{'{b}'}{'{2a}'}\right)^2 = \frac{'{b^2}'}{'{4a^2}'}</Math> to both sides:</p>
+            <MathBlock>x^2 + \frac{'{b}'}{'{a}'}x + \frac{'{b^2}'}{'{4a^2}'} = -\frac{'{c}'}{'{a}'} + \frac{'{b^2}'}{'{4a^2}'}</MathBlock>
+            <p className="mt-2">The left side is a perfect square:</p>
+            <MathBlock>\left(x + \frac{'{b}'}{'{2a}'}\right)^2 = \frac{'{-4ac + b^2}'}{'{4a^2}'} = \frac{'{b^2 - 4ac}'}{'{4a^2}'}</MathBlock>
+            <p className="mt-2">Take square roots (if <Math>b^2 - 4ac \geq 0</Math>):</p>
+            <MathBlock>x + \frac{'{b}'}{'{2a}'} = \pm\frac{'{{\\sqrt{b^2 - 4ac}}}'}{'{2|a|}'}</MathBlock>
+            <p className="mt-2">Solving for <Math>x</Math>:</p>
+            <MathBlock>x = -\frac{'{b}'}{'{2a}'} \pm \frac{'{{\\sqrt{b^2 - 4ac}}}'}{'{2a}'} = \frac{'{-b \\pm \\sqrt{b^2 - 4ac}}'}{'{2a}'}</MathBlock>
+          </>
+        }
+      >
         <p>
           The solutions of <Math>ax^2 + bx + c = 0</Math> (with <Math>a \neq 0</Math>) are:
         </p>

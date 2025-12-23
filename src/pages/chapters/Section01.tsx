@@ -89,24 +89,41 @@ export default function Section01() {
       {/* New Theorems */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Important Theorems</h2>
 
-      <Theorem title="N3: Uniqueness of Additive Inverse">
-        <p>If <Math>a + b = 0</Math>, then <Math>b = -a</Math> and <Math>a = -b</Math>.</p>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show proof</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
+      <Theorem
+        title="N3: Uniqueness of Additive Inverse"
+        proof={
+          <>
             <p>Given <Math>a + b = 0</Math>, add <Math>-a</Math> to both sides:</p>
             <MathBlock>-a + (a + b) = -a + 0</MathBlock>
-            <p className="mt-2">By associativity and N1:</p>
+            <p className="mt-2">By associativity:</p>
             <MathBlock>(-a + a) + b = -a</MathBlock>
-            <p className="mt-2">By N2:</p>
+            <p className="mt-2">By N2 (additive inverse):</p>
             <MathBlock>0 + b = -a</MathBlock>
-            <p className="mt-2">By N1:</p>
+            <p className="mt-2">By N1 (identity):</p>
             <MathBlock>b = -a</MathBlock>
-          </div>
-        </details>
+            <p className="mt-2">By symmetry (swapping roles of <Math>a</Math> and <Math>b</Math>), we also get <Math>a = -b</Math>.</p>
+          </>
+        }
+      >
+        <p>If <Math>a + b = 0</Math>, then <Math>b = -a</Math> and <Math>a = -b</Math>.</p>
       </Theorem>
 
-      <Theorem title="N4: Double Negative" className="mt-6">
+      <Theorem
+        title="N4: Double Negative"
+        className="mt-6"
+        proof={
+          <>
+            <p>We need to show that <Math>a</Math> is the additive inverse of <Math>-a</Math>.</p>
+            <p className="mt-2">By N2, we know:</p>
+            <MathBlock>a + (-a) = 0</MathBlock>
+            <p className="mt-2">By commutativity:</p>
+            <MathBlock>(-a) + a = 0</MathBlock>
+            <p className="mt-2">By N3 (uniqueness of additive inverse), since <Math>(-a) + a = 0</Math>, the additive inverse of <Math>-a</Math> must be <Math>a</Math>.</p>
+            <p className="mt-2">Therefore:</p>
+            <MathBlock>-(-a) = a</MathBlock>
+          </>
+        }
+      >
         <p>For any integer <Math>a</Math>:</p>
         <MathBlock>-(-a) = a</MathBlock>
         <p className="mt-2 text-dark-400">
@@ -122,7 +139,23 @@ export default function Section01() {
         </ul>
       </Example>
 
-      <Theorem title="N5: Negation of a Sum" className="mt-6">
+      <Theorem
+        title="N5: Negation of a Sum"
+        className="mt-6"
+        proof={
+          <>
+            <p>We need to show that <Math>-a + (-b)</Math> is the additive inverse of <Math>a + b</Math>.</p>
+            <p className="mt-2">Consider:</p>
+            <MathBlock>(a + b) + (-a + (-b))</MathBlock>
+            <p className="mt-2">By associativity and commutativity, we can rearrange:</p>
+            <MathBlock>= (a + (-a)) + (b + (-b))</MathBlock>
+            <p className="mt-2">By N2:</p>
+            <MathBlock>= 0 + 0 = 0</MathBlock>
+            <p className="mt-2">Since <Math>(a + b) + (-a + (-b)) = 0</Math>, by N3:</p>
+            <MathBlock>-(a + b) = -a + (-b) = -a - b</MathBlock>
+          </>
+        }
+      >
         <p>For any integers <Math>a</Math> and <Math>b</Math>:</p>
         <MathBlock>-(a + b) = -a - b</MathBlock>
         <p className="mt-2 text-dark-400">

@@ -19,7 +19,23 @@ export default function Section22() {
       {/* Statement */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">The Theorem Restated</h2>
 
-      <Theorem title="Pythagorean Theorem">
+      <Theorem
+        title="Pythagorean Theorem"
+        proof={
+          <>
+            <p><strong>Proof by area rearrangement:</strong></p>
+            <p className="mt-2">Construct a square with side <Math>(a + b)</Math> and place four copies of the right triangle inside it, arranged so they leave a square hole of side <Math>c</Math> in the middle.</p>
+            <p className="mt-3"><strong>Method 1 (outer square):</strong></p>
+            <MathBlock>\text{'{Area}'} = (a + b)^2 = a^2 + 2ab + b^2</MathBlock>
+            <p className="mt-3"><strong>Method 2 (four triangles + inner square):</strong></p>
+            <MathBlock>\text{'{Area}'} = 4 \cdot \frac{'{1}'}{'{2}'}ab + c^2 = 2ab + c^2</MathBlock>
+            <p className="mt-3">Since both compute the same area:</p>
+            <MathBlock>a^2 + 2ab + b^2 = 2ab + c^2</MathBlock>
+            <p className="mt-2">Subtracting <Math>2ab</Math> from both sides:</p>
+            <MathBlock>a^2 + b^2 = c^2</MathBlock>
+          </>
+        }
+      >
         <p>
           In a right triangle with legs <Math>a</Math> and <Math>b</Math> and hypotenuse <Math>c</Math>:
         </p>

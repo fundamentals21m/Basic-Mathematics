@@ -47,7 +47,21 @@ export default function Section04() {
       {/* Equality of Fractions */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">When Are Two Fractions Equal?</h2>
 
-      <Theorem title="Cross-Multiplication Rule">
+      <Theorem
+        title="Cross-Multiplication Rule"
+        proof={
+          <>
+            <p><strong>(⇒)</strong> Suppose <Math>\frac{'{m}'}{'{n}'} = \frac{'{r}'}{'{s}'}</Math>.</p>
+            <p className="mt-2">Multiply both sides by <Math>ns</Math>:</p>
+            <MathBlock>\frac{'{m}'}{'{n}'} \cdot ns = \frac{'{r}'}{'{s}'} \cdot ns</MathBlock>
+            <MathBlock>ms = rn</MathBlock>
+            <p className="mt-3"><strong>(⇐)</strong> Suppose <Math>ms = rn</Math>.</p>
+            <p className="mt-2">Divide both sides by <Math>ns</Math> (valid since <Math>n, s \neq 0</Math>):</p>
+            <MathBlock>\frac{'{ms}'}{'{ns}'} = \frac{'{rn}'}{'{ns}'}</MathBlock>
+            <MathBlock>\frac{'{m}'}{'{n}'} = \frac{'{r}'}{'{s}'}</MathBlock>
+          </>
+        }
+      >
         <p>Two fractions are equal if and only if their cross products are equal:</p>
         <MathBlock>\frac{'{m}'}{'{n}'} = \frac{'{r}'}{'{s}'} \iff ms = rn</MathBlock>
         <p className="mt-2 text-dark-400">
@@ -68,7 +82,17 @@ export default function Section04() {
       {/* Cancellation */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Cancellation and Lowest Form</h2>
 
-      <Theorem title="Cancellation Rule">
+      <Theorem
+        title="Cancellation Rule"
+        proof={
+          <>
+            <p>We use cross-multiplication to verify:</p>
+            <MathBlock>\frac{'{am}'}{'{an}'} = \frac{'{m}'}{'{n}'} \iff (am) \cdot n = m \cdot (an)</MathBlock>
+            <p className="mt-2">Checking: <Math>(am) \cdot n = amn</Math> and <Math>m \cdot (an) = amn</Math>.</p>
+            <p className="mt-2">Since <Math>amn = amn</Math>, the fractions are equal.</p>
+          </>
+        }
+      >
         <p>For any non-zero integer <Math>a</Math>:</p>
         <MathBlock>\frac{'{am}'}{'{an}'} = \frac{'{m}'}{'{n}'}</MathBlock>
         <p className="mt-2 text-dark-400">
@@ -93,7 +117,19 @@ export default function Section04() {
 
       <FractionReducer />
 
-      <Theorem title="Existence of Lowest Form" className="mt-6">
+      <Theorem
+        title="Existence of Lowest Form"
+        className="mt-6"
+        proof={
+          <>
+            <p>Given any fraction <Math>\frac{'{m}'}{'{n}'}</Math>, let <Math>d = \gcd(|m|, |n|)</Math> be the greatest common divisor.</p>
+            <p className="mt-2">Write <Math>m = d \cdot m'</Math> and <Math>n = d \cdot n'</Math> where <Math>\gcd(|m'|, |n'|) = 1</Math>.</p>
+            <p className="mt-2">By the cancellation rule:</p>
+            <MathBlock>\frac{'{m}'}{'{n}'} = \frac{'{d \\cdot m\' }'}{'{d \\cdot n\' }'} = \frac{'{m\' }'}{'{n\' }'}</MathBlock>
+            <p className="mt-2">Since <Math>\gcd(|m'|, |n'|) = 1</Math>, this fraction is in lowest form.</p>
+          </>
+        }
+      >
         <p>Any rational number can be expressed as a fraction in lowest form.</p>
       </Theorem>
 
@@ -134,7 +170,19 @@ export default function Section04() {
       {/* Negative Signs */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Negative Signs in Fractions</h2>
 
-      <Theorem title="Moving Negative Signs">
+      <Theorem
+        title="Moving Negative Signs"
+        proof={
+          <>
+            <p>We verify each equality using cross-multiplication:</p>
+            <p className="mt-2"><strong><Math>-\frac{'{m}'}{'{n}'} = \frac{'{-m}'}{'{n}'}</Math>:</strong></p>
+            <p>Cross products: <Math>(-m) \cdot n = -mn</Math> and <Math>(-\frac{'{m}'}{'{n}'}) \cdot n = -m</Math>.</p>
+            <p className="mt-2"><strong><Math>\frac{'{-m}'}{'{n}'} = \frac{'{m}'}{'{-n}'}</Math>:</strong></p>
+            <p>Cross products: <Math>(-m)(-n) = mn</Math> and <Math>m \cdot n = mn</Math>. ✓</p>
+            <p className="mt-2">Therefore all three forms are equivalent.</p>
+          </>
+        }
+      >
         <p>A negative sign can be placed in the numerator, denominator, or in front:</p>
         <MathBlock>-\frac{'{m}'}{'{n}'} = \frac{'{-m}'}{'{n}'} = \frac{'{m}'}{'{-n}'}</MathBlock>
       </Theorem>
@@ -156,20 +204,25 @@ export default function Section04() {
         </p>
       </Definition>
 
-      <Theorem title="The Irrationality of √2">
-        <p>There is no rational number whose square is 2.</p>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show proof</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
+      <Theorem
+        title="The Irrationality of √2"
+        proof={
+          <>
             <p><strong>Proof by contradiction:</strong></p>
-            <p className="mt-2">Suppose <Math>\sqrt{'{2}'} = \frac{'{m}'}{'{n}'}</Math> in lowest form.</p>
-            <p className="mt-2">Then <Math>2 = \frac{'{m^2}'}{'{n^2}'}</Math>, so <Math>m^2 = 2n^2</Math>.</p>
-            <p className="mt-2">This means <Math>m^2</Math> is even, so <Math>m</Math> is even. Write <Math>m = 2k</Math>.</p>
-            <p className="mt-2">Then <Math>(2k)^2 = 2n^2</Math>, giving <Math>4k^2 = 2n^2</Math>, so <Math>n^2 = 2k^2</Math>.</p>
-            <p className="mt-2">This means <Math>n^2</Math> is even, so <Math>n</Math> is even.</p>
-            <p className="mt-2">But if both <Math>m</Math> and <Math>n</Math> are even, the fraction wasn't in lowest form. <strong>Contradiction!</strong></p>
-          </div>
-        </details>
+            <p className="mt-2">Suppose <Math>\sqrt{'{2}'} = \frac{'{m}'}{'{n}'}</Math> where the fraction is in lowest form (so <Math>\gcd(m, n) = 1</Math>).</p>
+            <p className="mt-2">Squaring both sides:</p>
+            <MathBlock>2 = \frac{'{m^2}'}{'{n^2}'}</MathBlock>
+            <p className="mt-2">So <Math>m^2 = 2n^2</Math>.</p>
+            <p className="mt-2">This means <Math>m^2</Math> is even. By our earlier theorem (detecting parity from squares), <Math>m</Math> must be even.</p>
+            <p className="mt-2">Write <Math>m = 2k</Math> for some integer <Math>k</Math>. Substituting:</p>
+            <MathBlock>(2k)^2 = 2n^2 \implies 4k^2 = 2n^2 \implies n^2 = 2k^2</MathBlock>
+            <p className="mt-2">So <Math>n^2</Math> is even, which means <Math>n</Math> is even.</p>
+            <p className="mt-2">But if both <Math>m</Math> and <Math>n</Math> are even, they share a common factor of 2, contradicting our assumption that the fraction was in lowest form.</p>
+            <p className="mt-2"><strong>Therefore, no such rational number exists.</strong></p>
+          </>
+        }
+      >
+        <p>There is no rational number whose square is 2.</p>
       </Theorem>
 
       <Callout type="warning" title="Approximating √2">

@@ -79,35 +79,57 @@ export default function Section05() {
       {/* Theorems */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Important Theorems</h2>
 
-      <Theorem title="Uniqueness of Inverse">
-        <p>If <Math>a</Math> and <Math>b</Math> are rational numbers such that <Math>ab = 1</Math>, then <Math>b = a^{'{-1}'}</Math>.</p>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show proof</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
+      <Theorem
+        title="Uniqueness of Inverse"
+        proof={
+          <>
             <p>Given <Math>ab = 1</Math>, multiply both sides by <Math>a^{'{-1}'}</Math>:</p>
             <MathBlock>a^{'{-1}'}(ab) = a^{'{-1}'} \cdot 1</MathBlock>
-            <p className="mt-2">By associativity: <Math>(a^{'{-1}'}a)b = a^{'{-1}'}</Math></p>
-            <p className="mt-2">Since <Math>a^{'{-1}'}a = 1</Math>: <Math>1 \cdot b = a^{'{-1}'}</Math></p>
+            <p className="mt-2">By associativity:</p>
+            <MathBlock>(a^{'{-1}'}a)b = a^{'{-1}'}</MathBlock>
+            <p className="mt-2">Since <Math>a^{'{-1}'}a = 1</Math>:</p>
+            <MathBlock>1 \cdot b = a^{'{-1}'}</MathBlock>
             <p className="mt-2">Therefore <Math>b = a^{'{-1}'}</Math>.</p>
-          </div>
-        </details>
+          </>
+        }
+      >
+        <p>If <Math>a</Math> and <Math>b</Math> are rational numbers such that <Math>ab = 1</Math>, then <Math>b = a^{'{-1}'}</Math>.</p>
       </Theorem>
 
-      <Theorem title="Zero Product Property" className="mt-6">
-        <p>If <Math>ab = 0</Math>, then <Math>a = 0</Math> or <Math>b = 0</Math> (or both).</p>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show proof</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
-            <p>Suppose <Math>a \neq 0</Math>. Then <Math>a^{'{-1}'}</Math> exists.</p>
+      <Theorem
+        title="Zero Product Property"
+        className="mt-6"
+        proof={
+          <>
+            <p>We prove the contrapositive: if <Math>a \neq 0</Math>, then <Math>b = 0</Math>.</p>
+            <p className="mt-2">Since <Math>a \neq 0</Math>, the multiplicative inverse <Math>a^{'{-1}'}</Math> exists.</p>
             <p className="mt-2">Multiply both sides of <Math>ab = 0</Math> by <Math>a^{'{-1}'}</Math>:</p>
             <MathBlock>a^{'{-1}'}(ab) = a^{'{-1}'} \cdot 0 = 0</MathBlock>
-            <p className="mt-2">By associativity: <Math>(a^{'{-1}'}a)b = 0</Math></p>
-            <p className="mt-2">So <Math>1 \cdot b = 0</Math>, meaning <Math>b = 0</Math>.</p>
-          </div>
-        </details>
+            <p className="mt-2">By associativity:</p>
+            <MathBlock>(a^{'{-1}'}a)b = 0</MathBlock>
+            <p className="mt-2">Since <Math>a^{'{-1}'}a = 1</Math>:</p>
+            <MathBlock>1 \cdot b = 0 \implies b = 0</MathBlock>
+          </>
+        }
+      >
+        <p>If <Math>ab = 0</Math>, then <Math>a = 0</Math> or <Math>b = 0</Math> (or both).</p>
       </Theorem>
 
-      <Theorem title="Cancellation Law" className="mt-6">
+      <Theorem
+        title="Cancellation Law"
+        className="mt-6"
+        proof={
+          <>
+            <p>Given <Math>ab = ac</Math> with <Math>a \neq 0</Math>.</p>
+            <p className="mt-2">Since <Math>a \neq 0</Math>, <Math>a^{'{-1}'}</Math> exists. Multiply both sides by <Math>a^{'{-1}'}</Math>:</p>
+            <MathBlock>a^{'{-1}'}(ab) = a^{'{-1}'}(ac)</MathBlock>
+            <p className="mt-2">By associativity:</p>
+            <MathBlock>(a^{'{-1}'}a)b = (a^{'{-1}'}a)c</MathBlock>
+            <MathBlock>1 \cdot b = 1 \cdot c</MathBlock>
+            <MathBlock>b = c</MathBlock>
+          </>
+        }
+      >
         <p>If <Math>a \neq 0</Math> and <Math>ab = ac</Math>, then <Math>b = c</Math>.</p>
       </Theorem>
 
@@ -116,12 +138,37 @@ export default function Section05() {
       {/* Cross-Multiplication for Quotients */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Cross-Multiplication for Quotients</h2>
 
-      <Theorem title="Cross-Multiplication (General)">
+      <Theorem
+        title="Cross-Multiplication (General)"
+        proof={
+          <>
+            <p><strong>(⇒)</strong> Suppose <Math>\frac{'{a}'}{'{b}'} = \frac{'{c}'}{'{d}'}</Math>.</p>
+            <p className="mt-2">Multiply both sides by <Math>bd</Math>:</p>
+            <MathBlock>\frac{'{a}'}{'{b}'} \cdot bd = \frac{'{c}'}{'{d}'} \cdot bd</MathBlock>
+            <MathBlock>ad = bc</MathBlock>
+            <p className="mt-3"><strong>(⇐)</strong> Suppose <Math>ad = bc</Math>.</p>
+            <p className="mt-2">Divide both sides by <Math>bd</Math> (valid since <Math>b, d \neq 0</Math>):</p>
+            <MathBlock>\frac{'{ad}'}{'{bd}'} = \frac{'{bc}'}{'{bd}'}</MathBlock>
+            <MathBlock>\frac{'{a}'}{'{b}'} = \frac{'{c}'}{'{d}'}</MathBlock>
+          </>
+        }
+      >
         <p>For rational numbers <Math>a, b, c, d</Math> with <Math>b \neq 0</Math> and <Math>d \neq 0</Math>:</p>
         <MathBlock>\frac{'{a}'}{'{b}'} = \frac{'{c}'}{'{d}'} \iff ad = bc</MathBlock>
       </Theorem>
 
-      <Theorem title="Cancellation in Quotients" className="mt-6">
+      <Theorem
+        title="Cancellation in Quotients"
+        className="mt-6"
+        proof={
+          <>
+            <p>Using the definition of fractions as multiplication by inverses:</p>
+            <MathBlock>\frac{'{ab}'}{'{ac}'} = ab \cdot (ac)^{'{-1}'} = ab \cdot c^{'{-1}'} \cdot a^{'{-1}'}</MathBlock>
+            <p className="mt-2">Rearranging by commutativity and associativity:</p>
+            <MathBlock>= (a \cdot a^{'{-1}'}) \cdot b \cdot c^{'{-1}'} = 1 \cdot b \cdot c^{'{-1}'} = \frac{'{b}'}{'{c}'}</MathBlock>
+          </>
+        }
+      >
         <p>If <Math>a \neq 0</Math> and <Math>c \neq 0</Math>:</p>
         <MathBlock>\frac{'{ab}'}{'{ac}'} = \frac{'{b}'}{'{c}'}</MathBlock>
       </Theorem>

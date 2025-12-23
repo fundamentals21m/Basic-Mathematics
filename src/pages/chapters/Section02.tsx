@@ -62,20 +62,35 @@ export default function Section02() {
       {/* Sign Rules */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Sign Rules for Multiplication</h2>
 
-      <Theorem title="N7: Multiplication by -1">
+      <Theorem
+        title="N7: Multiplication by -1"
+        proof={
+          <>
+            <p>We need to show that <Math>(-1) \cdot a</Math> is the additive inverse of <Math>a</Math>.</p>
+            <p className="mt-2">Using distributivity:</p>
+            <MathBlock>(-1) \cdot a + a = (-1) \cdot a + 1 \cdot a = (-1 + 1) \cdot a = 0 \cdot a = 0</MathBlock>
+            <p className="mt-2">Since <Math>(-1) \cdot a + a = 0</Math>, by N3 (uniqueness of additive inverse):</p>
+            <MathBlock>(-1) \cdot a = -a</MathBlock>
+          </>
+        }
+      >
         <p>For any integer <Math>a</Math>:</p>
         <MathBlock>(-1) \cdot a = -a</MathBlock>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show proof</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
-            <p>Using distributivity:</p>
-            <MathBlock>(-1) \cdot a + a = (-1) \cdot a + 1 \cdot a = (-1 + 1) \cdot a = 0 \cdot a = 0</MathBlock>
-            <p className="mt-2">Since <Math>(-1) \cdot a + a = 0</Math>, we have <Math>(-1) \cdot a = -a</Math> by N3.</p>
-          </div>
-        </details>
       </Theorem>
 
-      <Theorem title="N8 & N9: Moving Negatives" className="mt-6">
+      <Theorem
+        title="N8 & N9: Moving Negatives"
+        className="mt-6"
+        proof={
+          <>
+            <p>First, we show <Math>(-a)b = -(ab)</Math>:</p>
+            <MathBlock>(-a)b = ((-1) \cdot a) \cdot b = (-1) \cdot (ab) = -(ab)</MathBlock>
+            <p className="mt-2">using N7 and associativity.</p>
+            <p className="mt-2">Similarly, <Math>a(-b) = a \cdot ((-1) \cdot b) = (a \cdot (-1)) \cdot b = (-1) \cdot (ab) = -(ab)</Math></p>
+            <p className="mt-2">Therefore: <Math>-(ab) = (-a)b = a(-b)</Math></p>
+          </>
+        }
+      >
         <p>For any integers <Math>a</Math> and <Math>b</Math>:</p>
         <MathBlock>-(ab) = (-a)b = a(-b)</MathBlock>
         <p className="mt-2 text-dark-400">
@@ -83,7 +98,19 @@ export default function Section02() {
         </p>
       </Theorem>
 
-      <Theorem title="N10: Negative Times Negative" className="mt-6">
+      <Theorem
+        title="N10: Negative Times Negative"
+        className="mt-6"
+        proof={
+          <>
+            <p>Using N7 and N8:</p>
+            <MathBlock>(-a)(-b) = -(a(-b)) = -(-(ab))</MathBlock>
+            <p className="mt-2">By N4 (double negative):</p>
+            <MathBlock>-(-(ab)) = ab</MathBlock>
+            <p className="mt-2">Therefore: <Math>(-a)(-b) = ab</Math></p>
+          </>
+        }
+      >
         <p>For any integers <Math>a</Math> and <Math>b</Math>:</p>
         <MathBlock>(-a)(-b) = ab</MathBlock>
         <p className="mt-2 text-dark-400">
@@ -132,17 +159,50 @@ export default function Section02() {
         </ul>
       </Example>
 
-      <Theorem title="N11: Product of Powers" className="mt-6">
+      <Theorem
+        title="N11: Product of Powers"
+        className="mt-6"
+        proof={
+          <>
+            <p>By definition of exponents:</p>
+            <MathBlock>{`a^m \\cdot a^n = \\underbrace{a \\cdot a \\cdots a}_{m \\text{ times}} \\cdot \\underbrace{a \\cdot a \\cdots a}_{n \\text{ times}}`}</MathBlock>
+            <p className="mt-2">Combining the factors:</p>
+            <MathBlock>{`= \\underbrace{a \\cdot a \\cdots a}_{m + n \\text{ times}} = a^{m+n}`}</MathBlock>
+          </>
+        }
+      >
         <p>For any integer <Math>a</Math> and positive integers <Math>m</Math> and <Math>n</Math>:</p>
         <MathBlock>a^m \cdot a^n = a^{'{m+n}'}</MathBlock>
       </Theorem>
 
-      <Theorem title="N12: Power of a Power" className="mt-6">
+      <Theorem
+        title="N12: Power of a Power"
+        className="mt-6"
+        proof={
+          <>
+            <p>By definition of exponents:</p>
+            <MathBlock>{`(a^m)^n = \\underbrace{a^m \\cdot a^m \\cdots a^m}_{n \\text{ times}}`}</MathBlock>
+            <p className="mt-2">By N11 (adding exponents repeatedly):</p>
+            <MathBlock>{`= a^{\\underbrace{m + m + \\cdots + m}_{n \\text{ times}}} = a^{mn}`}</MathBlock>
+          </>
+        }
+      >
         <p>For any integer <Math>a</Math> and positive integers <Math>m</Math> and <Math>n</Math>:</p>
         <MathBlock>(a^m)^n = a^{'{mn}'}</MathBlock>
       </Theorem>
 
-      <Theorem title="Power of a Product" className="mt-6">
+      <Theorem
+        title="Power of a Product"
+        className="mt-6"
+        proof={
+          <>
+            <p>By definition of exponents:</p>
+            <MathBlock>{`(ab)^n = \\underbrace{(ab)(ab) \\cdots (ab)}_{n \\text{ times}}`}</MathBlock>
+            <p className="mt-2">By commutativity and associativity, we can rearrange:</p>
+            <MathBlock>{`= \\underbrace{a \\cdot a \\cdots a}_{n \\text{ times}} \\cdot \\underbrace{b \\cdot b \\cdots b}_{n \\text{ times}} = a^n b^n`}</MathBlock>
+          </>
+        }
+      >
         <p>For any integers <Math>a</Math> and <Math>b</Math> and positive integer <Math>n</Math>:</p>
         <MathBlock>(ab)^n = a^n b^n</MathBlock>
       </Theorem>

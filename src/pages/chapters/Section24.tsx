@@ -24,7 +24,17 @@ export default function Section24() {
         are aligned horizontally or vertically.
       </p>
 
-      <Theorem title="Horizontal Distance">
+      <Theorem
+        title="Horizontal Distance"
+        proof={
+          <>
+            <p>Points <Math>(x_1, y)</Math> and <Math>(x_2, y)</Math> lie on a horizontal line.</p>
+            <p className="mt-2">The distance is simply the difference in their x-coordinates.</p>
+            <p className="mt-2">We use absolute value because distance is always non-negative, regardless of which point is "left" or "right":</p>
+            <MathBlock>{`\\text{distance} = |x_2 - x_1|`}</MathBlock>
+          </>
+        }
+      >
         <p>
           For two points with the <strong>same y-coordinate</strong>, <Math>(x_1, y)</Math> and <Math>(x_2, y)</Math>:
         </p>
@@ -33,7 +43,17 @@ export default function Section24() {
         </MathBlock>
       </Theorem>
 
-      <Theorem title="Vertical Distance">
+      <Theorem
+        title="Vertical Distance"
+        proof={
+          <>
+            <p>Points <Math>(x, y_1)</Math> and <Math>(x, y_2)</Math> lie on a vertical line.</p>
+            <p className="mt-2">The distance is the difference in their y-coordinates.</p>
+            <p className="mt-2">Again, absolute value ensures a non-negative result:</p>
+            <MathBlock>{`\\text{distance} = |y_2 - y_1|`}</MathBlock>
+          </>
+        }
+      >
         <p>
           For two points with the <strong>same x-coordinate</strong>, <Math>(x, y_1)</Math> and <Math>(x, y_2)</Math>:
         </p>
@@ -170,7 +190,17 @@ export default function Section24() {
       {/* Distance from Origin */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Distance from the Origin</h2>
 
-      <Theorem title="Distance from Origin">
+      <Theorem
+        title="Distance from Origin"
+        proof={
+          <>
+            <p>Apply the distance formula with <Math>(x_1, y_1) = (0, 0)</Math> and <Math>(x_2, y_2) = (x, y)</Math>:</p>
+            <MathBlock>d = \sqrt{'{(x - 0)^2 + (y - 0)^2}'}</MathBlock>
+            <p className="mt-2">Simplifying:</p>
+            <MathBlock>d = \sqrt{'{x^2 + y^2}'}</MathBlock>
+          </>
+        }
+      >
         <p>
           The distance from the origin <Math>O(0, 0)</Math> to point <Math>P(x, y)</Math> is:
         </p>
