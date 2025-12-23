@@ -39,7 +39,7 @@ export const ACHIEVEMENT_DEFINITIONS: AchievementDefinition[] = [
     condition: (state) => {
       const difficulties = new Set<string>();
       Object.values(state.sections).forEach((section) => {
-        section.quizAttempts.forEach((attempt) => {
+        (section.quizAttempts || []).forEach((attempt) => {
           difficulties.add(attempt.difficulty);
         });
       });
@@ -77,7 +77,7 @@ export const ACHIEVEMENT_DEFINITIONS: AchievementDefinition[] = [
     condition: (state) => {
       const uniqueViz = new Set<string>();
       Object.values(state.sections).forEach((section) => {
-        section.visualizationsInteracted.forEach((v) => uniqueViz.add(v));
+        (section.visualizationsInteracted || []).forEach((v) => uniqueViz.add(v));
       });
       return uniqueViz.size;
     },
