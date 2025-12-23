@@ -73,3 +73,6 @@ export { ShearingDemo } from './ShearingDemo';
 export { TriangleAreaDemo } from './TriangleAreaDemo';
 export { HeronCalculator } from './HeronCalculator';
 export { ShoelaceDemo } from './ShoelaceDemo';
+export { SquaresOnSidesDemo } from './SquaresOnSidesDemo';
+export { ProofByRearrangement } from './ProofByRearrangement';
+export { PythagorasProofDemo } from './PythagorasProofDemo';

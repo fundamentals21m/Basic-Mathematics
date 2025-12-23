@@ -20,3 +20,4 @@ export { section18Questions } from './section18';
 export { section19Questions } from './section19';
 export { section20Questions } from './section20';
 export { section21Questions } from './section21';
+export { section22Questions } from './section22';

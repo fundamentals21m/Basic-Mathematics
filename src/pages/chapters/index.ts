@@ -20,4 +20,5 @@ export { default as Section18 } from './Section18';
 export { default as Section19 } from './Section19';
 export { default as Section20 } from './Section20';
 export { default as Section21 } from './Section21';
+export { default as Section22 } from './Section22';
 export { default as PlaceholderSection } from './PlaceholderSection';
