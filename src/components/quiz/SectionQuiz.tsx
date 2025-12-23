@@ -1,6 +1,31 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useGamification } from '../../contexts/GamificationContext';
 import { calculateQuizXP } from '../../lib/gamification/xpCalculator';
+import katex from 'katex';
+
+// Helper to render LaTeX in strings
+// Supports $...$ for inline math and $$...$$ for display math
+function renderLatex(text: string): string {
+  // First handle display math $$...$$
+  let result = text.replace(/\$\$([^$]+)\$\$/g, (_, latex) => {
+    try {
+      return katex.renderToString(latex.trim(), { displayMode: true, throwOnError: false });
+    } catch {
+      return latex;
+    }
+  });
+
+  // Then handle inline math $...$
+  result = result.replace(/\$([^$]+)\$/g, (_, latex) => {
+    try {
+      return katex.renderToString(latex.trim(), { displayMode: false, throwOnError: false });
+    } catch {
+      return latex;
+    }
+  });
+
+  return result;
+}
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 
@@ -247,7 +272,7 @@ export function SectionQuiz({ sectionId, sectionTitle, questions, questionsPerQu
                   <span
                     className="text-dark-300 text-sm"
                     dangerouslySetInnerHTML={{
-                      __html: q.question.length > 60 ? q.question.substring(0, 60) + '...' : q.question
+                      __html: renderLatex(q.question.length > 60 ? q.question.substring(0, 60) + '...' : q.question)
                     }}
                   />
                 </div>
@@ -317,7 +342,7 @@ export function SectionQuiz({ sectionId, sectionTitle, questions, questionsPerQu
 
       {/* Question */}
       <div className="mb-6">
-        <p className="text-lg text-dark-100" dangerouslySetInnerHTML={{ __html: current.question }} />
+        <p className="text-lg text-dark-100" dangerouslySetInnerHTML={{ __html: renderLatex(current.question) }} />
       </div>
 
       {/* Options */}
@@ -346,7 +371,7 @@ export function SectionQuiz({ sectionId, sectionTitle, questions, questionsPerQu
               onClick={() => handleSelect(index)}
               disabled={selectedAnswer !== null}
               className={className}
-              dangerouslySetInnerHTML={{ __html: option }}
+              dangerouslySetInnerHTML={{ __html: renderLatex(option) }}
             />
           );
         })}
@@ -358,7 +383,7 @@ export function SectionQuiz({ sectionId, sectionTitle, questions, questionsPerQu
           <p className={`font-semibold mb-2 ${isCorrect ? 'text-emerald-400' : 'text-red-400'}`}>
             {isCorrect ? '✓ Correct!' : '✗ Incorrect'}
           </p>
-          <p className="text-dark-300 text-sm" dangerouslySetInnerHTML={{ __html: current.explanation }} />
+          <p className="text-dark-300 text-sm" dangerouslySetInnerHTML={{ __html: renderLatex(current.explanation) }} />
         </div>
       )}
 
