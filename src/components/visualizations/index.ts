@@ -82,3 +82,6 @@ export { PointPlotter } from './PointPlotter';
 export { DistanceFormulaDemo } from './DistanceFormulaDemo';
 export { DistanceCalculator } from './DistanceCalculator';
 export { PythagorasConnection } from './PythagorasConnection';
+export { CircleEquationExplorer } from './CircleEquationExplorer';
+export { CircleFromEquation } from './CircleFromEquation';
+export { CompletingSquareCircle } from './CompletingSquareCircle';
