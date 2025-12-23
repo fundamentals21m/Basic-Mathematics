@@ -55,7 +55,16 @@ export default function Section19() {
       {/* Properties of Congruence */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Properties of Congruence</h2>
 
-      <Theorem title="Congruence is an Equivalence Relation">
+      <Theorem
+        title="Congruence is an Equivalence Relation"
+        proof={
+          <>
+            <p><strong>Reflexive:</strong> The identity map <Math>I(P) = P</Math> is an isometry, so <Math>F \cong F</Math>.</p>
+            <p className="mt-2"><strong>Symmetric:</strong> If <Math>T(F_1) = F_2</Math> where <Math>T</Math> is an isometry, then <Math>T^{'{-1}'}</Math> is also an isometry (proven in §18) and <Math>T^{'{-1}'}(F_2) = F_1</Math>.</p>
+            <p className="mt-2"><strong>Transitive:</strong> If <Math>T_1(F_1) = F_2</Math> and <Math>T_2(F_2) = F_3</Math>, then <Math>(T_2 \circ T_1)(F_1) = F_3</Math>. The composition of isometries is an isometry.</p>
+          </>
+        }
+      >
         <p>Congruence satisfies three key properties:</p>
         <ul className="mt-2 space-y-2 text-dark-300">
           <li><strong>Reflexive:</strong> <Math>F \cong F</Math> (use identity isometry)</li>
@@ -64,7 +73,18 @@ export default function Section19() {
         </ul>
       </Theorem>
 
-      <Theorem title="Congruent Figures Have Equal Measurements">
+      <Theorem
+        title="Congruent Figures Have Equal Measurements"
+        proof={
+          <>
+            <p>If <Math>F_1 \cong F_2</Math>, there exists an isometry <Math>T</Math> with <Math>T(F_1) = F_2</Math>.</p>
+            <p className="mt-2"><strong>Lengths:</strong> Isometries preserve distances by definition.</p>
+            <p className="mt-2"><strong>Angles:</strong> Proven in §18: isometries preserve angles.</p>
+            <p className="mt-2"><strong>Perimeters:</strong> Perimeter is the sum of side lengths, which are preserved.</p>
+            <p className="mt-2"><strong>Areas:</strong> Area can be computed from lengths (e.g., triangulated). Since all lengths are preserved, area is preserved.</p>
+          </>
+        }
+      >
         <p>If <Math>F_1 \cong F_2</Math>, then:</p>
         <ul className="mt-2 space-y-1 text-dark-300">
           <li>Corresponding lengths are equal</li>
@@ -114,7 +134,16 @@ export default function Section19() {
         Certain combinations guarantee congruence.
       </p>
 
-      <Theorem title="SSS (Side-Side-Side)">
+      <Theorem
+        title="SSS (Side-Side-Side)"
+        proof={
+          <>
+            <p>Given <Math>|AB| = |DE|</Math>, <Math>|BC| = |EF|</Math>, <Math>|CA| = |FD|</Math>.</p>
+            <p className="mt-2">By the Triangle and Isometries theorem (§18), there exists a unique isometry mapping <Math>A \to D</Math>, <Math>B \to E</Math>, <Math>C \to F</Math>.</p>
+            <p className="mt-2">This isometry maps <Math>\triangle ABC</Math> to <Math>\triangle DEF</Math>, proving congruence.</p>
+          </>
+        }
+      >
         <p>
           If three sides of one triangle are congruent to three sides of another triangle,
           the triangles are congruent.
@@ -124,7 +153,17 @@ export default function Section19() {
         </MathBlock>
       </Theorem>
 
-      <Theorem title="SAS (Side-Angle-Side)">
+      <Theorem
+        title="SAS (Side-Angle-Side)"
+        proof={
+          <>
+            <p>Given <Math>|AB| = |DE|</Math>, <Math>\angle B = \angle E</Math>, <Math>|BC| = |EF|</Math>.</p>
+            <p className="mt-2">Map <Math>A \to D</Math> and <Math>B \to E</Math> using an isometry (translation + rotation or reflection).</p>
+            <p className="mt-2">Since <Math>|BC| = |EF|</Math> and <Math>\angle ABC = \angle DEF</Math>, point <Math>C</Math> maps to <Math>F</Math>.</p>
+            <p className="mt-2">The third side <Math>|CA|</Math> equals <Math>|FD|</Math> by the isometry.</p>
+          </>
+        }
+      >
         <p>
           If two sides and the <em>included angle</em> of one triangle are congruent to
           two sides and the included angle of another, the triangles are congruent.
@@ -134,7 +173,17 @@ export default function Section19() {
         </MathBlock>
       </Theorem>
 
-      <Theorem title="ASA (Angle-Side-Angle)">
+      <Theorem
+        title="ASA (Angle-Side-Angle)"
+        proof={
+          <>
+            <p>Given <Math>\angle A = \angle D</Math>, <Math>|AB| = |DE|</Math>, <Math>\angle B = \angle E</Math>.</p>
+            <p className="mt-2">Since angles in a triangle sum to 180°, <Math>\angle C = \angle F</Math>.</p>
+            <p className="mt-2">The position of <Math>C</Math> is determined by the rays from <Math>A</Math> and <Math>B</Math> at the given angles.</p>
+            <p className="mt-2">Similarly for <Math>F</Math>. These determine congruent triangles.</p>
+          </>
+        }
+      >
         <p>
           If two angles and the <em>included side</em> of one triangle are congruent to
           two angles and the included side of another, the triangles are congruent.
@@ -144,7 +193,17 @@ export default function Section19() {
         </MathBlock>
       </Theorem>
 
-      <Theorem title="AAS (Angle-Angle-Side)">
+      <Theorem
+        title="AAS (Angle-Angle-Side)"
+        proof={
+          <>
+            <p>Given <Math>\angle A = \angle D</Math>, <Math>\angle B = \angle E</Math>, <Math>|BC| = |EF|</Math>.</p>
+            <p className="mt-2">Since angles sum to 180°, <Math>\angle C = \angle F</Math>.</p>
+            <p className="mt-2">By the law of sines: <Math>\frac{'{|BC|}'}{'{\\sin A}'} = \frac{'{|CA|}'}{'{\\sin B}'} = \frac{'{|AB|}'}{'{\\sin C}'}</Math></p>
+            <p className="mt-2">All angles are equal, and <Math>|BC| = |EF|</Math>, so all sides are equal. By SSS, the triangles are congruent.</p>
+          </>
+        }
+      >
         <p>
           If two angles and a <em>non-included side</em> of one triangle are congruent to
           the corresponding parts of another, the triangles are congruent.
@@ -202,14 +261,34 @@ export default function Section19() {
       {/* Congruence of Other Figures */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Congruence of Other Figures</h2>
 
-      <Theorem title="Congruent Circles">
+      <Theorem
+        title="Congruent Circles"
+        proof={
+          <>
+            <p><strong>(⇒)</strong> If circles are congruent, an isometry maps one to the other.</p>
+            <p className="mt-2">Isometries preserve distances. The radius is the distance from center to any point on the circle, so radii must be equal.</p>
+            <p className="mt-4"><strong>(⇐)</strong> If <Math>r_1 = r_2</Math>, translate <Math>C_1</Math>'s center to <Math>C_2</Math>'s center.</p>
+            <p className="mt-2">Since both circles have the same radius, every point on <Math>C_1</Math> maps to a point on <Math>C_2</Math>. This translation is an isometry.</p>
+          </>
+        }
+      >
         <p>Two circles are congruent if and only if they have the same radius:</p>
         <MathBlock>
           \text{'{Circle }'} C_1 \cong \text{'{Circle }'} C_2 \iff r_1 = r_2
         </MathBlock>
       </Theorem>
 
-      <Theorem title="Congruent Polygons">
+      <Theorem
+        title="Congruent Polygons"
+        proof={
+          <>
+            <p><strong>(⇒)</strong> If polygons are congruent, an isometry maps one to the other.</p>
+            <p className="mt-2">Isometries preserve distances (sides) and angles. The vertex mapping provides the one-to-one correspondence.</p>
+            <p className="mt-4"><strong>(⇐)</strong> Given correspondence with equal sides and angles, we construct an isometry.</p>
+            <p className="mt-2">Triangulate both polygons from a vertex. By SAS, corresponding triangles are congruent. The isometries for adjacent triangles agree on shared edges, giving a single isometry for the whole polygon.</p>
+          </>
+        }
+      >
         <p>
           Two polygons are congruent if and only if there is a one-to-one correspondence
           between their vertices such that all corresponding sides and angles are congruent.
@@ -264,7 +343,18 @@ export default function Section19() {
       {/* The Fundamental Theorem */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">The Fundamental Theorem</h2>
 
-      <Theorem title="Unique Isometry for Triangles">
+      <Theorem
+        title="Unique Isometry for Triangles"
+        proof={
+          <>
+            <p><strong>Existence:</strong> By the Triangle and Isometries theorem (§18), congruent triangles are related by an isometry.</p>
+            <p className="mt-3"><strong>Uniqueness:</strong> Suppose isometries <Math>f</Math> and <Math>g</Math> both map <Math>A \to D</Math>, <Math>B \to E</Math>, <Math>C \to F</Math>.</p>
+            <p className="mt-2">Then <Math>g^{'{-1}'} \circ f</Math> fixes all three points <Math>A, B, C</Math>.</p>
+            <p className="mt-2">By the Fixed Points theorem (§18), an isometry fixing three non-collinear points is the identity.</p>
+            <p className="mt-2">So <Math>g^{'{-1}'} \circ f = \text{'{id}'}</Math>, meaning <Math>f = g</Math>.</p>
+          </>
+        }
+      >
         <p>
           Given two congruent triangles <Math>\triangle ABC \cong \triangle DEF</Math>,
           there is exactly one isometry mapping:

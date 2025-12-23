@@ -154,7 +154,19 @@ export default function Section23() {
       {/* Special Points and Lines */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Special Points and Lines</h2>
 
-      <Theorem title="Points on the Axes">
+      <Theorem
+        title="Points on the Axes"
+        proof={
+          <>
+            <p><strong>X-axis:</strong> The x-axis is the set of points with vertical distance 0 from the x-axis.</p>
+            <p className="mt-2">By definition, the y-coordinate measures vertical distance from the x-axis.</p>
+            <p className="mt-2">So a point is on the x-axis ⟺ its y-coordinate is 0.</p>
+            <p className="mt-4"><strong>Y-axis:</strong> Similarly, the y-axis is the set of points with horizontal distance 0 from the y-axis.</p>
+            <p className="mt-2">The x-coordinate measures horizontal distance from the y-axis.</p>
+            <p className="mt-2">So a point is on the y-axis ⟺ its x-coordinate is 0.</p>
+          </>
+        }
+      >
         <ul className="list-disc list-inside space-y-2">
           <li>A point is on the <strong>x-axis</strong> if and only if its y-coordinate is 0</li>
           <li>A point is on the <strong>y-axis</strong> if and only if its x-coordinate is 0</li>
@@ -173,7 +185,19 @@ export default function Section23() {
       {/* Symmetry */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Symmetry and Reflections</h2>
 
-      <Theorem title="Reflections Across Axes">
+      <Theorem
+        title="Reflections Across Axes"
+        proof={
+          <>
+            <p><strong>Reflection across x-axis:</strong> The point <Math>(a, b)</Math> is <Math>|b|</Math> units from the x-axis.</p>
+            <p className="mt-2">Its reflection must be the same distance on the opposite side, which is <Math>(a, -b)</Math>.</p>
+            <p className="mt-3"><strong>Reflection across y-axis:</strong> The point <Math>(a, b)</Math> is <Math>|a|</Math> units from the y-axis.</p>
+            <p className="mt-2">Its reflection on the opposite side is <Math>(-a, b)</Math>.</p>
+            <p className="mt-3"><strong>Reflection across origin:</strong> This is rotation by 180°, or equivalently, reflection across both axes.</p>
+            <p className="mt-2">Reflecting <Math>(a, b)</Math> across x-axis gives <Math>(a, -b)</Math>, then across y-axis gives <Math>(-a, -b)</Math>.</p>
+          </>
+        }
+      >
         <p>For a point <Math>(a, b)</Math>:</p>
         <ul className="list-disc list-inside space-y-2 mt-2">
           <li>Reflection across the <strong>x-axis</strong>: <Math>(a, -b)</Math></li>
@@ -194,7 +218,19 @@ export default function Section23() {
       {/* Midpoint Preview */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">The Midpoint Formula</h2>
 
-      <Theorem title="Midpoint of a Segment">
+      <Theorem
+        title="Midpoint of a Segment"
+        proof={
+          <>
+            <p>Let <Math>P = (x_1, y_1)</Math> and <Math>Q = (x_2, y_2)</Math>. We need the point <Math>M</Math> equidistant from both.</p>
+            <p className="mt-2">The midpoint lies halfway along the segment in both x and y directions.</p>
+            <p className="mt-2">In the x-direction: start at <Math>x_1</Math>, move half the distance to <Math>x_2</Math>:</p>
+            <p className="mt-2 text-center"><Math>x_M = x_1 + \frac{'{1}'}{'{2}'}(x_2 - x_1) = \frac{'{x_1 + x_2}'}{'{2}'}</Math></p>
+            <p className="mt-2">Similarly for y: <Math>y_M = \frac{'{y_1 + y_2}'}{'{2}'}</Math></p>
+            <p className="mt-2">So <Math>M = \left(\frac{'{x_1 + x_2}'}{'{2}'}, \frac{'{y_1 + y_2}'}{'{2}'}\right)</Math>.</p>
+          </>
+        }
+      >
         <p>
           The midpoint of the segment from <Math>(x_1, y_1)</Math> to <Math>(x_2, y_2)</Math> is:
         </p>

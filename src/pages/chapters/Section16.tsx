@@ -131,7 +131,19 @@ export default function Section16() {
       {/* Properties of Sums */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Properties of Summations</h2>
 
-      <Theorem title="Linearity of Summation">
+      <Theorem
+        title="Linearity of Summation"
+        proof={
+          <>
+            <p><strong>Scalar multiplication:</strong></p>
+            <MathBlock>\sum_{'{i=1}'}^{'{n}'} c \cdot a_i = ca_1 + ca_2 + \cdots + ca_n = c(a_1 + a_2 + \cdots + a_n) = c \cdot \sum_{'{i=1}'}^{'{n}'} a_i</MathBlock>
+            <p className="mt-2"><strong>Addition:</strong></p>
+            <MathBlock>\sum_{'{i=1}'}^{'{n}'} (a_i + b_i) = (a_1 + b_1) + (a_2 + b_2) + \cdots + (a_n + b_n)</MathBlock>
+            <p className="mt-2">By commutativity and associativity of addition, we can regroup:</p>
+            <MathBlock>= (a_1 + a_2 + \cdots + a_n) + (b_1 + b_2 + \cdots + b_n) = \sum_{'{i=1}'}^{'{n}'} a_i + \sum_{'{i=1}'}^{'{n}'} b_i</MathBlock>
+          </>
+        }
+      >
         <p>For constants <Math>c</Math> and sequences <Math>a_i, b_i</Math>:</p>
         <div className="mt-3 space-y-2">
           <MathBlock>\sum_{'{i=1}'}^{'{n}'} c \cdot a_i = c \cdot \sum_{'{i=1}'}^{'{n}'} a_i</MathBlock>
@@ -139,7 +151,17 @@ export default function Section16() {
         </div>
       </Theorem>
 
-      <Theorem title="Splitting Sums">
+      <Theorem
+        title="Splitting Sums"
+        proof={
+          <>
+            <p>By definition of summation:</p>
+            <MathBlock>\sum_{'{i=1}'}^{'{n}'} a_i = a_1 + a_2 + \cdots + a_k + a_{'{k+1}'} + \cdots + a_n</MathBlock>
+            <p className="mt-2">Grouping the first <Math>k</Math> terms and the remaining terms:</p>
+            <MathBlock>= (a_1 + a_2 + \cdots + a_k) + (a_{'{k+1}'} + \cdots + a_n) = \sum_{'{i=1}'}^{'{k}'} a_i + \sum_{'{i=k+1}'}^{'{n}'} a_i</MathBlock>
+          </>
+        }
+      >
         <p>A sum can be split at any point:</p>
         <MathBlock>\sum_{'{i=1}'}^{'{n}'} a_i = \sum_{'{i=1}'}^{'{k}'} a_i + \sum_{'{i=k+1}'}^{'{n}'} a_i</MathBlock>
       </Theorem>
@@ -149,15 +171,56 @@ export default function Section16() {
       {/* Common Formulas */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Important Sum Formulas</h2>
 
-      <Theorem title="Sum of First n Natural Numbers">
+      <Theorem
+        title="Sum of First n Natural Numbers"
+        proof={
+          <>
+            <p>Let <Math>S = 1 + 2 + 3 + \cdots + n</Math>.</p>
+            <p className="mt-2">Write S twice, once forward and once backward:</p>
+            <MathBlock>{`\\begin{aligned} S &= 1 + 2 + 3 + \\cdots + n \\\\ S &= n + (n-1) + (n-2) + \\cdots + 1 \\end{aligned}`}</MathBlock>
+            <p className="mt-2">Adding these equations column by column:</p>
+            <MathBlock>2S = (n+1) + (n+1) + (n+1) + \cdots + (n+1) = n(n+1)</MathBlock>
+            <p className="mt-2">Therefore <Math>S = \frac{'{n(n+1)}'}{'{2}'}</Math>.</p>
+          </>
+        }
+      >
         <MathBlock>\sum_{'{i=1}'}^{'{n}'} i = 1 + 2 + 3 + \cdots + n = \frac{'{n(n+1)}'}{'{2}'}</MathBlock>
       </Theorem>
 
-      <Theorem title="Sum of First n Squares">
+      <Theorem
+        title="Sum of First n Squares"
+        proof={
+          <>
+            <p>We prove by induction.</p>
+            <p className="mt-2"><strong>Base case (n = 1):</strong> <Math>1^2 = 1 = \frac{'{1 \\cdot 2 \\cdot 3}'}{'{6}'}</Math>. ✓</p>
+            <p className="mt-2"><strong>Inductive step:</strong> Assume <Math>\sum_{'{i=1}'}^{'{k}'} i^2 = \frac{'{k(k+1)(2k+1)}'}{'{6}'}</Math>.</p>
+            <p className="mt-2">Then:</p>
+            <MathBlock>\sum_{'{i=1}'}^{'{k+1}'} i^2 = \frac{'{k(k+1)(2k+1)}'}{'{6}'} + (k+1)^2</MathBlock>
+            <p className="mt-2">Factoring out <Math>(k+1)</Math>:</p>
+            <MathBlock>= (k+1)\left(\frac{'{k(2k+1)}'}{'{6}'} + (k+1)\right) = (k+1) \cdot \frac{'{k(2k+1) + 6(k+1)}'}{'{6}'}</MathBlock>
+            <p className="mt-2">Simplifying the numerator: <Math>k(2k+1) + 6(k+1) = 2k^2 + 7k + 6 = (k+2)(2k+3)</Math></p>
+            <MathBlock>= \frac{'{(k+1)(k+2)(2k+3)}'}{'{6}'} = \frac{'{(k+1)((k+1)+1)(2(k+1)+1)}'}{'{6}'}</MathBlock>
+          </>
+        }
+      >
         <MathBlock>\sum_{'{i=1}'}^{'{n}'} i^2 = 1^2 + 2^2 + \cdots + n^2 = \frac{'{n(n+1)(2n+1)}'}{'{6}'}</MathBlock>
       </Theorem>
 
-      <Theorem title="Sum of First n Cubes">
+      <Theorem
+        title="Sum of First n Cubes"
+        proof={
+          <>
+            <p>We prove by induction.</p>
+            <p className="mt-2"><strong>Base case (n = 1):</strong> <Math>1^3 = 1 = \left(\frac{'{1 \\cdot 2}'}{'{2}'}\right)^2 = 1^2 = 1</Math>. ✓</p>
+            <p className="mt-2"><strong>Inductive step:</strong> Assume <Math>\sum_{'{i=1}'}^{'{k}'} i^3 = \left(\frac{'{k(k+1)}'}{'{2}'}\right)^2</Math>.</p>
+            <p className="mt-2">Then:</p>
+            <MathBlock>\sum_{'{i=1}'}^{'{k+1}'} i^3 = \left(\frac{'{k(k+1)}'}{'{2}'}\right)^2 + (k+1)^3</MathBlock>
+            <p className="mt-2">Factoring out <Math>(k+1)^2</Math>:</p>
+            <MathBlock>= (k+1)^2\left(\frac{'{k^2}'}{'{4}'} + (k+1)\right) = (k+1)^2 \cdot \frac{'{k^2 + 4k + 4}'}{'{4}'} = (k+1)^2 \cdot \frac{'{(k+2)^2}'}{'{4}'}</MathBlock>
+            <MathBlock>= \left(\frac{'{(k+1)(k+2)}'}{'{2}'}\right)^2</MathBlock>
+          </>
+        }
+      >
         <MathBlock>\sum_{'{i=1}'}^{'{n}'} i^3 = 1^3 + 2^3 + \cdots + n^3 = \left(\frac{'{n(n+1)}'}{'{2}'}\right)^2</MathBlock>
         <p className="mt-2 text-dark-400">
           Notice: The sum of cubes equals the square of the sum of first n numbers!
@@ -182,7 +245,22 @@ export default function Section16() {
         </p>
       </Definition>
 
-      <Theorem title="Finite Geometric Series">
+      <Theorem
+        title="Finite Geometric Series"
+        proof={
+          <>
+            <p>Let <Math>S = a + ar + ar^2 + \cdots + ar^{'{n-1}'}</Math>.</p>
+            <p className="mt-2">Multiply both sides by <Math>r</Math>:</p>
+            <MathBlock>rS = ar + ar^2 + ar^3 + \cdots + ar^n</MathBlock>
+            <p className="mt-2">Subtract the second equation from the first:</p>
+            <MathBlock>S - rS = a - ar^n</MathBlock>
+            <p className="mt-2">Factor both sides:</p>
+            <MathBlock>S(1 - r) = a(1 - r^n)</MathBlock>
+            <p className="mt-2">Divide by <Math>(1 - r)</Math> (valid since <Math>r \neq 1</Math>):</p>
+            <MathBlock>S = a \cdot \frac{'{1 - r^n}'}{'{1 - r}'}</MathBlock>
+          </>
+        }
+      >
         <p>The sum of a finite geometric series with <Math>r \neq 1</Math>:</p>
         <MathBlock>\sum_{'{i=0}'}^{'{n-1}'} ar^i = a + ar + ar^2 + \cdots + ar^{'{n-1}'} = a \cdot \frac{'{1 - r^n}'}{'{1 - r}'}</MathBlock>
       </Theorem>
@@ -202,7 +280,20 @@ export default function Section16() {
       {/* Infinite Geometric Series */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Infinite Geometric Series</h2>
 
-      <Theorem title="Infinite Geometric Series">
+      <Theorem
+        title="Infinite Geometric Series"
+        proof={
+          <>
+            <p>Start with the finite geometric series formula:</p>
+            <MathBlock>S_n = a \cdot \frac{'{1 - r^n}'}{'{1 - r}'}</MathBlock>
+            <p className="mt-2">When <Math>|r| {'<'} 1</Math>, as <Math>n \to \infty</Math>, the term <Math>r^n \to 0</Math>.</p>
+            <p className="mt-2">To see this: if <Math>|r| = q {'<'} 1</Math>, then <Math>|r^n| = q^n</Math>, which approaches 0 as <Math>n</Math> grows.</p>
+            <p className="mt-2">Taking the limit:</p>
+            <MathBlock>\lim_{'{n \\to \\infty}'} S_n = a \cdot \frac{'{1 - 0}'}{'{1 - r}'} = \frac{'{a}'}{'{1 - r}'}</MathBlock>
+            <p className="mt-2">If <Math>|r| \geq 1</Math>, then <Math>r^n</Math> does not approach 0, so the series diverges.</p>
+          </>
+        }
+      >
         <p>
           If <Math>|r| {'<'} 1</Math>, the infinite geometric series converges:
         </p>

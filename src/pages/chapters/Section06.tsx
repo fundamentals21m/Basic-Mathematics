@@ -130,7 +130,26 @@ x + 2y = 3 \\\\
 
       <SpecialCasesExplorer />
 
-      <Theorem title="When Does a Unique Solution Exist?" className="mt-8">
+      <Theorem
+        title="When Does a Unique Solution Exist?"
+        className="mt-8"
+        proof={
+          <>
+            <p>Consider the system:</p>
+            <MathBlock>{`\\begin{cases} ax + by = e \\\\ cx + dy = f \\end{cases}`}</MathBlock>
+            <p className="mt-2">Multiply the first equation by <Math>d</Math> and the second by <Math>b</Math>:</p>
+            <MathBlock>{`\\begin{cases} adx + bdy = ed \\\\ bcx + bdy = fb \\end{cases}`}</MathBlock>
+            <p className="mt-2">Subtracting eliminates <Math>y</Math>:</p>
+            <MathBlock>(ad - bc)x = ed - fb</MathBlock>
+            <p className="mt-2">Similarly, multiplying the first by <Math>c</Math> and the second by <Math>a</Math>, then subtracting:</p>
+            <MathBlock>(ad - bc)y = af - ec</MathBlock>
+            <p className="mt-2"><strong>If <Math>ad - bc \neq 0</Math>:</strong> We can solve for unique values:</p>
+            <MathBlock>{`x = \\frac{ed - fb}{ad - bc}, \\quad y = \\frac{af - ec}{ad - bc}`}</MathBlock>
+            <p className="mt-2"><strong>If <Math>ad - bc = 0</Math>:</strong> The equations <Math>(ad-bc)x = ed - fb</Math> and <Math>(ad-bc)y = af - ec</Math> become <Math>0 = ed - fb</Math> and <Math>0 = af - ec</Math>.</p>
+            <p className="mt-2">If these are false (e.g., <Math>ed - fb \neq 0</Math>), no solution exists. If true, infinitely many solutions exist.</p>
+          </>
+        }
+      >
         <p>For the system:</p>
         <MathBlock>
           {`\\begin{cases}

@@ -185,7 +185,20 @@ export default function Section22() {
       {/* Converse */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">The Converse</h2>
 
-      <Theorem title="Converse of the Pythagorean Theorem">
+      <Theorem
+        title="Converse of the Pythagorean Theorem"
+        proof={
+          <>
+            <p>Given triangle <Math>\triangle ABC</Math> with <Math>a^2 + b^2 = c^2</Math>.</p>
+            <p className="mt-2">Construct a right triangle <Math>\triangle DEF</Math> with legs <Math>a</Math> and <Math>b</Math>.</p>
+            <p className="mt-2">By the Pythagorean theorem, its hypotenuse <Math>f</Math> satisfies <Math>f^2 = a^2 + b^2 = c^2</Math>.</p>
+            <p className="mt-2">Since <Math>f^2 = c^2</Math> and both are positive, <Math>f = c</Math>.</p>
+            <p className="mt-2">Now <Math>\triangle ABC</Math> has sides <Math>a, b, c</Math> and <Math>\triangle DEF</Math> has sides <Math>a, b, c</Math>.</p>
+            <p className="mt-2">By SSS, <Math>\triangle ABC \cong \triangle DEF</Math>.</p>
+            <p className="mt-2">Since <Math>\triangle DEF</Math> has a right angle opposite the hypotenuse, so does <Math>\triangle ABC</Math>.</p>
+          </>
+        }
+      >
         <p>
           If a triangle has sides <Math>a</Math>, <Math>b</Math>, <Math>c</Math> satisfying <Math>a^2 + b^2 = c^2</Math>,
           then the triangle is a right triangle with the right angle opposite side <Math>c</Math>.

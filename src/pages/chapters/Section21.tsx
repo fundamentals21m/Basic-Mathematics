@@ -19,7 +19,20 @@ export default function Section21() {
       {/* Triangle Area Formula */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">The Basic Formula</h2>
 
-      <Theorem title="Triangle Area">
+      <Theorem
+        title="Triangle Area"
+        proof={
+          <>
+            <p>Take triangle <Math>\triangle ABC</Math> with base <Math>b</Math> and height <Math>h</Math>.</p>
+            <p className="mt-2">Create a copy and rotate it 180° about the midpoint of one side.</p>
+            <p className="mt-2">The two triangles together form a parallelogram with base <Math>b</Math> and height <Math>h</Math>.</p>
+            <p className="mt-2">By the parallelogram area theorem (§20):</p>
+            <p className="mt-2 text-center"><Math>\text{'{Area of parallelogram}'} = bh</Math></p>
+            <p className="mt-2">Since the triangle is exactly half the parallelogram:</p>
+            <p className="mt-2 text-center"><Math>\text{'{Area of triangle}'} = \frac{'{1}'}{'{2}'}bh</Math></p>
+          </>
+        }
+      >
         <p>
           A triangle with base <Math>b</Math> and corresponding height <Math>h</Math> has area:
         </p>
@@ -113,7 +126,21 @@ export default function Section21() {
         area directly from the side lengths.
       </p>
 
-      <Theorem title="Heron's Formula">
+      <Theorem
+        title="Heron's Formula"
+        proof={
+          <>
+            <p>Start with the basic formula: <Math>A = \frac{'{1}'}{'{2}'}bh</Math> where <Math>b = c</Math> (using side <Math>c</Math> as base).</p>
+            <p className="mt-2">From the Pythagorean theorem on the altitude to side <Math>c</Math>:</p>
+            <p className="mt-2"><Math>h^2 = a^2 - x^2 = b^2 - (c-x)^2</Math> for some <Math>x</Math>.</p>
+            <p className="mt-2">Solving: <Math>x = \frac{'{a^2 - b^2 + c^2}'}{'{2c}'}</Math></p>
+            <p className="mt-2">Then <Math>h^2 = a^2 - x^2</Math>, and <Math>A^2 = \frac{'{c^2 h^2}'}{'{4}'}</Math>.</p>
+            <p className="mt-2">After algebraic simplification using <Math>s = \frac{'{a+b+c}'}{'{2}'}</Math>:</p>
+            <p className="mt-2"><Math>A^2 = s(s-a)(s-b)(s-c)</Math></p>
+            <p className="mt-2">Taking the square root gives Heron's formula.</p>
+          </>
+        }
+      >
         <p>
           For a triangle with sides <Math>a</Math>, <Math>b</Math>, <Math>c</Math>, let <Math>s = \frac{'{a+b+c}'}{'{2}'}</Math> be the
           <strong> semi-perimeter</strong>. Then:
@@ -153,7 +180,18 @@ export default function Section21() {
         to determinants) to find the area.
       </p>
 
-      <Theorem title="Shoelace Formula">
+      <Theorem
+        title="Shoelace Formula"
+        proof={
+          <>
+            <p>Translate so vertex 1 is at the origin: <Math>(x_1, y_1) = (0, 0)</Math>.</p>
+            <p className="mt-2">The triangle is spanned by vectors <Math>\mathbf{'{u}'} = (x_2, y_2)</Math> and <Math>\mathbf{'{v}'} = (x_3, y_3)</Math>.</p>
+            <p className="mt-2">The parallelogram on <Math>\mathbf{'{u}'}</Math> and <Math>\mathbf{'{v}'}</Math> has area <Math>|x_2 y_3 - y_2 x_3|</Math> (determinant formula, §20).</p>
+            <p className="mt-2">The triangle is half this parallelogram: <Math>\text{'{Area}'} = \frac{'{1}'}{'{2}'}|x_2 y_3 - y_2 x_3|</Math>.</p>
+            <p className="mt-2">Expanding for general <Math>(x_1, y_1)</Math> by substituting shifted coordinates gives the full shoelace formula.</p>
+          </>
+        }
+      >
         <p>
           For a triangle with vertices <Math>(x_1, y_1)</Math>, <Math>(x_2, y_2)</Math>, <Math>(x_3, y_3)</Math>:
         </p>
@@ -189,7 +227,22 @@ export default function Section21() {
       {/* Comparison with Parallelogram */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Relationship to Parallelograms</h2>
 
-      <Theorem title="Triangle as Half a Parallelogram">
+      <Theorem
+        title="Triangle as Half a Parallelogram"
+        proof={
+          <>
+            <p>Let ABCD be a parallelogram with diagonal AC.</p>
+            <p className="mt-2">In triangles <Math>\triangle ABC</Math> and <Math>\triangle CDA</Math>:</p>
+            <ul className="mt-1 ml-4 list-disc">
+              <li><Math>|AB| = |CD|</Math> (opposite sides of parallelogram)</li>
+              <li><Math>|BC| = |DA|</Math> (opposite sides of parallelogram)</li>
+              <li><Math>|AC| = |CA|</Math> (common side)</li>
+            </ul>
+            <p className="mt-2">By SSS, <Math>\triangle ABC \cong \triangle CDA</Math>.</p>
+            <p className="mt-2">Congruent figures have equal areas, so each triangle has half the parallelogram's area.</p>
+          </>
+        }
+      >
         <p>
           A diagonal of any parallelogram divides it into two congruent triangles.
           Therefore, each triangle has exactly half the area of the parallelogram.

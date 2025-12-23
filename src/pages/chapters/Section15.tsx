@@ -137,7 +137,19 @@ export default function Section15() {
         </p>
       </Definition>
 
-      <Theorem title="Properties of Conjugates">
+      <Theorem
+        title="Properties of Conjugates"
+        proof={
+          <>
+            <p>Let <Math>z = a + bi</Math> and <Math>w = c + di</Math>.</p>
+            <p className="mt-2"><strong>1. Sum:</strong> <Math>z + w = (a+c) + (b+d)i</Math>, so <Math>\overline{'{z+w}'} = (a+c) - (b+d)i = (a-bi) + (c-di) = \bar{'{z}'} + \bar{'{w}'}</Math>.</p>
+            <p className="mt-2"><strong>2. Product:</strong> <Math>zw = (ac-bd) + (ad+bc)i</Math>, so <Math>\overline{'{zw}'} = (ac-bd) - (ad+bc)i</Math>.</p>
+            <p>Also, <Math>\bar{'{z}'}\bar{'{w}'} = (a-bi)(c-di) = (ac-bd) + (-ad-bc)i = (ac-bd) - (ad+bc)i</Math>. ✓</p>
+            <p className="mt-2"><strong>3. Double conjugate:</strong> <Math>\bar{'{z}'} = a - bi</Math>, so <Math>\overline{'{\bar{z}}'} = a - (-b)i = a + bi = z</Math>. ✓</p>
+            <p className="mt-2"><strong>4. Product with conjugate:</strong> <Math>z\bar{'{z}'} = (a+bi)(a-bi) = a^2 - (bi)^2 = a^2 - b^2i^2 = a^2 + b^2</Math>. ✓</p>
+          </>
+        }
+      >
         <p>For complex numbers <Math>z</Math> and <Math>w</Math>:</p>
         <ul className="mt-2 space-y-1 text-dark-300">
           <li><Math>\overline{'{z + w}'} = \bar{'{z}'} + \bar{'{w}'}</Math></li>
@@ -160,7 +172,17 @@ export default function Section15() {
         </p>
       </Definition>
 
-      <Theorem title="Modulus and Conjugate">
+      <Theorem
+        title="Modulus and Conjugate"
+        proof={
+          <>
+            <p>Let <Math>z = a + bi</Math>.</p>
+            <p className="mt-2">Then <Math>z \cdot \bar{'{z}'} = (a + bi)(a - bi) = a^2 + b^2</Math> (proved above).</p>
+            <p className="mt-2">Also, <Math>|z|^2 = (\sqrt{'{a^2 + b^2}'})^2 = a^2 + b^2</Math>.</p>
+            <p className="mt-2">Therefore <Math>|z|^2 = z \cdot \bar{'{z}'}</Math>.</p>
+          </>
+        }
+      >
         <MathBlock>|z|^2 = z \cdot \bar{'{z}'}</MathBlock>
       </Theorem>
 
@@ -224,7 +246,21 @@ export default function Section15() {
       {/* Multiplication in Polar Form */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Multiplication in Polar Form</h2>
 
-      <Theorem title="Polar Multiplication">
+      <Theorem
+        title="Polar Multiplication"
+        proof={
+          <>
+            <p>Let <Math>z_1 = r_1(\cos\theta_1 + i\sin\theta_1)</Math> and <Math>z_2 = r_2(\cos\theta_2 + i\sin\theta_2)</Math>.</p>
+            <p className="mt-2">Then:</p>
+            <MathBlock>z_1 z_2 = r_1 r_2 (\cos\theta_1 + i\sin\theta_1)(\cos\theta_2 + i\sin\theta_2)</MathBlock>
+            <p className="mt-2">Expanding:</p>
+            <MathBlock>= r_1 r_2 [(\cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2) + i(\sin\theta_1\cos\theta_2 + \cos\theta_1\sin\theta_2)]</MathBlock>
+            <p className="mt-2">By the angle addition formulas:</p>
+            <MathBlock>= r_1 r_2 [\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)]</MathBlock>
+            <p className="mt-2"><Math>= r_1 r_2 \text{'{cis}'}(\theta_1 + \theta_2)</Math>.</p>
+          </>
+        }
+      >
         <p>If <Math>z_1 = r_1 \text{'{cis}'}\theta_1</Math> and <Math>z_2 = r_2 \text{'{cis}'}\theta_2</Math>, then:</p>
         <MathBlock>z_1 z_2 = r_1 r_2 \text{'{cis}'}(\theta_1 + \theta_2)</MathBlock>
         <p className="mt-2 text-dark-400">
@@ -232,7 +268,21 @@ export default function Section15() {
         </p>
       </Theorem>
 
-      <Theorem title="De Moivre's Theorem">
+      <Theorem
+        title="De Moivre's Theorem"
+        proof={
+          <>
+            <p>We prove by induction for positive integers.</p>
+            <p className="mt-2"><strong>Base case (n = 1):</strong> <Math>(r \text{'{cis}'}\theta)^1 = r^1 \text{'{cis}'}(1 \cdot \theta)</Math>. ✓</p>
+            <p className="mt-2"><strong>Inductive step:</strong> Assume <Math>(r \text{'{cis}'}\theta)^k = r^k \text{'{cis}'}(k\theta)</Math>.</p>
+            <p className="mt-2">Then:</p>
+            <MathBlock>(r \text{'{cis}'}\theta)^{'{k+1}'} = (r \text{'{cis}'}\theta)^k \cdot (r \text{'{cis}'}\theta) = r^k \text{'{cis}'}(k\theta) \cdot r \text{'{cis}'}\theta</MathBlock>
+            <p className="mt-2">By the polar multiplication rule:</p>
+            <MathBlock>= r^{'{k+1}'} \text{'{cis}'}(k\theta + \theta) = r^{'{k+1}'} \text{'{cis}'}((k+1)\theta)</MathBlock>
+            <p className="mt-2">For negative integers <Math>n = -m</Math> (where <Math>m {'>'} 0</Math>), use <Math>z^{'{-m}'} = 1/z^m</Math>.</p>
+          </>
+        }
+      >
         <p>For any integer <Math>n</Math>:</p>
         <MathBlock>(r \text{'{cis}'}\theta)^n = r^n \text{'{cis}'}(n\theta)</MathBlock>
         <p className="mt-2 text-dark-400">
@@ -252,7 +302,23 @@ export default function Section15() {
       {/* Euler's Formula */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Euler's Formula</h2>
 
-      <Theorem title="Euler's Formula">
+      <Theorem
+        title="Euler's Formula"
+        proof={
+          <>
+            <p>Using Taylor series expansions:</p>
+            <MathBlock>e^x = 1 + x + \frac{'{x^2}'}{'{2!}'} + \frac{'{x^3}'}{'{3!}'} + \frac{'{x^4}'}{'{4!}'} + \cdots</MathBlock>
+            <p className="mt-2">Substituting <Math>x = i\theta</Math>:</p>
+            <MathBlock>e^{'{i\\theta}'} = 1 + i\theta + \frac{'{(i\\theta)^2}'}{'{2!}'} + \frac{'{(i\\theta)^3}'}{'{3!}'} + \frac{'{(i\\theta)^4}'}{'{4!}'} + \cdots</MathBlock>
+            <p className="mt-2">Since <Math>i^2 = -1</Math>, <Math>i^3 = -i</Math>, <Math>i^4 = 1</Math>, etc.:</p>
+            <MathBlock>= 1 + i\theta - \frac{'{\theta^2}'}{'{2!}'} - i\frac{'{\theta^3}'}{'{3!}'} + \frac{'{\theta^4}'}{'{4!}'} + \cdots</MathBlock>
+            <p className="mt-2">Grouping real and imaginary parts:</p>
+            <MathBlock>= \left(1 - \frac{'{\theta^2}'}{'{2!}'} + \frac{'{\theta^4}'}{'{4!}'} - \cdots\right) + i\left(\theta - \frac{'{\theta^3}'}{'{3!}'} + \frac{'{\theta^5}'}{'{5!}'} - \cdots\right)</MathBlock>
+            <p className="mt-2">These are the Taylor series for <Math>\cos\theta</Math> and <Math>\sin\theta</Math>:</p>
+            <MathBlock>= \cos\theta + i\sin\theta</MathBlock>
+          </>
+        }
+      >
         <p>For any real <Math>\theta</Math>:</p>
         <MathBlock>e^{'{i\theta}'} = \cos\theta + i\sin\theta</MathBlock>
         <p className="mt-2 text-dark-400">

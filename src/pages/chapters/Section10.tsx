@@ -23,7 +23,17 @@ export default function Section10() {
         <MathBlock>{"a^n = \\underbrace{a \\cdot a \\cdot \\cdots \\cdot a}_{n \\text{ times}}"}</MathBlock>
       </Definition>
 
-      <Theorem title="Product of Powers">
+      <Theorem
+        title="Product of Powers"
+        proof={
+          <>
+            <p>By definition of positive integer powers:</p>
+            <MathBlock>{"a^m = \\underbrace{a \\cdot a \\cdots a}_{m \\text{ times}}, \\quad a^n = \\underbrace{a \\cdot a \\cdots a}_{n \\text{ times}}"}</MathBlock>
+            <p className="mt-2">Multiplying these together:</p>
+            <MathBlock>{"a^m \\cdot a^n = \\underbrace{a \\cdot a \\cdots a}_{m \\text{ times}} \\cdot \\underbrace{a \\cdot a \\cdots a}_{n \\text{ times}} = \\underbrace{a \\cdot a \\cdots a}_{m+n \\text{ times}} = a^{m+n}"}</MathBlock>
+          </>
+        }
+      >
         <p>For positive integers <Math>m</Math> and <Math>n</Math>:</p>
         <MathBlock>a^m \cdot a^n = a^{'{m+n}'}</MathBlock>
       </Theorem>
@@ -31,30 +41,39 @@ export default function Section10() {
       {/* Zero and Negative Exponents */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Zero and Negative Exponents</h2>
 
-      <Theorem title="Zero Exponent">
+      <Theorem
+        title="Zero Exponent"
+        proof={
+          <>
+            <p>We want <Math>a^0 = 1</Math> to preserve the product rule <Math>a^m \cdot a^n = a^{'{m+n}'}</Math>.</p>
+            <p className="mt-2">Let <Math>b = a^0</Math>. Using the product rule:</p>
+            <MathBlock>a = a^1 = a^{'{0+1}'} = a^0 \cdot a^1 = b \cdot a</MathBlock>
+            <p className="mt-2">So <Math>ba = a</Math>. Multiplying both sides by <Math>a^{'{-1}'}</Math>:</p>
+            <MathBlock>b = 1</MathBlock>
+            <p className="mt-2">Therefore <Math>a^0 = 1</Math>.</p>
+          </>
+        }
+      >
         <p>For any <Math>a \neq 0</Math>:</p>
         <MathBlock>a^0 = 1</MathBlock>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show why</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
-            <p>Let <Math>b = a^0</Math>. Then:</p>
-            <MathBlock>a = a^1 = a^{'{0+1}'} = a^0 \cdot a^1 = b \cdot a</MathBlock>
-            <p className="mt-2">So <Math>ba = a</Math>. Multiplying by <Math>a^{'{-1}'}</Math>: <Math>b = 1</Math>.</p>
-          </div>
-        </details>
       </Theorem>
 
-      <Theorem title="Negative Exponent" className="mt-6">
+      <Theorem
+        title="Negative Exponent"
+        className="mt-6"
+        proof={
+          <>
+            <p>We want negative exponents to preserve the product rule <Math>a^m \cdot a^n = a^{'{m+n}'}</Math>.</p>
+            <p className="mt-2">Using the product rule with exponents <Math>n</Math> and <Math>-n</Math>:</p>
+            <MathBlock>a^n \cdot a^{'{-n}'} = a^{'{n + (-n)}'} = a^0 = 1</MathBlock>
+            <p className="mt-2">This shows that <Math>a^{'{-n}'}</Math> is the multiplicative inverse of <Math>a^n</Math>.</p>
+            <p className="mt-2">Therefore:</p>
+            <MathBlock>a^{'{-n}'} = \frac{'{1}'}{'{a^n}'}</MathBlock>
+          </>
+        }
+      >
         <p>For any <Math>a \neq 0</Math> and positive integer <Math>n</Math>:</p>
         <MathBlock>a^{'{-n}'} = \frac{'{1}'}{'{a^n}'}</MathBlock>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show why</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
-            <p>From the product rule:</p>
-            <MathBlock>1 = a^0 = a^{'{n + (-n)}'} = a^n \cdot a^{'{-n}'}</MathBlock>
-            <p className="mt-2">So <Math>a^{'{-n}'}</Math> is the multiplicative inverse of <Math>a^n</Math>.</p>
-          </div>
-        </details>
       </Theorem>
 
       <Example title="Zero and Negative Exponents">
@@ -71,7 +90,19 @@ export default function Section10() {
       {/* n-th Roots */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">n-th Roots</h2>
 
-      <Theorem title="Existence of n-th Roots">
+      <Theorem
+        title="Existence of n-th Roots"
+        proof={
+          <>
+            <p>We prove existence using the completeness property of real numbers.</p>
+            <p className="mt-2">Consider the set <Math>S = \{'{x \\in \\mathbb{R}^+ : x^n < a}'}\</Math>.</p>
+            <p className="mt-2">This set is non-empty (it contains small positive numbers) and bounded above (if <Math>x {'>'} a+1</Math> and <Math>a {'>'} 1</Math>, then <Math>x^n {'>'} a</Math>).</p>
+            <p className="mt-2">By the least upper bound property, <Math>S</Math> has a supremum <Math>r = \sup S</Math>.</p>
+            <p className="mt-2">One can show that <Math>r^n = a</Math>: if <Math>r^n {'<'} a</Math>, we could find a larger element in <Math>S</Math>; if <Math>r^n {'>'} a</Math>, we could find a smaller upper bound.</p>
+            <p className="mt-2"><strong>Uniqueness:</strong> If <Math>r^n = a</Math> and <Math>s^n = a</Math> with <Math>r, s {'>'} 0</Math>, then <Math>r^n = s^n</Math>. Since the function <Math>f(x) = x^n</Math> is strictly increasing for positive <Math>x</Math>, we must have <Math>r = s</Math>.</p>
+          </>
+        }
+      >
         <p>
           For any positive real number <Math>a</Math> and positive integer <Math>n</Math>,
           there exists a unique positive real number <Math>r</Math> such that:

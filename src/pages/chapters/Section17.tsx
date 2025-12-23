@@ -91,40 +91,110 @@ export default function Section17() {
       {/* Properties of 2x2 Determinants */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Properties of Determinants</h2>
 
-      <Theorem title="D1: Determinant of Identity">
+      <Theorem
+        title="D1: Determinant of Identity"
+        proof={
+          <>
+            <p>Direct computation:</p>
+            <MathBlock>\det(I) = \det \begin{'{bmatrix}'} 1 & 0 \\ 0 & 1 \end{'{bmatrix}'} = (1)(1) - (0)(0) = 1</MathBlock>
+          </>
+        }
+      >
         <MathBlock>\det(I) = \det \begin{'{bmatrix}'} 1 & 0 \\ 0 & 1 \end{'{bmatrix}'} = 1</MathBlock>
       </Theorem>
 
-      <Theorem title="D2: Row Swap Changes Sign">
+      <Theorem
+        title="D2: Row Swap Changes Sign"
+        proof={
+          <>
+            <p>For a 2×2 matrix:</p>
+            <MathBlock>\det \begin{'{bmatrix}'} c & d \\ a & b \end{'{bmatrix}'} = cb - da</MathBlock>
+            <p className="mt-2">Meanwhile:</p>
+            <MathBlock>\det \begin{'{bmatrix}'} a & b \\ c & d \end{'{bmatrix}'} = ad - bc</MathBlock>
+            <p className="mt-2">We see that <Math>cb - da = -(ad - bc)</Math>. ✓</p>
+          </>
+        }
+      >
         <p>Swapping two rows (or columns) multiplies the determinant by −1.</p>
         <MathBlock>
           \det \begin{'{bmatrix}'} c & d \\ a & b \end{'{bmatrix}'} = -\det \begin{'{bmatrix}'} a & b \\ c & d \end{'{bmatrix}'}
         </MathBlock>
       </Theorem>
 
-      <Theorem title="D3: Scalar Multiplication">
+      <Theorem
+        title="D3: Scalar Multiplication"
+        proof={
+          <>
+            <p>Direct computation:</p>
+            <MathBlock>\det \begin{'{bmatrix}'} ka & kb \\ c & d \end{'{bmatrix}'} = (ka)(d) - (kb)(c) = k(ad - bc) = k \cdot \det \begin{'{bmatrix}'} a & b \\ c & d \end{'{bmatrix}'}</MathBlock>
+          </>
+        }
+      >
         <p>Multiplying a row by scalar <Math>k</Math> multiplies the determinant by <Math>k</Math>.</p>
         <MathBlock>
           \det \begin{'{bmatrix}'} ka & kb \\ c & d \end{'{bmatrix}'} = k \cdot \det \begin{'{bmatrix}'} a & b \\ c & d \end{'{bmatrix}'}
         </MathBlock>
       </Theorem>
 
-      <Theorem title="D4: Row Addition">
+      <Theorem
+        title="D4: Row Addition"
+        proof={
+          <>
+            <p>Direct computation:</p>
+            <MathBlock>\det \begin{'{bmatrix}'} a & b \\ c + ka & d + kb \end{'{bmatrix}'} = a(d + kb) - b(c + ka)</MathBlock>
+            <p className="mt-2">Expanding:</p>
+            <MathBlock>= ad + akb - bc - bka = ad - bc + k(ab - ab) = ad - bc</MathBlock>
+            <p className="mt-2">This equals <Math>\det \begin{'{bmatrix}'} a & b \\ c & d \end{'{bmatrix}'}</Math>. ✓</p>
+          </>
+        }
+      >
         <p>Adding a multiple of one row to another does not change the determinant.</p>
         <MathBlock>
           \det \begin{'{bmatrix}'} a & b \\ c + ka & d + kb \end{'{bmatrix}'} = \det \begin{'{bmatrix}'} a & b \\ c & d \end{'{bmatrix}'}
         </MathBlock>
       </Theorem>
 
-      <Theorem title="D5: Zero Row">
+      <Theorem
+        title="D5: Zero Row"
+        proof={
+          <>
+            <p>If row 1 is zero:</p>
+            <MathBlock>\det \begin{'{bmatrix}'} 0 & 0 \\ c & d \end{'{bmatrix}'} = 0 \cdot d - 0 \cdot c = 0</MathBlock>
+            <p className="mt-2">Similarly for row 2 or any column being zero.</p>
+          </>
+        }
+      >
         <p>If any row (or column) is all zeros, the determinant is 0.</p>
       </Theorem>
 
-      <Theorem title="D6: Equal Rows">
+      <Theorem
+        title="D6: Equal Rows"
+        proof={
+          <>
+            <p>If both rows are <Math>(a, b)</Math>:</p>
+            <MathBlock>\det \begin{'{bmatrix}'} a & b \\ a & b \end{'{bmatrix}'} = ab - ba = 0</MathBlock>
+            <p className="mt-2">Alternatively: swapping equal rows gives the same matrix, but D2 says the determinant changes sign. Thus <Math>\det = -\det</Math>, so <Math>\det = 0</Math>.</p>
+          </>
+        }
+      >
         <p>If two rows (or columns) are equal, the determinant is 0.</p>
       </Theorem>
 
-      <Theorem title="Multiplicative Property">
+      <Theorem
+        title="Multiplicative Property"
+        proof={
+          <>
+            <p>For 2×2 matrices, this can be verified by direct computation.</p>
+            <p className="mt-2">In general, the proof uses the fact that:</p>
+            <ul className="list-disc list-inside mt-2">
+              <li>Elementary row operations correspond to multiplication by elementary matrices</li>
+              <li>Any invertible matrix is a product of elementary matrices</li>
+              <li>For elementary matrices, <Math>\det(EA) = \det(E) \cdot \det(A)</Math></li>
+            </ul>
+            <p className="mt-2">Combining these: if <Math>A = E_1 E_2 \cdots E_k</Math>, then <Math>\det(AB) = \det(E_1) \cdots \det(E_k) \det(B) = \det(A) \det(B)</Math>.</p>
+          </>
+        }
+      >
         <p>For square matrices <Math>A</Math> and <Math>B</Math>:</p>
         <MathBlock>\det(AB) = \det(A) \cdot \det(B)</MathBlock>
       </Theorem>
@@ -197,7 +267,18 @@ export default function Section17() {
       {/* Cramer's Rule */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Cramer's Rule</h2>
 
-      <Theorem title="Cramer's Rule (2×2 System)">
+      <Theorem
+        title="Cramer's Rule (2×2 System)"
+        proof={
+          <>
+            <p>Solving by elimination:</p>
+            <p className="mt-2">From the system, eliminating <Math>y</Math>: <Math>(ad - bc)x = ed - bf</Math>.</p>
+            <p className="mt-2">So <Math>x = \frac{'{ed - bf}'}{'{ad - bc}'}</Math>.</p>
+            <p className="mt-2">Note that <Math>ed - bf = \det \begin{'{bmatrix}'} e & b \\ f & d \end{'{bmatrix}'}</Math> and <Math>ad - bc = \det \begin{'{bmatrix}'} a & b \\ c & d \end{'{bmatrix}'}</Math>.</p>
+            <p className="mt-2">Similarly for <Math>y</Math>, we get <Math>y = \frac{'{af - ec}'}{'{ad - bc}'}</Math>, which corresponds to the given formula.</p>
+          </>
+        }
+      >
         <p>
           For the system <Math>ax + by = e</Math>, <Math>cx + dy = f</Math>:
         </p>
@@ -228,7 +309,18 @@ export default function Section17() {
         </div>
       </Example>
 
-      <Theorem title="Cramer's Rule (3×3 System)">
+      <Theorem
+        title="Cramer's Rule (3×3 System)"
+        proof={
+          <>
+            <p>For <Math>Ax = b</Math> with <Math>\det(A) \neq 0</Math>, <Math>A</Math> is invertible.</p>
+            <p className="mt-2">The solution is <Math>x = A^{'{-1}'}b</Math>.</p>
+            <p className="mt-2">Using the adjugate formula: <Math>A^{'{-1}'} = \frac{'{1}'}{'{\det(A)}'} \text{'{adj}'}(A)</Math>.</p>
+            <p className="mt-2">The <Math>i</Math>-th component of <Math>x</Math> involves the <Math>i</Math>-th row of <Math>\text{'{adj}'}(A)</Math> dotted with <Math>b</Math>.</p>
+            <p className="mt-2">This sum equals <Math>\det(A_i)</Math>, where <Math>A_i</Math> is <Math>A</Math> with column <Math>i</Math> replaced by <Math>b</Math> (this can be verified by cofactor expansion along that column).</p>
+          </>
+        }
+      >
         <p>
           For a 3×3 system <Math>Ax = b</Math> where <Math>\det(A) \neq 0</Math>:
         </p>
@@ -252,7 +344,17 @@ export default function Section17() {
       {/* Invertibility */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Determinants and Invertibility</h2>
 
-      <Theorem title="Invertibility Criterion">
+      <Theorem
+        title="Invertibility Criterion"
+        proof={
+          <>
+            <p><strong>If <Math>A</Math> is invertible:</strong> There exists <Math>A^{'{-1}'}</Math> with <Math>AA^{'{-1}'} = I</Math>.</p>
+            <p className="mt-2">By the multiplicative property: <Math>\det(A) \det(A^{'{-1}'}) = \det(I) = 1</Math>.</p>
+            <p className="mt-2">This is only possible if <Math>\det(A) \neq 0</Math>.</p>
+            <p className="mt-2"><strong>If <Math>\det(A) \neq 0</Math>:</strong> The formula <Math>A^{'{-1}'} = \frac{'{1}'}{'{\det(A)}'} \text{'{adj}'}(A)</Math> gives a well-defined inverse (one can verify <Math>A \cdot A^{'{-1}'} = I</Math>).</p>
+          </>
+        }
+      >
         <p>A square matrix <Math>A</Math> is <strong>invertible</strong> if and only if <Math>\det(A) \neq 0</Math>.</p>
         <ul className="mt-2 space-y-1 text-dark-300">
           <li><Math>\det(A) \neq 0</Math> → unique solution to <Math>Ax = b</Math></li>
@@ -260,7 +362,17 @@ export default function Section17() {
         </ul>
       </Theorem>
 
-      <Theorem title="Determinant of Inverse">
+      <Theorem
+        title="Determinant of Inverse"
+        proof={
+          <>
+            <p>Since <Math>AA^{'{-1}'} = I</Math>, by the multiplicative property:</p>
+            <MathBlock>\det(A) \cdot \det(A^{'{-1}'}) = \det(I) = 1</MathBlock>
+            <p className="mt-2">Dividing both sides by <Math>\det(A)</Math> (which is non-zero since <Math>A</Math> is invertible):</p>
+            <MathBlock>\det(A^{'{-1}'}) = \frac{'{1}'}{'{\det(A)}'}</MathBlock>
+          </>
+        }
+      >
         <p>If <Math>A</Math> is invertible:</p>
         <MathBlock>\det(A^{'{-1}'}) = \frac{'{1}'}{'{\det(A)}'}</MathBlock>
       </Theorem>

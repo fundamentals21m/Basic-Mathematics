@@ -55,20 +55,38 @@ export default function Section09() {
       {/* Derived Properties */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Derived Properties</h2>
 
-      <Theorem title="1 is Positive">
-        <p>The number 1 is positive.</p>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show reasoning</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
-            <p>By POS 2, either <Math>1 {'>'} 0</Math> or <Math>1 = 0</Math> or <Math>-1 {'>'} 0</Math>.</p>
+      <Theorem
+        title="1 is Positive"
+        proof={
+          <>
+            <p>By POS 2 (trichotomy), exactly one of these holds: <Math>1 {'>'} 0</Math>, or <Math>1 = 0</Math>, or <Math>-1 {'>'} 0</Math>.</p>
             <p className="mt-2">Since <Math>1 \neq 0</Math>, either 1 or -1 is positive.</p>
-            <p className="mt-2">If <Math>-1 {'>'} 0</Math>, then by POS 1: <Math>(-1)(-1) {'>'} 0</Math>, i.e., <Math>1 {'>'} 0</Math>.</p>
-            <p className="mt-2">Either way, <Math>1 {'>'} 0</Math>.</p>
-          </div>
-        </details>
+            <p className="mt-2">Suppose <Math>-1 {'>'} 0</Math>. Then by POS 1 (closure under multiplication):</p>
+            <MathBlock>(-1) \cdot (-1) {'>'} 0</MathBlock>
+            <p className="mt-2">But <Math>(-1)(-1) = 1</Math>, so <Math>1 {'>'} 0</Math>.</p>
+            <p className="mt-2">Either way, we conclude <Math>1 {'>'} 0</Math>.</p>
+          </>
+        }
+      >
+        <p>The number 1 is positive.</p>
       </Theorem>
 
-      <Theorem title="Sign Rules for Products" className="mt-6">
+      <Theorem
+        title="Sign Rules for Products"
+        className="mt-6"
+        proof={
+          <>
+            <p><strong>Positive × Positive:</strong> Follows directly from POS 1.</p>
+            <p className="mt-2"><strong>Positive × Negative:</strong> Let <Math>a {'>'} 0</Math> and <Math>b {'<'} 0</Math>.</p>
+            <p>Then <Math>-b {'>'} 0</Math>, so <Math>a(-b) {'>'} 0</Math> by POS 1.</p>
+            <p>Since <Math>a(-b) = -(ab)</Math>, we have <Math>-(ab) {'>'} 0</Math>, meaning <Math>ab {'<'} 0</Math>.</p>
+            <p className="mt-2"><strong>Negative × Negative:</strong> Let <Math>a {'<'} 0</Math> and <Math>b {'<'} 0</Math>.</p>
+            <p>Then <Math>-a {'>'} 0</Math> and <Math>-b {'>'} 0</Math>.</p>
+            <p>By POS 1: <Math>(-a)(-b) {'>'} 0</Math>.</p>
+            <p>Since <Math>(-a)(-b) = ab</Math>, we have <Math>ab {'>'} 0</Math>.</p>
+          </>
+        }
+      >
         <ul className="space-y-2">
           <li><strong>Positive × Positive = Positive</strong></li>
           <li><strong>Positive × Negative = Negative</strong></li>
@@ -76,7 +94,19 @@ export default function Section09() {
         </ul>
       </Theorem>
 
-      <Theorem title="Squares are Non-Negative" className="mt-6">
+      <Theorem
+        title="Squares are Non-Negative"
+        className="mt-6"
+        proof={
+          <>
+            <p>Let <Math>a</Math> be any real number. By trichotomy, either <Math>a {'>'} 0</Math>, <Math>a = 0</Math>, or <Math>a {'<'} 0</Math>.</p>
+            <p className="mt-2"><strong>Case 1:</strong> If <Math>a {'>'} 0</Math>, then <Math>a^2 = a \cdot a {'>'} 0</Math> by POS 1.</p>
+            <p className="mt-2"><strong>Case 2:</strong> If <Math>a = 0</Math>, then <Math>a^2 = 0</Math>.</p>
+            <p className="mt-2"><strong>Case 3:</strong> If <Math>a {'<'} 0</Math>, then <Math>a^2 = a \cdot a {'>'} 0</Math> (negative × negative = positive).</p>
+            <p className="mt-2">In all cases, <Math>a^2 \geq 0</Math>.</p>
+          </>
+        }
+      >
         <p>For any real number <Math>a</Math>:</p>
         <MathBlock>a^2 \geq 0</MathBlock>
         <p className="mt-2 text-dark-400">
@@ -89,7 +119,18 @@ export default function Section09() {
       {/* Square Roots */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Square Roots</h2>
 
-      <Theorem title="Existence of Square Roots">
+      <Theorem
+        title="Existence of Square Roots"
+        proof={
+          <>
+            <p>This is a consequence of the <strong>completeness</strong> of the real numbers.</p>
+            <p className="mt-2">Consider the set <Math>S = \{'{x \\in \\mathbb{R} : x > 0 \\text{ and } x^2 < a}'}\</Math>.</p>
+            <p className="mt-2">This set is non-empty (e.g., small positive numbers are in it) and bounded above.</p>
+            <p className="mt-2">By completeness, <Math>S</Math> has a supremum <Math>b = \sup S</Math>.</p>
+            <p className="mt-2">One can show <Math>b^2 = a</Math> by ruling out <Math>b^2 {'<'} a</Math> and <Math>b^2 {'>'} a</Math>.</p>
+          </>
+        }
+      >
         <p>
           Every <strong>positive</strong> real number has a square root.
         </p>
@@ -108,7 +149,21 @@ export default function Section09() {
         </p>
       </Definition>
 
-      <Theorem title="Solutions of x² = a" className="mt-6">
+      <Theorem
+        title="Solutions of x² = a"
+        className="mt-6"
+        proof={
+          <>
+            <p>Let <Math>a {'>'} 0</Math> and suppose <Math>x^2 = a</Math>.</p>
+            <p className="mt-2">By definition, <Math>\sqrt{'{a}'}</Math> is the positive number with <Math>(\sqrt{'{a}'})^2 = a</Math>.</p>
+            <p className="mt-2">Also, <Math>(-\sqrt{'{a}'})^2 = \sqrt{'{a}'} \cdot \sqrt{'{a}'} = a</Math>.</p>
+            <p className="mt-2">So both <Math>\sqrt{'{a}'}</Math> and <Math>-\sqrt{'{a}'}</Math> are solutions.</p>
+            <p className="mt-2">To show these are the <em>only</em> solutions: if <Math>x^2 = a</Math>, then</p>
+            <MathBlock>x^2 - a = 0 \Rightarrow x^2 - (\sqrt{'{a}'})^2 = 0 \Rightarrow (x - \sqrt{'{a}'})(x + \sqrt{'{a}'}) = 0</MathBlock>
+            <p className="mt-2">By the zero product property, <Math>x = \sqrt{'{a}'}</Math> or <Math>x = -\sqrt{'{a}'}</Math>.</p>
+          </>
+        }
+      >
         <p>For <Math>a {'>'} 0</Math>, the solutions of <Math>x^2 = a</Math> are:</p>
         <MathBlock>x = \sqrt{'{a}'} \quad \text{'{or}'} \quad x = -\sqrt{'{a}'}</MathBlock>
         <p className="mt-2 text-dark-400">

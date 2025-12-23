@@ -115,7 +115,20 @@ export default function Section14() {
         </div>
       </Definition>
 
-      <Theorem title="Exponent Rule for Mappings">
+      <Theorem
+        title="Exponent Rule for Mappings"
+        proof={
+          <>
+            <p>We prove this for non-negative integers <Math>m, n</Math> by induction.</p>
+            <p className="mt-2"><strong>Base case:</strong> <Math>f^{'{m+0}'} = f^m = f^m \circ I = f^m \circ f^0</Math>.</p>
+            <p className="mt-2"><strong>Inductive step:</strong> Assume <Math>f^{'{m+k}'} = f^m \circ f^k</Math>.</p>
+            <p className="mt-2">Then:</p>
+            <MathBlock>f^{'{m+(k+1)}'} = f^{'{(m+k)+1}'} = f^{'{m+k}'} \circ f = (f^m \circ f^k) \circ f = f^m \circ (f^k \circ f) = f^m \circ f^{'{k+1}'}</MathBlock>
+            <p className="mt-2">For negative exponents, we define <Math>f^{'{-n}'} = (f^{'{-1}'})^n</Math>.</p>
+            <p className="mt-2">One can verify the rule holds by using <Math>f^n \circ f^{'{-n}'} = I</Math>.</p>
+          </>
+        }
+      >
         <p>For any integers <Math>m, n</Math> (when inverses exist):</p>
         <MathBlock>f^{'{m+n}'} = f^m \circ f^n</MathBlock>
       </Theorem>
@@ -171,7 +184,24 @@ export default function Section14() {
         </p>
       </Definition>
 
-      <Theorem title="Transposition Factorization">
+      <Theorem
+        title="Transposition Factorization"
+        proof={
+          <>
+            <p>We prove this by showing how to decompose any permutation.</p>
+            <p className="mt-2">Given a permutation <Math>\sigma</Math>, we sort it back to identity one swap at a time.</p>
+            <p className="mt-2"><strong>Algorithm:</strong> For <Math>i = 1, 2, \ldots, n-1</Math>:</p>
+            <ul className="list-disc list-inside mt-2">
+              <li>If <Math>i</Math> is not in position <Math>i</Math>, find where it is (say position <Math>j</Math>)</li>
+              <li>Swap positions <Math>i</Math> and <Math>j</Math> (a transposition)</li>
+            </ul>
+            <p className="mt-2">After at most <Math>n-1</Math> transpositions, we reach the identity.</p>
+            <p className="mt-2">If <Math>\sigma = \tau_1 \circ \tau_2 \circ \cdots \circ \tau_k \circ I</Math>, then taking inverses (since <Math>\tau_i^{'{-1}'} = \tau_i</Math>):</p>
+            <MathBlock>\sigma^{'{-1}'} = \tau_k \circ \cdots \circ \tau_2 \circ \tau_1</MathBlock>
+            <p className="mt-2">and similarly <Math>\sigma = \tau_1 \circ \tau_2 \circ \cdots \circ \tau_k</Math>.</p>
+          </>
+        }
+      >
         <p>
           Every permutation can be expressed as a <strong>product of transpositions</strong>.
         </p>
@@ -205,7 +235,21 @@ export default function Section14() {
         </p>
       </Definition>
 
-      <Theorem title="Well-Defined Parity">
+      <Theorem
+        title="Well-Defined Parity"
+        proof={
+          <>
+            <p>We show that if a permutation can be written as both an even and odd number of transpositions, we get a contradiction.</p>
+            <p className="mt-2">Define the <strong>sign function</strong> on a permutation <Math>\sigma</Math> of <Math>\{'{1, 2, \\ldots, n}\}'}</Math> as:</p>
+            <MathBlock>{`\\text{sgn}(\\sigma) = \\prod_{i < j} \\frac{\\sigma(j) - \\sigma(i)}{j - i}`}</MathBlock>
+            <p className="mt-2">This product equals either <Math>+1</Math> or <Math>-1</Math> (each factor <Math>\frac{'{\\sigma(j) - \\sigma(i)}'}{'{j - i}'}</Math> contributes <Math>+1</Math> if order is preserved, <Math>-1</Math> if swapped).</p>
+            <p className="mt-2">Key observation: For any transposition <Math>\tau</Math>, <Math>\text{'{sgn}'}(\tau) = -1</Math>.</p>
+            <p className="mt-2">Since <Math>\text{'{sgn}'}(\sigma \circ \tau) = \text{'{sgn}'}(\sigma) \cdot \text{'{sgn}'}(\tau)</Math>, if <Math>\sigma = \tau_1 \circ \cdots \circ \tau_k</Math>, then:</p>
+            <MathBlock>\text{'{sgn}'}(\sigma) = (-1)^k</MathBlock>
+            <p className="mt-2">Thus <Math>k</Math> even gives <Math>+1</Math>, <Math>k</Math> odd gives <Math>-1</Math>, and this depends only on <Math>\sigma</Math>, not on the factorization.</p>
+          </>
+        }
+      >
         <p>
           A permutation is either always even or always odd, regardless of how it's factored into transpositions.
         </p>
@@ -237,7 +281,24 @@ export default function Section14() {
         </p>
       </Example>
 
-      <Theorem title="Sign from Orbits">
+      <Theorem
+        title="Sign from Orbits"
+        proof={
+          <>
+            <p>Every permutation decomposes uniquely into disjoint cycles.</p>
+            <p className="mt-2">A cycle of length <Math>m</Math> can be written as <Math>m - 1</Math> transpositions:</p>
+            <MathBlock>[a_1, a_2, \ldots, a_m] = (a_1, a_2)(a_2, a_3) \cdots (a_{'{m-1}'}, a_m)</MathBlock>
+            <p className="mt-2">If the permutation has cycles of lengths <Math>m_1, m_2, \ldots, m_k</Math>, the total number of transpositions is:</p>
+            <MathBlock>(m_1 - 1) + (m_2 - 1) + \cdots + (m_k - 1) = (m_1 + \cdots + m_k) - k = n - k</MathBlock>
+            <p className="mt-2">(since the cycle lengths sum to <Math>n</Math>).</p>
+            <p className="mt-2">Therefore:</p>
+            <ul className="list-disc list-inside mt-2">
+              <li><Math>n - k</Math> even → product of an even number of transpositions → even permutation</li>
+              <li><Math>n - k</Math> odd → product of an odd number of transpositions → odd permutation</li>
+            </ul>
+          </>
+        }
+      >
         <p>
           If a permutation of <Math>n</Math> elements has <Math>k</Math> orbits (cycles), then:
         </p>

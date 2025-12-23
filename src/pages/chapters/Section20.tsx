@@ -26,7 +26,18 @@ export default function Section20() {
         </p>
       </Definition>
 
-      <Theorem title="Properties of Area">
+      <Theorem
+        title="Properties of Area"
+        proof={
+          <>
+            <p>These are the <strong>axioms</strong> of area—foundational properties we accept as defining what "area" means.</p>
+            <p className="mt-2"><strong>A1:</strong> Area measures quantity of space, which cannot be negative.</p>
+            <p className="mt-2"><strong>A2:</strong> We define the unit of measurement: a 1×1 square has area 1.</p>
+            <p className="mt-2"><strong>A3:</strong> Congruent figures can be superimposed exactly, so they contain the same amount of space.</p>
+            <p className="mt-2"><strong>A4:</strong> If we combine non-overlapping regions, the total space is the sum of the parts.</p>
+          </>
+        }
+      >
         <p>Area satisfies the following fundamental properties:</p>
         <ul className="mt-2 space-y-2 text-dark-300">
           <li><strong>A1 (Non-negative):</strong> <Math>\text{'{Area}'}(F) \geq 0</Math></li>
@@ -47,7 +58,19 @@ export default function Section20() {
       {/* Rectangles */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Area of Rectangles</h2>
 
-      <Theorem title="Rectangle Area">
+      <Theorem
+        title="Rectangle Area"
+        proof={
+          <>
+            <p>Consider a rectangle with integer dimensions <Math>m \times n</Math>.</p>
+            <p className="mt-2">We can tile it with <Math>m \cdot n</Math> unit squares, so by additivity, Area = <Math>mn</Math>.</p>
+            <p className="mt-3">For rational dimensions <Math>b = \frac{'{p}'}{'{q}'}</Math> and <Math>h = \frac{'{r}'}{'{s}'}</Math>:</p>
+            <p className="mt-2">Subdivide into <Math>ps</Math> by <Math>qr</Math> small rectangles of size <Math>\frac{'{1}'}{'{q}'} \times \frac{'{1}'}{'{s}'}</Math>.</p>
+            <p className="mt-2">Each small rectangle has area <Math>\frac{'{1}'}{'{qs}'}</Math>, so total = <Math>\frac{'{ps \cdot qr}'}{'{qs}'} = \frac{'{pr}'}{'{qs}'} = b \cdot h</Math>.</p>
+            <p className="mt-3">For real dimensions, use continuity: approximate by rationals.</p>
+          </>
+        }
+      >
         <p>
           A rectangle with base <Math>b</Math> and height <Math>h</Math> has area:
         </p>
@@ -84,7 +107,22 @@ export default function Section20() {
         and rearranging. This leads to the same formula.
       </p>
 
-      <Theorem title="Parallelogram Area">
+      <Theorem
+        title="Parallelogram Area"
+        proof={
+          <>
+            <p>Let ABCD be a parallelogram with base <Math>b = |AB|</Math> and height <Math>h</Math>.</p>
+            <p className="mt-2">Drop a perpendicular from D to line AB, meeting it at E. Drop a perpendicular from C to AB, meeting at F.</p>
+            <p className="mt-2">Triangle AED is congruent to triangle BFC (both right triangles with:</p>
+            <ul className="mt-1 ml-4 list-disc">
+              <li>Equal heights <Math>h</Math></li>
+              <li>Equal horizontal distances since <Math>|AD| = |BC|</Math> (parallel sides)</li>
+            </ul>
+            <p className="mt-2">Cut triangle AED and move it to position BFC. The result is rectangle EFCD with dimensions <Math>b \times h</Math>.</p>
+            <p className="mt-2">Since we only moved pieces without overlap, Area = <Math>b \times h</Math>.</p>
+          </>
+        }
+      >
         <p>
           A parallelogram with base <Math>b</Math> and height <Math>h</Math> has area:
         </p>
@@ -178,12 +216,31 @@ export default function Section20() {
       {/* Special Cases */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Special Cases</h2>
 
-      <Theorem title="Square Area">
+      <Theorem
+        title="Square Area"
+        proof={
+          <>
+            <p>A square is a rectangle with <Math>b = h = s</Math>.</p>
+            <p className="mt-2">By the rectangle area formula:</p>
+            <p className="mt-2 text-center"><Math>\text{'{Area}'} = b \times h = s \times s = s^2</Math></p>
+          </>
+        }
+      >
         <p>A square with side <Math>s</Math> has area:</p>
         <MathBlock>\text{'{Area}'} = s^2</MathBlock>
       </Theorem>
 
-      <Theorem title="Rhombus Area (using diagonals)">
+      <Theorem
+        title="Rhombus Area (using diagonals)"
+        proof={
+          <>
+            <p>The diagonals of a rhombus bisect each other at right angles, creating 4 congruent right triangles.</p>
+            <p className="mt-2">Each triangle has legs <Math>\frac{'{d_1}'}{'{2}'}</Math> and <Math>\frac{'{d_2}'}{'{2}'}</Math>.</p>
+            <p className="mt-2">Area of each triangle = <Math>\frac{'{1}'}{'{2}'} \cdot \frac{'{d_1}'}{'{2}'} \cdot \frac{'{d_2}'}{'{2}'} = \frac{'{d_1 d_2}'}{'{8}'}</Math></p>
+            <p className="mt-2">Total area = <Math>4 \times \frac{'{d_1 d_2}'}{'{8}'} = \frac{'{d_1 d_2}'}{'{2}'}</Math></p>
+          </>
+        }
+      >
         <p>A rhombus with diagonals <Math>d_1</Math> and <Math>d_2</Math> has area:</p>
         <MathBlock>\text{'{Area}'} = \frac{'{1}'}{'{2}'} d_1 \cdot d_2</MathBlock>
         <p className="mt-2 text-dark-400">
@@ -201,7 +258,19 @@ export default function Section20() {
       {/* Connection to Determinants */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Connection to Determinants</h2>
 
-      <Theorem title="Area via Determinant">
+      <Theorem
+        title="Area via Determinant"
+        proof={
+          <>
+            <p>Let <Math>\mathbf{'{u}'} = (a, b)</Math> and <Math>\mathbf{'{v}'} = (c, d)</Math> be adjacent sides.</p>
+            <p className="mt-2">The parallelogram has base <Math>|\mathbf{'{u}'}| = \sqrt{'{a^2 + b^2}'}</Math>.</p>
+            <p className="mt-2">The height is the component of <Math>\mathbf{'{v}'}</Math> perpendicular to <Math>\mathbf{'{u}'}</Math>:</p>
+            <p className="mt-2"><Math>h = \frac{'{|ad - bc|}'}{'{\\sqrt{a^2 + b^2}}'}</Math></p>
+            <p className="mt-2">Therefore:</p>
+            <p className="mt-2"><Math>\text{'{Area}'} = |\mathbf{'{u}'}| \cdot h = \sqrt{'{a^2 + b^2}'} \cdot \frac{'{|ad - bc|}'}{'{\\sqrt{a^2 + b^2}}'} = |ad - bc|</Math></p>
+          </>
+        }
+      >
         <p>
           If a parallelogram has adjacent sides represented by vectors <Math>\mathbf{'{u}'} = (a, b)</Math> and <Math>\mathbf{'{v}'} = (c, d)</Math>, then:
         </p>

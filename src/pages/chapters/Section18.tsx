@@ -54,20 +54,52 @@ export default function Section18() {
       {/* Properties of Isometries */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Properties of Isometries</h2>
 
-      <Theorem title="Isometries Preserve Angles">
+      <Theorem
+        title="Isometries Preserve Angles"
+        proof={
+          <>
+            <p>An angle is determined by three points <Math>P, Q, R</Math> with <Math>Q</Math> at the vertex.</p>
+            <p className="mt-2">By the law of cosines, the angle <Math>\theta</Math> at <Math>Q</Math> satisfies:</p>
+            <MathBlock>\cos\theta = \frac{'{d(P,Q)^2 + d(Q,R)^2 - d(P,R)^2}'}{'{2 \\cdot d(P,Q) \\cdot d(Q,R)}'}</MathBlock>
+            <p className="mt-2">Since isometries preserve all distances, all terms in this formula are unchanged.</p>
+            <p className="mt-2">Therefore <Math>\cos\theta</Math> is preserved, and so is <Math>\theta</Math>.</p>
+          </>
+        }
+      >
         <p>
           If <Math>F</Math> is an isometry, then the angle <Math>\angle PQR</Math> equals
           the angle <Math>\angle F(P)F(Q)F(R)</Math>.
         </p>
       </Theorem>
 
-      <Theorem title="Isometries Preserve Lines">
+      <Theorem
+        title="Isometries Preserve Lines"
+        proof={
+          <>
+            <p>A line is the set of points <Math>X</Math> such that <Math>A, X, B</Math> are collinear for two fixed points <Math>A, B</Math>.</p>
+            <p className="mt-2">Collinearity can be characterized by: <Math>d(A, X) + d(X, B) = d(A, B)</Math> or <Math>d(A, B) + d(B, X) = d(A, X)</Math>, etc.</p>
+            <p className="mt-2">Since isometries preserve all distances, these relationships are preserved.</p>
+            <p className="mt-2">Thus the image of a line is a line.</p>
+          </>
+        }
+      >
         <p>
           If <Math>F</Math> is an isometry and <Math>\ell</Math> is a line, then <Math>F(\ell)</Math> is also a line.
         </p>
       </Theorem>
 
-      <Theorem title="Isometries Preserve Betweenness">
+      <Theorem
+        title="Isometries Preserve Betweenness"
+        proof={
+          <>
+            <p><Math>B</Math> is between <Math>A</Math> and <Math>C</Math> if and only if:</p>
+            <MathBlock>d(A, B) + d(B, C) = d(A, C)</MathBlock>
+            <p className="mt-2">Since isometries preserve distances:</p>
+            <MathBlock>d(F(A), F(B)) + d(F(B), F(C)) = d(A, B) + d(B, C) = d(A, C) = d(F(A), F(C))</MathBlock>
+            <p className="mt-2">Therefore <Math>F(B)</Math> is between <Math>F(A)</Math> and <Math>F(C)</Math>.</p>
+          </>
+        }
+      >
         <p>
           If <Math>B</Math> is between <Math>A</Math> and <Math>C</Math> on a line, then
           <Math>F(B)</Math> is between <Math>F(A)</Math> and <Math>F(C)</Math>.
@@ -163,7 +195,22 @@ export default function Section18() {
       {/* Classification Theorem */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Classification of Isometries</h2>
 
-      <Theorem title="Classification Theorem">
+      <Theorem
+        title="Classification Theorem"
+        proof={
+          <>
+            <p>This follows from analyzing fixed points and orientation:</p>
+            <ul className="list-disc list-inside mt-2">
+              <li>If <Math>F</Math> has at least 3 non-collinear fixed points, it's the identity.</li>
+              <li>If <Math>F</Math> has a line of fixed points, it's a reflection.</li>
+              <li>If <Math>F</Math> has exactly one fixed point, it's a rotation.</li>
+              <li>If <Math>F</Math> has no fixed points and preserves orientation, it's a translation.</li>
+              <li>If <Math>F</Math> has no fixed points and reverses orientation, it's a glide reflection.</li>
+            </ul>
+            <p className="mt-2">Every isometry falls into exactly one of these cases.</p>
+          </>
+        }
+      >
         <p>
           Every isometry of the plane is one of exactly four types:
         </p>
@@ -188,13 +235,40 @@ export default function Section18() {
       {/* Composition of Isometries */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Composition of Isometries</h2>
 
-      <Theorem title="Composition is an Isometry">
+      <Theorem
+        title="Composition is an Isometry"
+        proof={
+          <>
+            <p>Let <Math>F, G</Math> be isometries and <Math>P, Q</Math> be any points.</p>
+            <MathBlock>d((G \circ F)(P), (G \circ F)(Q)) = d(G(F(P)), G(F(Q)))</MathBlock>
+            <p className="mt-2">Since <Math>G</Math> is an isometry:</p>
+            <MathBlock>= d(F(P), F(Q))</MathBlock>
+            <p className="mt-2">Since <Math>F</Math> is an isometry:</p>
+            <MathBlock>= d(P, Q)</MathBlock>
+            <p className="mt-2">Therefore <Math>G \circ F</Math> preserves distances, so it's an isometry.</p>
+          </>
+        }
+      >
         <p>
           If <Math>F</Math> and <Math>G</Math> are isometries, then <Math>G \circ F</Math> is also an isometry.
         </p>
       </Theorem>
 
-      <Theorem title="Two Reflections Make a Rotation or Translation">
+      <Theorem
+        title="Two Reflections Make a Rotation or Translation"
+        proof={
+          <>
+            <p><strong>Case 1: Lines intersect at point <Math>O</Math></strong></p>
+            <p className="mt-2">Each reflection fixes <Math>O</Math>, so the composition fixes <Math>O</Math>.</p>
+            <p className="mt-2">The composition is a direct isometry (two orientation reversals = orientation preserved).</p>
+            <p className="mt-2">A direct isometry with a fixed point is a rotation about that point.</p>
+            <p className="mt-2">If the lines meet at angle <Math>\alpha</Math>, the rotation is by <Math>2\alpha</Math>.</p>
+            <p className="mt-2"><strong>Case 2: Lines are parallel</strong></p>
+            <p className="mt-2">The composition is direct and has no fixed points (can be verified), so it's a translation.</p>
+            <p className="mt-2">The translation distance is twice the distance between the lines.</p>
+          </>
+        }
+      >
         <p>
           The composition of two reflections is:
         </p>
@@ -220,7 +294,21 @@ export default function Section18() {
 
       <TransformationComposer />
 
-      <Theorem title="Three Reflections Theorem">
+      <Theorem
+        title="Three Reflections Theorem"
+        proof={
+          <>
+            <p>We verify each case:</p>
+            <ul className="list-disc list-inside mt-2">
+              <li><strong>Reflection:</strong> 1 reflection (by definition)</li>
+              <li><strong>Rotation:</strong> 2 reflections across lines through the center, meeting at half the rotation angle</li>
+              <li><strong>Translation:</strong> 2 reflections across parallel lines, separated by half the translation distance</li>
+              <li><strong>Glide reflection:</strong> = reflection + translation = 1 + 2 = 3 reflections</li>
+            </ul>
+            <p className="mt-2">Since every isometry is one of these four types, at most 3 reflections suffice.</p>
+          </>
+        }
+      >
         <p>
           Every isometry can be expressed as the composition of at most three reflections.
         </p>
@@ -241,7 +329,17 @@ export default function Section18() {
         </p>
       </Definition>
 
-      <Theorem title="Fixed Points Characterize Isometries">
+      <Theorem
+        title="Fixed Points Characterize Isometries"
+        proof={
+          <>
+            <p><strong>All points fixed:</strong> By definition, this is the identity map.</p>
+            <p className="mt-2"><strong>Line of fixed points:</strong> Points off the line must map to points equidistant from the line. This forces reflection across the line.</p>
+            <p className="mt-2"><strong>One fixed point:</strong> A direct isometry with one fixed point is a rotation. An opposite isometry with finitely many fixed points is impossible (would require a point both on and off the reflection line).</p>
+            <p className="mt-2"><strong>No fixed points:</strong> A direct isometry with no fixed points is a translation. An opposite isometry with no fixed points is a glide reflection.</p>
+          </>
+        }
+      >
         <p>
           The number and arrangement of fixed points determines the type of isometry:
         </p>
@@ -277,7 +375,19 @@ export default function Section18() {
         </p>
       </Definition>
 
-      <Theorem title="Triangles and Isometries">
+      <Theorem
+        title="Triangles and Isometries"
+        proof={
+          <>
+            <p><strong>Existence:</strong></p>
+            <p className="mt-2">First, translate <Math>A</Math> to <Math>A'</Math>. Call the image of <Math>B</Math> as <Math>B_1</Math>.</p>
+            <p className="mt-2">Since <Math>|A'B_1| = |AB| = |A'B'|</Math>, point <Math>B_1</Math> lies on a circle around <Math>A'</Math>. Rotate about <Math>A'</Math> to map <Math>B_1</Math> to <Math>B'</Math>.</p>
+            <p className="mt-2">The image of <Math>C</Math> (call it <Math>C_1</Math>) satisfies <Math>|A'C_1| = |A'C'|</Math> and <Math>|B'C_1| = |B'C'|</Math>.</p>
+            <p className="mt-2">Either <Math>C_1 = C'</Math> (done), or <Math>C_1</Math> is the reflection of <Math>C'</Math> across line <Math>A'B'</Math>. In the latter case, reflect.</p>
+            <p className="mt-2"><strong>Uniqueness:</strong> An isometry is determined by its action on three non-collinear points.</p>
+          </>
+        }
+      >
         <p>
           Given triangles <Math>ABC</Math> and <Math>A'B'C'</Math> with:
         </p>
@@ -300,7 +410,21 @@ export default function Section18() {
       {/* Inverse Isometries */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Inverse Isometries</h2>
 
-      <Theorem title="Isometries are Invertible">
+      <Theorem
+        title="Isometries are Invertible"
+        proof={
+          <>
+            <p>We verify each type has an inverse that is also an isometry:</p>
+            <ul className="list-disc list-inside mt-2">
+              <li><strong>Translation by <Math>\mathbf{'{v}'}</Math>:</strong> Inverse is translation by <Math>-\mathbf{'{v}'}</Math>. Both are isometries.</li>
+              <li><strong>Rotation by <Math>\theta</Math>:</strong> Inverse is rotation by <Math>-\theta</Math>. Both are isometries.</li>
+              <li><strong>Reflection:</strong> Applying the same reflection twice returns to the original. So <Math>S = S^{'{-1}'}</Math>.</li>
+              <li><strong>Glide reflection:</strong> If <Math>G = T \circ S</Math>, then <Math>G^{'{-1}'} = S^{'{-1}'} \circ T^{'{-1}'} = S \circ T^{'{-1}'}</Math>, which is also a glide reflection.</li>
+            </ul>
+            <p className="mt-2">Since the inverse preserves distances (being an isometry), it's well-defined.</p>
+          </>
+        }
+      >
         <p>
           Every isometry <Math>F</Math> has an inverse <Math>F^{'{-1}'}</Math>, which is also an isometry.
         </p>

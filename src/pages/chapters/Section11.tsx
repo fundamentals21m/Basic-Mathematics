@@ -45,17 +45,23 @@ export default function Section11() {
       {/* Inequality Rules */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Rules for Inequalities</h2>
 
-      <Axiom title="IN 1: Transitivity">
+      <Theorem
+        title="IN 1: Transitivity"
+        proof={
+          <>
+            <p>By definition of <Math>{'>'}</Math>:</p>
+            <p className="mt-2"><Math>a {'>'} b</Math> means <Math>a - b {'>'} 0</Math></p>
+            <p><Math>b {'>'} c</Math> means <Math>b - c {'>'} 0</Math></p>
+            <p className="mt-2">By POS 1 (sum of positives is positive):</p>
+            <p><Math>(a - b) + (b - c) {'>'} 0</Math></p>
+            <p className="mt-2">Simplifying:</p>
+            <p><Math>a - c {'>'} 0</Math></p>
+            <p className="mt-2">By definition, <Math>a {'>'} c</Math>.</p>
+          </>
+        }
+      >
         <p>If <Math>a {'>'} b</Math> and <Math>b {'>'} c</Math>, then <Math>a {'>'} c</Math>.</p>
-        <details className="mt-3">
-          <summary className="cursor-pointer text-primary-400 hover:text-primary-300">Show proof</summary>
-          <div className="mt-2 p-4 bg-dark-800/50 rounded-lg text-dark-300">
-            <p><Math>a - b {'>'} 0</Math> and <Math>b - c {'>'} 0</Math></p>
-            <p className="mt-2">By POS 1: <Math>(a - b) + (b - c) {'>'} 0</Math></p>
-            <p className="mt-2">Simplifying: <Math>a - c {'>'} 0</Math>, so <Math>a {'>'} c</Math>.</p>
-          </div>
-        </details>
-      </Axiom>
+      </Theorem>
 
       <Axiom title="IN 2: Multiplication by Positive" className="mt-6">
         <p>If <Math>a {'>'} b</Math> and <Math>c {'>'} 0</Math>, then <Math>ac {'>'} bc</Math>.</p>
@@ -86,21 +92,64 @@ export default function Section11() {
       {/* More Properties */}
       <h2 className="text-2xl font-bold text-dark-100 mt-12 mb-6">Additional Properties</h2>
 
-      <Theorem title="Adding to Both Sides">
+      <Theorem
+        title="Adding to Both Sides"
+        proof={
+          <>
+            <p>Assume <Math>a {'<'} b</Math>. By definition, this means <Math>b - a {'>'} 0</Math>.</p>
+            <p className="mt-2">We want to show <Math>a + c {'<'} b + c</Math>, i.e., that <Math>(b + c) - (a + c) {'>'} 0</Math>.</p>
+            <p className="mt-2">Computing the difference:</p>
+            <p><Math>(b + c) - (a + c) = b + c - a - c = b - a</Math></p>
+            <p className="mt-2">Since <Math>b - a {'>'} 0</Math>, we have <Math>(b + c) - (a + c) {'>'} 0</Math>.</p>
+            <p className="mt-2">Therefore <Math>a + c {'<'} b + c</Math>.</p>
+          </>
+        }
+      >
         <p>If <Math>a {'<'} b</Math>, then <Math>a + c {'<'} b + c</Math> for any <Math>c</Math>.</p>
         <p className="mt-2 text-dark-400">
           Adding the same number to both sides preserves the inequality.
         </p>
       </Theorem>
 
-      <Theorem title="Inverses with Positive Numbers" className="mt-6">
+      <Theorem
+        title="Inverses with Positive Numbers"
+        className="mt-6"
+        proof={
+          <>
+            <p>Assume <Math>0 {'<'} a {'<'} b</Math>.</p>
+            <p className="mt-2">We want to show <Math>\frac{'{1}'}{'{b}'} {'<'} \frac{'{1}'}{'{a}'}</Math>, i.e., <Math>\frac{'{1}'}{'{a}'} - \frac{'{1}'}{'{b}'} {'>'} 0</Math>.</p>
+            <p className="mt-2">Computing:</p>
+            <p><Math>\frac{'{1}'}{'{a}'} - \frac{'{1}'}{'{b}'} = \frac{'{b - a}'}{'{ab}'}</Math></p>
+            <p className="mt-2">Since <Math>a {'<'} b</Math>, we have <Math>b - a {'>'} 0</Math>.</p>
+            <p className="mt-2">Since <Math>a {'>'} 0</Math> and <Math>b {'>'} 0</Math>, we have <Math>ab {'>'} 0</Math>.</p>
+            <p className="mt-2">The ratio of two positive numbers is positive, so <Math>\frac{'{b - a}'}{'{ab}'} {'>'} 0</Math>.</p>
+            <p className="mt-2">Therefore <Math>\frac{'{1}'}{'{b}'} {'<'} \frac{'{1}'}{'{a}'}</Math>.</p>
+          </>
+        }
+      >
         <p>If <Math>0 {'<'} a {'<'} b</Math>, then <Math>\frac{'{1}'}{'{b}'} {'<'} \frac{'{1}'}{'{a}'}</Math>.</p>
         <p className="mt-2 text-dark-400">
           Taking reciprocals of positive numbers reverses the inequality.
         </p>
       </Theorem>
 
-      <Theorem title="Powers of Positive Numbers" className="mt-6">
+      <Theorem
+        title="Powers of Positive Numbers"
+        className="mt-6"
+        proof={
+          <>
+            <p>We prove by induction on <Math>n</Math>.</p>
+            <p className="mt-2"><strong>Base case (n = 1):</strong> <Math>a^1 {'<'} b^1</Math> is just <Math>a {'<'} b</Math>, which is given.</p>
+            <p className="mt-2"><strong>Inductive step:</strong> Assume <Math>a^k {'<'} b^k</Math> for some <Math>k \geq 1</Math>.</p>
+            <p className="mt-2">Since <Math>0 {'<'} a {'<'} b</Math>, multiplying the inequality <Math>a^k {'<'} b^k</Math> by <Math>a</Math> gives:</p>
+            <p><Math>a^{'{k+1}'} {'<'} a \cdot b^k</Math></p>
+            <p className="mt-2">Also, since <Math>a {'<'} b</Math> and <Math>b^k {'>'} 0</Math>, multiplying by <Math>b^k</Math> gives:</p>
+            <p><Math>a \cdot b^k {'<'} b \cdot b^k = b^{'{k+1}'}</Math></p>
+            <p className="mt-2">By transitivity: <Math>a^{'{k+1}'} {'<'} b^{'{k+1}'}</Math>.</p>
+            <p className="mt-2">By induction, the result holds for all positive integers <Math>n</Math>.</p>
+          </>
+        }
+      >
         <p>If <Math>0 {'<'} a {'<'} b</Math>, then <Math>a^n {'<'} b^n</Math> for every positive integer <Math>n</Math>.</p>
       </Theorem>
 
