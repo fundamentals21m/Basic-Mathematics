@@ -85,3 +85,6 @@ export { PythagorasConnection } from './PythagorasConnection';
 export { CircleEquationExplorer } from './CircleEquationExplorer';
 export { CircleFromEquation } from './CircleFromEquation';
 export { CompletingSquareCircle } from './CompletingSquareCircle';
+export { DilationExplorer } from './DilationExplorer';
+export { ReflectionExplorer } from './ReflectionExplorer';
+export { DilationReflectionComposer } from './DilationReflectionComposer';
