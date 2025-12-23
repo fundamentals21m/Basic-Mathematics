@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getSectionById, getChapterBySectionId, getAdjacentSections, getTotalSections } from '../../data/curriculum';
-import { useGamification } from '../../contexts/GamificationContext';
+import { useGamification, makeSectionId } from '../../contexts/GamificationContext';
 
 interface LessonLayoutProps {
   sectionId: number;
@@ -20,7 +20,7 @@ export function LessonLayout({ sectionId, children }: LessonLayoutProps) {
     visitSection(sectionId);
   }, [sectionId, visitSection]);
 
-  const isCompleted = state.user.sectionsCompleted.includes(sectionId);
+  const isCompleted = state.user.sectionsCompleted.includes(makeSectionId(sectionId));
 
   if (!section || !chapter) {
     return (

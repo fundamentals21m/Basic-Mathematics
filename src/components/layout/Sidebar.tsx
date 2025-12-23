@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { curriculum } from '../../data/curriculum';
-import { useGamification } from '../../contexts/GamificationContext';
+import { useGamification, makeSectionId } from '../../contexts/GamificationContext';
 import { MasteryIndicator } from '../gamification/MasteryIndicator';
 
 interface SidebarProps {
@@ -16,12 +16,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
   // Get mastery level for a section
   const getMasteryLevel = (sectionId: number) => {
-    return state.sections[sectionId]?.masteryLevel ?? 'none';
+    return state.sections[makeSectionId(sectionId)]?.masteryLevel ?? 'none';
   };
 
   // Check if section is completed
   const isCompleted = (sectionId: number) => {
-    return state.user.sectionsCompleted.includes(sectionId);
+    return state.user.sectionsCompleted.includes(makeSectionId(sectionId));
   };
 
   // Check if the Interlude is locked

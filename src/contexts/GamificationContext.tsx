@@ -12,6 +12,7 @@ import type {
   GamificationState,
   QuizAttempt,
   Difficulty,
+  SectionId,
 } from '../types/gamification';
 import { XP_CONFIG } from '../types/gamification';
 import { loadState, saveState } from '../lib/gamification/storage';
@@ -22,13 +23,27 @@ import { updateStreak } from '../lib/gamification/streakManager';
 import { calculateMasteryLevel } from '../lib/gamification/masteryCalculator';
 import { curriculum } from '../data/curriculum';
 
+// Course prefix for this app
+const COURSE_PREFIX = 'ba';
+
+// Helper to create section ID with course prefix
+function makeSectionId(numericId: number): SectionId {
+  return `${COURSE_PREFIX}:${numericId}`;
+}
+
+// Helper to extract numeric ID from section ID
+function getNumericSectionId(sectionId: SectionId): number {
+  const parts = sectionId.split(':');
+  return parseInt(parts[parts.length - 1], 10);
+}
+
 // Action types
 type GamificationAction =
   | { type: 'LOAD_STATE'; payload: GamificationState }
-  | { type: 'VISIT_SECTION'; payload: { sectionId: number } }
-  | { type: 'COMPLETE_SECTION'; payload: { sectionId: number } }
-  | { type: 'RECORD_QUIZ'; payload: { sectionId: number; difficulty: Difficulty; score: number; correct: number; total: number } }
-  | { type: 'USE_VISUALIZATION'; payload: { sectionId: number; name: string } }
+  | { type: 'VISIT_SECTION'; payload: { sectionId: SectionId } }
+  | { type: 'COMPLETE_SECTION'; payload: { sectionId: SectionId } }
+  | { type: 'RECORD_QUIZ'; payload: { sectionId: SectionId; difficulty: Difficulty; score: number; correct: number; total: number } }
+  | { type: 'USE_VISUALIZATION'; payload: { sectionId: SectionId; name: string } }
   | { type: 'UPDATE_STREAK' }
   | { type: 'UNLOCK_ACHIEVEMENT'; payload: { id: string } }
   | { type: 'RESET_PROGRESS' };
@@ -48,7 +63,7 @@ interface GamificationContextValue {
   notifications: AchievementNotification[];
   dismissNotification: (id: string) => void;
 
-  // Actions
+  // Actions - accept numeric section IDs, auto-prefix with course
   visitSection: (sectionId: number) => void;
   completeSection: (sectionId: number) => void;
   recordQuiz: (sectionId: number, difficulty: Difficulty, score: number, correct: number, total: number) => void;
@@ -56,13 +71,19 @@ interface GamificationContextValue {
   resetProgress: () => void;
 }
 
+// Export for use in other components
+export { makeSectionId, getNumericSectionId, COURSE_PREFIX };
+
 const GamificationContext = createContext<GamificationContextValue | null>(null);
 
-// Helper: Find chapter containing a section
-function findChapterForSection(sectionId: number): { chapterId: number; sectionIds: number[] } | null {
+// Helper: Find chapter containing a section (uses numeric ID for curriculum lookup)
+function findChapterForSection(sectionId: SectionId): { chapterId: number; sectionIds: SectionId[] } | null {
+  const numericId = getNumericSectionId(sectionId);
   for (const chapter of curriculum) {
-    const sectionIds = chapter.sections.map((s) => s.id);
-    if (sectionIds.includes(sectionId)) {
+    const numericSectionIds = chapter.sections.map((s) => s.id);
+    if (numericSectionIds.includes(numericId)) {
+      // Return section IDs with course prefix
+      const sectionIds = numericSectionIds.map(makeSectionId);
       return { chapterId: chapter.id, sectionIds };
     }
   }
@@ -70,19 +91,20 @@ function findChapterForSection(sectionId: number): { chapterId: number; sectionI
 }
 
 // Helper: Check if completing this section completes its chapter
-function checkChapterCompletion(state: GamificationState, sectionId: number): number | null {
+function checkChapterCompletion(state: GamificationState, sectionId: SectionId): string | null {
   const chapterInfo = findChapterForSection(sectionId);
   if (!chapterInfo) return null;
 
   const { chapterId, sectionIds } = chapterInfo;
+  const chapterIdStr = `${COURSE_PREFIX}:ch${chapterId}`;
 
   // Check if all sections in this chapter are completed (including the one being completed now)
   const allCompleted = sectionIds.every((id) =>
     state.user.sectionsCompleted.includes(id) || id === sectionId
   );
 
-  if (allCompleted && !state.user.chaptersCompleted.includes(chapterId)) {
-    return chapterId;
+  if (allCompleted && !state.user.chaptersCompleted.includes(chapterIdStr)) {
+    return chapterIdStr;
   }
   return null;
 }
@@ -384,22 +406,26 @@ export function GamificationProvider({ children }: { children: ReactNode }) {
     setNotifications((prev) => prev.filter((n) => n.id !== id));
   }, []);
 
-  const visitSection = useCallback((sectionId: number) => {
+  const visitSection = useCallback((numericSectionId: number) => {
+    const sectionId = makeSectionId(numericSectionId);
     dispatch({ type: 'VISIT_SECTION', payload: { sectionId } });
   }, []);
 
-  const completeSection = useCallback((sectionId: number) => {
+  const completeSection = useCallback((numericSectionId: number) => {
+    const sectionId = makeSectionId(numericSectionId);
     dispatch({ type: 'COMPLETE_SECTION', payload: { sectionId } });
   }, []);
 
   const recordQuiz = useCallback(
-    (sectionId: number, difficulty: Difficulty, score: number, correct: number, total: number) => {
+    (numericSectionId: number, difficulty: Difficulty, score: number, correct: number, total: number) => {
+      const sectionId = makeSectionId(numericSectionId);
       dispatch({ type: 'RECORD_QUIZ', payload: { sectionId, difficulty, score, correct, total } });
     },
     []
   );
 
-  const useVisualization = useCallback((sectionId: number, name: string) => {
+  const useVisualization = useCallback((numericSectionId: number, name: string) => {
+    const sectionId = makeSectionId(numericSectionId);
     dispatch({ type: 'USE_VISUALIZATION', payload: { sectionId, name } });
   }, []);
 

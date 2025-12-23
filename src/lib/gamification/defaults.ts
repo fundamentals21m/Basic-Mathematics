@@ -1,6 +1,6 @@
 // Default state factory for gamification
 
-import type { GamificationState, SectionProgress } from '../../types/gamification';
+import type { GamificationState, SectionProgress, SectionId } from '../../types/gamification';
 import { getLocalDateString } from './storage';
 import { ACHIEVEMENT_DEFINITIONS } from './achievements';
 
@@ -12,7 +12,7 @@ export function createDefaultState(): GamificationState {
   const today = getLocalDateString();
 
   return {
-    version: 1,
+    version: 2,
     user: {
       totalXP: 0,
       level: 1,
@@ -51,7 +51,7 @@ export function createDefaultState(): GamificationState {
 /**
  * Create a default section progress object.
  */
-export function createDefaultSectionProgress(sectionId: number): SectionProgress {
+export function createDefaultSectionProgress(sectionId: SectionId): SectionProgress {
   return {
     sectionId,
     visitedAt: null,

@@ -13,3 +13,6 @@ export { section11Questions } from './section11';
 export { section12Questions } from './section12';
 export { section13Questions } from './section13';
 export { section14Questions } from './section14';
+export { section15Questions } from './section15';
+export { section16Questions } from './section16';
+export { section17Questions } from './section17';

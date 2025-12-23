@@ -2,12 +2,16 @@
 
 export type Difficulty = 'easy' | 'medium' | 'hard';
 export type MasteryLevel = 'none' | 'learning' | 'familiar' | 'mastered';
+export type CourseId = 'ba' | 'crypto' | 'aa';
+
+// Section ID format: "course:sectionNumber" (e.g., "ba:5", "crypto:3", "aa:12")
+export type SectionId = `${CourseId}:${number}` | string;
 
 // Main state stored in localStorage
 export interface GamificationState {
-  version: 1;
+  version: 2;
   user: UserProgress;
-  sections: Record<number, SectionProgress>;
+  sections: Record<SectionId, SectionProgress>;
   achievements: AchievementProgress[];
   streak: StreakData;
   dailyGoals: DailyGoalState;
@@ -17,8 +21,8 @@ export interface GamificationState {
 export interface UserProgress {
   totalXP: number;
   level: number;
-  sectionsCompleted: number[];
-  chaptersCompleted: number[];
+  sectionsCompleted: SectionId[];
+  chaptersCompleted: string[];
   quizzesTaken: number;
   perfectQuizzes: number;
   visualizationsUsed: number;
@@ -27,7 +31,7 @@ export interface UserProgress {
 }
 
 export interface SectionProgress {
-  sectionId: number;
+  sectionId: SectionId;
   visitedAt: string | null;
   completedAt: string | null;
   timeSpentSeconds: number;

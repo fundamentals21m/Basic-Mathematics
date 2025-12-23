@@ -3,8 +3,10 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components/layout/Header';
 import { Sidebar } from './components/layout/Sidebar';
 import { GamificationProvider } from './contexts/GamificationContext';
+import { NostrAuthProvider } from '@shared/contexts/NostrAuthContext';
 import { AchievementToastContainer } from './components/gamification';
 import Home from './pages/Home';
+import Leaderboard from './pages/Leaderboard';
 import {
   Section00,
   Section01,
@@ -21,6 +23,9 @@ import {
   Section12,
   Section13,
   Section14,
+  Section15,
+  Section16,
+  Section17,
   PlaceholderSection,
 } from './pages/chapters';
 import {
@@ -63,11 +68,13 @@ function QuizPage({ children, title }: { children: React.ReactNode; title: strin
 function App() {
   return (
     <GamificationProvider>
-      <AchievementToastContainer />
-      <HashRouter>
-        <AppLayout>
-        <Routes>
-          <Route path="/" element={<Home />} />
+      <NostrAuthProvider>
+        <AchievementToastContainer />
+        <HashRouter>
+          <AppLayout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
 
           {/* Chapter 1: Numbers (Sections 0-5) */}
           <Route path="/section/0" element={<Section00 />} />
@@ -96,8 +103,17 @@ function App() {
           {/* Chapter 14: Mappings (Section 14) */}
           <Route path="/section/14" element={<Section14 />} />
 
-          {/* Remaining sections (15-63) use placeholder */}
-          {Array.from({ length: 49 }, (_, i) => i + 15).map((id) => (
+          {/* Chapter 15: Complex Numbers (Section 15) */}
+          <Route path="/section/15" element={<Section15 />} />
+
+          {/* Chapter 16: Induction and Summations (Section 16) */}
+          <Route path="/section/16" element={<Section16 />} />
+
+          {/* Chapter 17: Determinants (Section 17) */}
+          <Route path="/section/17" element={<Section17 />} />
+
+          {/* Remaining sections (18-63) use placeholder */}
+          {Array.from({ length: 46 }, (_, i) => i + 18).map((id) => (
             <Route
               key={id}
               path={`/section/${id}`}
@@ -138,9 +154,10 @@ function App() {
               </QuizPage>
             }
           />
-          </Routes>
-        </AppLayout>
-      </HashRouter>
+            </Routes>
+          </AppLayout>
+        </HashRouter>
+      </NostrAuthProvider>
     </GamificationProvider>
   );
 }
