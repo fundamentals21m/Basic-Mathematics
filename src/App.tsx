@@ -7,6 +7,8 @@ import { NostrAuthProvider } from '@shared/contexts/NostrAuthContext';
 import { AchievementToastContainer } from './components/gamification';
 import Home from './pages/Home';
 import Leaderboard from './pages/Leaderboard';
+import Theorems from './pages/Theorems';
+import InteractiveModules from './pages/InteractiveModules';
 import {
   Section00,
   Section01,
@@ -95,6 +97,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/theorems" element={<Theorems />} />
+            <Route path="/interactive" element={<InteractiveModules />} />
 
           {/* Chapter 1: Numbers (Sections 0-5) */}
           <Route path="/section/0" element={<Section00 />} />
