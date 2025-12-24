@@ -37,6 +37,15 @@ import {
   Section26,
   Section27,
   Section28,
+  Section29,
+  Section30,
+  Section31,
+  Section32,
+  Section33,
+  Section34,
+  Section35,
+  Section36,
+  Section37,
   PlaceholderSection,
 } from './pages/chapters';
 import {
@@ -156,8 +165,35 @@ function App() {
           {/* Chapter 9: The Parallelogram Law (Section 28) */}
           <Route path="/section/28" element={<Section28 />} />
 
-          {/* Remaining sections (29-63) use placeholder */}
-          {Array.from({ length: 35 }, (_, i) => i + 29).map((id) => (
+          {/* Chapter 10: Segments and Rays (Section 29) */}
+          <Route path="/section/29" element={<Section29 />} />
+
+          {/* Chapter 10: Lines (Section 30) */}
+          <Route path="/section/30" element={<Section30 />} />
+
+          {/* Chapter 10: Perpendicularity (Section 31) */}
+          <Route path="/section/31" element={<Section31 />} />
+
+          {/* Chapter 11: Radian Measure (Section 32) */}
+          <Route path="/section/32" element={<Section32 />} />
+
+          {/* Chapter 11: Sine and Cosine (Section 33) */}
+          <Route path="/section/33" element={<Section33 />} />
+
+          {/* Chapter 11: The Graphs (Section 34) */}
+          <Route path="/section/34" element={<Section34 />} />
+
+          {/* Chapter 11: The Tangent (Section 35) */}
+          <Route path="/section/35" element={<Section35 />} />
+
+          {/* Chapter 11: Addition Formulas (Section 36) */}
+          <Route path="/section/36" element={<Section36 />} />
+
+          {/* Chapter 11: Rotations (Section 37) */}
+          <Route path="/section/37" element={<Section37 />} />
+
+          {/* Remaining sections (38-63) use placeholder */}
+          {Array.from({ length: 26 }, (_, i) => i + 38).map((id) => (
             <Route
               key={id}
               path={`/section/${id}`}
