@@ -125,5 +125,131 @@ export const section49Questions: SectionQuizQuestion[] = [
     options: ['$|A|$', '$|B|$', '$|C|$', '$|A| \\times |C|$'],
     correctIndex: 0,
     explanation: 'The graph has one pair for each element in the domain, which is $A$. So $|A|$ pairs.'
+  },
+
+  // Additional easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'In $f: A \\to B$, $x \\mapsto 2x$, what does $\\mapsto$ indicate?',
+    options: ['Maps elements', 'Connects sets', 'Equals', 'Contains'],
+    correctIndex: 0,
+    explanation: '$\\mapsto$ shows how individual elements are mapped; $\\to$ connects domain to codomain.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'What is $\\text{id}_\\mathbb{R}(10)$ where $\\text{id}_\\mathbb{R}$ is the identity?',
+    options: ['$10$', '$0$', '$1$', 'Undefined'],
+    correctIndex: 0,
+    explanation: 'The identity mapping returns its input: $\\text{id}(10) = 10$.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'If $f(x) = 7$ for all $x$, the image of $f$ is:',
+    options: ['$\\{7\\}$', 'All real numbers', '$\\{0, 7\\}$', 'Empty set'],
+    correctIndex: 0,
+    explanation: 'A constant function has a single-element image.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'The graph of $f: A \\to B$ consists of ordered pairs $(a, b)$ where:',
+    options: ['$b = f(a)$', '$a = f(b)$', '$a \\in B$', '$b \\in A$'],
+    correctIndex: 0,
+    explanation: 'The graph contains pairs $(a, f(a))$ for all $a \\in A$.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'How many elements must a mapping assign to each domain element?',
+    options: ['Exactly one', 'At least one', 'At most one', 'Any number'],
+    correctIndex: 0,
+    explanation: 'By definition, a mapping assigns exactly one codomain element to each domain element.'
+  },
+
+  // Additional medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'Are $f: \\mathbb{R} \\to \\mathbb{R}$, $x \\mapsto |x|$ and $g: \\mathbb{R} \\to [0,\\infty)$, $x \\mapsto |x|$ the same mapping?',
+    options: ['No, different codomains', 'Yes, same formula', 'Depends on $x$', 'Yes, same domain'],
+    correctIndex: 0,
+    explanation: 'Different codomains make them different mappings.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'If $f: \\mathbb{R} \\to \\mathbb{R}$ is $f(x) = |x|$, what is $f|_{[0,\\infty)}$?',
+    options: ['The same formula restricted to non-negative $x$', 'A new function $x^2$', 'The inverse of $f$', 'Undefined'],
+    correctIndex: 0,
+    explanation: 'Restriction limits the domain to $[0,\\infty)$ where $f$ behaves like the identity.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'The inclusion $\\iota: \\mathbb{N} \\to \\mathbb{Z}$ is:',
+    options: ['$\\iota(n) = n$', '$\\iota(n) = 0$', '$\\iota(n) = -n$', 'Undefined'],
+    correctIndex: 0,
+    explanation: 'Inclusion maps each element to itself but in a larger set.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'If $h$ extends $f$, and $x$ is in the domain of $f$, then:',
+    options: ['$h(x) = f(x)$', '$h(x) \\neq f(x)$', '$h(x) > f(x)$', 'Cannot determine'],
+    correctIndex: 0,
+    explanation: 'An extension agrees with the original function on the original domain.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'For two mappings to be equal, they must have:',
+    options: ['Same domain, codomain, and rule', 'Just same rule', 'Just same domain', 'Just same codomain'],
+    correctIndex: 0,
+    explanation: 'Equality requires all three components to match.'
+  },
+
+  // Additional hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'Let $f: \\mathbb{R} \\to \\mathbb{R}$, $f(x) = |x|$, and $g: \\mathbb{R} \\to \\mathbb{R}^+$, $g(x) = |x|$. Are $f$ and $g$ equal?',
+    options: ['No, $g$ is not well-defined since $|0| = 0 \\notin \\mathbb{R}^+$', 'Yes, same formula', 'No, different domains', 'Yes, same outputs'],
+    correctIndex: 0,
+    explanation: 'If $\\mathbb{R}^+$ means positive reals, then $g(0) = 0$ is not in the codomain, making $g$ not well-defined.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'A subset $\\Gamma \\subseteq A \\times B$ is the graph of a function iff for each $a \\in A$:',
+    options: ['There exists exactly one $b$ with $(a,b) \\in \\Gamma$', 'There exists at least one $b$ with $(a,b) \\in \\Gamma$', '$\\Gamma$ contains all of $A \\times B$', '$\\Gamma$ is finite'],
+    correctIndex: 0,
+    explanation: 'Each input must map to exactly one output.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'If $f|_S$ is surjective onto $T$, what can we conclude?',
+    options: ['$f(S) = T$', '$S = T$', '$f$ is surjective', '$S \\subseteq T$'],
+    correctIndex: 0,
+    explanation: 'If the restriction is surjective onto $T$, then $f(S) = T$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'The composition $f \\circ \\text{id}_A$ equals:',
+    options: ['$f$', '$\\text{id}_A$', '$\\text{id}_B$', '$f^{-1}$'],
+    correctIndex: 0,
+    explanation: 'Composing with identity on the right: $f(\\text{id}_A(x)) = f(x)$, so $f \\circ \\text{id}_A = f$.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'If $f: A \\to B$, the graph of $f$ has cardinality:',
+    options: ['$|A|$', '$|B|$', '$|A| + |B|$', '$|A| \\times |B|$'],
+    correctIndex: 0,
+    explanation: 'The graph has one ordered pair for each element of the domain $A$.'
   }
 ];

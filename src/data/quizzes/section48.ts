@@ -125,5 +125,131 @@ export const section48Questions: SectionQuizQuestion[] = [
     options: ['At least $1$', 'Exactly $1$', 'At most $1$', 'Equal to $|A|$'],
     correctIndex: 0,
     explanation: 'Surjective means every element of $B$ has at least one preimage.'
+  },
+
+  // Additional easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'The codomain of $f: A \\to B$ is:',
+    options: ['$B$', '$A$', 'Both', 'Neither'],
+    correctIndex: 0,
+    explanation: 'In $f: A \\to B$, the set $B$ (on the right of the arrow) is the codomain.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'A surjective function is also called:',
+    options: ['Onto', 'One-to-one', 'Into', 'Identity'],
+    correctIndex: 0,
+    explanation: 'Surjective functions are also called onto functions.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'An injective function is also called:',
+    options: ['One-to-one', 'Onto', 'Many-to-one', 'Constant'],
+    correctIndex: 0,
+    explanation: 'Injective functions are also called one-to-one functions.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'If every element of the codomain is mapped to, the function is:',
+    options: ['Surjective', 'Injective', 'Constant', 'Linear'],
+    correctIndex: 0,
+    explanation: 'This is the definition of surjective (onto).'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'The image of $f: A \\to B$ is denoted:',
+    options: ['$f(A)$ or $\\text{Im}(f)$', '$f(B)$', '$A$', '$B$'],
+    correctIndex: 0,
+    explanation: 'The image is the set of all outputs, written $f(A)$ or $\\text{Im}(f)$.'
+  },
+
+  // Additional medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'Is $f(x) = x^3$ from $\\mathbb{R}$ to $\\mathbb{R}$ injective?',
+    options: ['Yes', 'No', 'Only for $x > 0$', 'Depends on domain'],
+    correctIndex: 0,
+    explanation: '$x^3$ is strictly increasing, so different inputs give different outputs. Injective.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'Is $f(x) = x + 5$ from $\\mathbb{R}$ to $\\mathbb{R}$ bijective?',
+    options: ['Yes', 'Injective only', 'Surjective only', 'Neither'],
+    correctIndex: 0,
+    explanation: 'Linear functions with nonzero slope are both injective and surjective, hence bijective.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'If $|A| = 3$ and $|B| = 5$, can there be a surjective $f: A \\to B$?',
+    options: ['No', 'Yes', 'Only if $A \\subset B$', 'Always'],
+    correctIndex: 0,
+    explanation: 'Surjective requires every element of $B$ be hit. With only $3$ inputs and $5$ outputs, impossible.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'For $f(x) = 2x$, what is $f^{-1}(\\{10\\})$?',
+    options: ['$\\{5\\}$', '$\\{20\\}$', '$\\{10\\}$', '$\\emptyset$'],
+    correctIndex: 0,
+    explanation: '$f^{-1}(\\{10\\}) =$ all $x$ where $2x = 10$, which is $\\{5\\}$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'Is $f(x) = \\sin(x)$ from $\\mathbb{R}$ to $[-1, 1]$ surjective?',
+    options: ['Yes', 'No, not injective', 'No, not surjective', 'No, neither'],
+    correctIndex: 0,
+    explanation: 'Every value in $[-1, 1]$ is achieved by $\\sin(x)$, so it\'s surjective.'
+  },
+
+  // Additional hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'If $f: A \\to B$ and $g: B \\to C$ are both injective, is $g \\circ f$ injective?',
+    options: ['Yes', 'No', 'Only if $A = C$', 'Cannot determine'],
+    correctIndex: 0,
+    explanation: 'Composition of injective functions is injective.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'Let $f: \\mathbb{N} \\to \\mathbb{N}$ be $f(n) = 2n$. Is $f$ surjective?',
+    options: ['No', 'Yes', 'Only for even $n$', 'Cannot determine'],
+    correctIndex: 0,
+    explanation: 'Odd numbers in codomain $\\mathbb{N}$ are never hit (e.g., $1, 3, 5, ...$), so not surjective.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'If $f: \\{1,2,3\\} \\to \\{a,b\\}$ is surjective, how many such functions exist?',
+    options: ['$6$', '$8$', '$9$', '$3$'],
+    correctIndex: 0,
+    explanation: 'Both $a$ and $b$ must be hit. Use inclusion-exclusion: $2^3 - 2 \\cdot 1^3 = 8 - 2 = 6$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'Let $f: \\mathbb{R} \\to \\mathbb{R}$ be $f(x) = x^2$. Is $f$ surjective?',
+    options: ['No', 'Yes', 'Only for $x \\geq 0$', 'Cannot determine'],
+    correctIndex: 0,
+    explanation: 'Negative numbers are never outputs of $x^2$, so not surjective onto $\\mathbb{R}$.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'A function $f: A \\to B$ is bijective iff it has:',
+    options: ['An inverse function $f^{-1}: B \\to A$', 'A left inverse only', 'A right inverse only', 'No inverse'],
+    correctIndex: 0,
+    explanation: 'Bijective functions have two-sided inverses.'
   }
 ];

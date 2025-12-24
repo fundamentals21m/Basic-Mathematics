@@ -125,5 +125,131 @@ export const section45Questions: SectionQuizQuestion[] = [
     options: ['$3$ times', '$1$ time', '$2$ times', '$0$ times'],
     correctIndex: 0,
     explanation: '$f(x) = x^3 - 3x + 1$. $f(-2) = -8 + 6 + 1 = -1 < 0$, $f(0) = 1 > 0$, $f(1) = -1 < 0$, $f(2) = 3 > 0$. Three sign changes means $3$ roots.'
+  },
+
+  // Additional easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'What is the $y$-intercept of $f(x) = x^2 - 4$?',
+    options: ['$-4$', '$4$', '$0$', '$2$'],
+    correctIndex: 0,
+    explanation: 'The $y$-intercept is $f(0) = 0 - 4 = -4$.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'Is $f(x) = x^3$ even, odd, or neither?',
+    options: ['Odd', 'Even', 'Neither', 'Both'],
+    correctIndex: 0,
+    explanation: '$f(-x) = (-x)^3 = -x^3 = -f(x)$, so $f$ is odd.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'The graph of $y = f(x) - 2$ is the graph of $y = f(x)$ shifted:',
+    options: ['Down $2$ units', 'Up $2$ units', 'Right $2$ units', 'Left $2$ units'],
+    correctIndex: 0,
+    explanation: 'Subtracting a constant from $f(x)$ shifts the graph down.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'The graph of $y = f(x + 3)$ is the graph of $y = f(x)$ shifted:',
+    options: ['Left $3$ units', 'Right $3$ units', 'Up $3$ units', 'Down $3$ units'],
+    correctIndex: 0,
+    explanation: 'Replacing $x$ with $(x + 3)$ shifts the graph to the left.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'The graph of $y = 2f(x)$ is obtained by:',
+    options: ['Vertical stretch by $2$', 'Horizontal stretch by $2$', 'Shift up by $2$', 'Shift right by $2$'],
+    correctIndex: 0,
+    explanation: 'Multiplying $f(x)$ by $2$ stretches the graph vertically.'
+  },
+
+  // Additional medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'Find the $x$-intercepts of $f(x) = x^2 + x - 6$.',
+    options: ['$x = -3$ and $x = 2$', '$x = 3$ and $x = -2$', '$x = 6$ and $x = -1$', '$x = 1$ and $x = -6$'],
+    correctIndex: 0,
+    explanation: 'Factor: $(x + 3)(x - 2) = 0$, so $x = -3$ or $x = 2$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'Is $f(x) = x^2 + 1$ even, odd, or neither?',
+    options: ['Even', 'Odd', 'Neither', 'Both'],
+    correctIndex: 0,
+    explanation: '$f(-x) = (-x)^2 + 1 = x^2 + 1 = f(x)$, so $f$ is even.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'The graph of $y = f(-x)$ is obtained by:',
+    options: ['Reflecting across the $y$-axis', 'Reflecting across the $x$-axis', 'Shifting left', 'Shifting right'],
+    correctIndex: 0,
+    explanation: 'Replacing $x$ with $-x$ reflects the graph across the $y$-axis.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'What is the vertex of $y = (x + 2)^2 + 3$?',
+    options: ['$(-2, 3)$', '$(2, 3)$', '$(-2, -3)$', '$(2, -3)$'],
+    correctIndex: 0,
+    explanation: 'Vertex form $y = a(x - h)^2 + k$ gives vertex $(h, k) = (-2, 3)$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'On what interval is $f(x) = x^3$ increasing?',
+    options: ['$(-\\infty, \\infty)$', '$(0, \\infty)$', '$(-\\infty, 0)$', 'Nowhere'],
+    correctIndex: 0,
+    explanation: '$f(x) = x^3$ is increasing for all real $x$.'
+  },
+
+  // Additional hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'If $f$ is odd and $f(3) = 7$, what is $f(-3)$?',
+    options: ['$-7$', '$7$', '$0$', 'Cannot determine'],
+    correctIndex: 0,
+    explanation: 'For odd functions, $f(-x) = -f(x)$, so $f(-3) = -f(3) = -7$.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'The graph of $y = f(2x)$ compared to $y = f(x)$ is:',
+    options: ['Compressed horizontally by $2$', 'Stretched horizontally by $2$', 'Compressed vertically by $2$', 'Stretched vertically by $2$'],
+    correctIndex: 0,
+    explanation: '$f(2x)$ compresses the graph horizontally by a factor of $2$.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'Find the vertical asymptote of $f(x) = \\frac{x + 1}{x - 2}$.',
+    options: ['$x = 2$', '$x = -1$', '$y = 2$', '$y = 1$'],
+    correctIndex: 0,
+    explanation: 'Vertical asymptote occurs where denominator equals zero: $x - 2 = 0$, so $x = 2$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'Is $g(x) = |x|$ even, odd, or neither?',
+    options: ['Even', 'Odd', 'Neither', 'Both'],
+    correctIndex: 0,
+    explanation: '$g(-x) = |-x| = |x| = g(x)$, so $g$ is even.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'The function $f(x) = x^4 - 4x^2$ has how many local extrema?',
+    options: ['$3$', '$2$', '$1$', '$4$'],
+    correctIndex: 0,
+    explanation: '$f\'(x) = 4x^3 - 8x = 4x(x^2 - 2) = 0$ at $x = 0, \\pm\\sqrt{2}$. Testing shows $3$ local extrema.'
   }
 ];

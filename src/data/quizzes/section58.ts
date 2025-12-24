@@ -125,5 +125,131 @@ export const section58Questions: SectionQuizQuestion[] = [
     options: ['$A^T = A$', '$A^T = -A$', '$A^2 = I$', '$A^2 = A$'],
     correctIndex: 0,
     explanation: 'A symmetric matrix equals its transpose: $A^T = A$.'
+  },
+
+  // Additional Easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'What is the size of a matrix with $4$ rows and $3$ columns?',
+    options: ['$4 \\times 3$', '$3 \\times 4$', '$12$', '$7$'],
+    correctIndex: 0,
+    explanation: 'Matrix size is rows $\\times$ columns, so $4 \\times 3$.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'In a matrix $B$, what does $b_{32}$ represent?',
+    options: ['Entry in row $3$, column $2$', 'Entry in row $2$, column $3$', 'The $32$nd entry', '$3 \\times 2$'],
+    correctIndex: 0,
+    explanation: '$b_{ij}$ means entry in row $i$, column $j$.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'What is the $3 \\times 3$ identity matrix diagonal sum?',
+    options: ['$3$', '$1$', '$9$', '$0$'],
+    correctIndex: 0,
+    explanation: 'The identity has $1$s on diagonal: $1 + 1 + 1 = 3$.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'What is $\\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix} + \\begin{pmatrix} 1 & 2 \\\\ 3 & 1 \\end{pmatrix}$?',
+    options: ['$\\begin{pmatrix} 3 & 5 \\\\ 4 & 5 \\end{pmatrix}$', '$\\begin{pmatrix} 3 & 6 \\\\ 4 & 4 \\end{pmatrix}$', '$\\begin{pmatrix} 2 & 5 \\\\ 4 & 5 \\end{pmatrix}$', '$\\begin{pmatrix} 3 & 5 \\\\ 3 & 5 \\end{pmatrix}$'],
+    correctIndex: 0,
+    explanation: 'Add entry by entry: $2+1=3$, $3+2=5$, $1+3=4$, $4+1=5$.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'What is $3 \\times \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$?',
+    options: ['$\\begin{pmatrix} 6 & 3 \\\\ 0 & 9 \\end{pmatrix}$', '$\\begin{pmatrix} 5 & 4 \\\\ 3 & 6 \\end{pmatrix}$', '$\\begin{pmatrix} 3 & 3 \\\\ 3 & 3 \\end{pmatrix}$', '$\\begin{pmatrix} 2 & 1 \\\\ 0 & 9 \\end{pmatrix}$'],
+    correctIndex: 0,
+    explanation: 'Scalar multiplication: multiply each entry by $3$.'
+  },
+
+  // Additional Medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'If $A$ is $3 \\times 2$ and $B$ is $2 \\times 4$, what is the size of $AB$?',
+    options: ['$3 \\times 4$', '$2 \\times 2$', '$3 \\times 2$', '$4 \\times 3$'],
+    correctIndex: 0,
+    explanation: 'Multiplying $m \\times n$ by $n \\times p$ gives $m \\times p$, so $3 \\times 4$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'Compute $\\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix} \\times \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$.',
+    options: ['$\\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$', '$\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$', '$\\begin{pmatrix} 2 & 0 \\\\ 0 & 4 \\end{pmatrix}$', '$\\begin{pmatrix} 3 & 0 \\\\ 0 & 4 \\end{pmatrix}$'],
+    correctIndex: 0,
+    explanation: 'Multiplying by identity gives original: $AI = A$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'What is the transpose of $\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$?',
+    options: ['$\\begin{pmatrix} 1 & 3 \\\\ 2 & 4 \\end{pmatrix}$', '$\\begin{pmatrix} 4 & 2 \\\\ 3 & 1 \\end{pmatrix}$', '$\\begin{pmatrix} 2 & 1 \\\\ 4 & 3 \\end{pmatrix}$', '$\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$'],
+    correctIndex: 0,
+    explanation: 'Transpose swaps rows and columns: row $1$ becomes column $1$, etc.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'For $\\begin{pmatrix} 2 & 1 \\\\ 3 & 4 \\end{pmatrix} \\times \\begin{pmatrix} 1 & 0 \\\\ 2 & 3 \\end{pmatrix}$, find the $(2,2)$ entry.',
+    options: ['$12$', '$11$', '$8$', '$7$'],
+    correctIndex: 0,
+    explanation: 'Row $2$ $\\times$ Column $2$: $3(0) + 4(3) = 0 + 12 = 12$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'Is matrix multiplication commutative in general?',
+    options: ['No', 'Yes', 'Only for diagonal matrices', 'Only for identity'],
+    correctIndex: 0,
+    explanation: '$AB \\neq BA$ in general; matrix multiplication is not commutative.'
+  },
+
+  // Additional Hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'Compute $\\begin{pmatrix} 2 & 3 \\\\ 1 & 2 \\end{pmatrix} \\times \\begin{pmatrix} 4 & 1 \\\\ 1 & 3 \\end{pmatrix}$ fully.',
+    options: ['$\\begin{pmatrix} 11 & 11 \\\\ 6 & 7 \\end{pmatrix}$', '$\\begin{pmatrix} 8 & 3 \\\\ 4 & 6 \\end{pmatrix}$', '$\\begin{pmatrix} 11 & 6 \\\\ 11 & 7 \\end{pmatrix}$', '$\\begin{pmatrix} 8 & 9 \\\\ 5 & 6 \\end{pmatrix}$'],
+    correctIndex: 0,
+    explanation: '$(1,1)=2(4)+3(1)=11$, $(1,2)=2(1)+3(3)=11$, $(2,1)=1(4)+2(1)=6$, $(2,2)=1(1)+2(3)=7$.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'If $A^3 = I$, then $A$ is called:',
+    options: ['Order $3$ or a divisor', 'Nilpotent', 'Idempotent', 'Involutory'],
+    correctIndex: 0,
+    explanation: '$A^3 = I$ means $A$ has order $3$ (or order $1$ if $A=I$).'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'What is $(A+B)^T$?',
+    options: ['$A^T + B^T$', '$B^T + A^T$', '$A^T B^T$', '$(AB)^T$'],
+    correctIndex: 0,
+    explanation: 'Transpose of sum: $(A+B)^T = A^T + B^T$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'If $A = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$, what is $A^2$?',
+    options: ['$\\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$', '$\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$', '$\\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$', '$\\begin{pmatrix} 0 & 2 \\\\ 0 & 0 \\end{pmatrix}$'],
+    correctIndex: 0,
+    explanation: '$A^2 = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$. This is a nilpotent matrix.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'A matrix $A$ is skew-symmetric if:',
+    options: ['$A^T = -A$', '$A^T = A$', '$A^2 = I$', '$A^2 = -I$'],
+    correctIndex: 0,
+    explanation: 'A skew-symmetric matrix satisfies $A^T = -A$.'
   }
 ];

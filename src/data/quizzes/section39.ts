@@ -125,5 +125,131 @@ export const section39Questions: SectionQuizQuestion[] = [
     options: ['$y^2 = 4x$', '$x^2 = 4y$', '$y^2 = 2x$', '$x^2 = 2y$'],
     correctIndex: 0,
     explanation: 'From $y = 2t$, we get $t = \\frac{y}{2}$. Then $x = t^2 = \\frac{y^2}{4}$, so $y^2 = 4x$.'
+  },
+
+  // Additional Easy questions (16-20)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'A parabola is symmetric about which line?',
+    options: ['Its axis of symmetry', 'The $x$-axis', 'The $y$-axis', 'The line $y = x$'],
+    correctIndex: 0,
+    explanation: 'Every parabola is symmetric about its axis of symmetry, which passes through the vertex.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'What is the vertex of $y = x^2 + 4$?',
+    options: ['$(0, 4)$', '$(4, 0)$', '$(0, 0)$', '$(4, 4)$'],
+    correctIndex: 0,
+    explanation: 'This is $y = (x - 0)^2 + 4$, so the vertex is $(0, 4)$.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'Does the parabola $y = 3x^2$ open upward or downward?',
+    options: ['Upward', 'Downward', 'Left', 'Right'],
+    correctIndex: 0,
+    explanation: 'When the coefficient of $x^2$ is positive ($a > 0$), the parabola opens upward.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'What is the axis of symmetry of $y = (x - 3)^2$?',
+    options: ['$x = 3$', '$y = 3$', '$x = 0$', '$y = 0$'],
+    correctIndex: 0,
+    explanation: 'For $y = (x - h)^2 + k$, the axis of symmetry is $x = h = 3$.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'Which equation represents a parabola opening to the right?',
+    options: ['$y^2 = 4x$', '$x^2 = 4y$', '$y = x^2$', '$x = -y^2$'],
+    correctIndex: 0,
+    explanation: 'When $y$ is squared and the coefficient of $x$ is positive, the parabola opens right.'
+  },
+
+  // Additional Medium questions (21-25)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'Find the focus of the parabola $y^2 = 12x$.',
+    options: ['$(3, 0)$', '$(0, 3)$', '$(6, 0)$', '$(12, 0)$'],
+    correctIndex: 0,
+    explanation: 'For $y^2 = 4px$, here $4p = 12$, so $p = 3$. Focus is at $(p, 0) = (3, 0)$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'Find the directrix of $x^2 = -20y$.',
+    options: ['$y = 5$', '$y = -5$', '$x = 5$', '$x = -5$'],
+    correctIndex: 0,
+    explanation: 'For $x^2 = 4py$, here $4p = -20$, so $p = -5$. Directrix is $y = -p = 5$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'What is the length of the latus rectum of $y^2 = 20x$?',
+    options: ['$20$', '$10$', '$5$', '$40$'],
+    correctIndex: 0,
+    explanation: 'For $y^2 = 4px$, the latus rectum length is $|4p|$. Here $4p = 20$, so length $= 20$.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'Find the vertex of $y = x^2 + 6x + 5$.',
+    options: ['$(-3, -4)$', '$(3, -4)$', '$(-3, 4)$', '$(6, 5)$'],
+    correctIndex: 0,
+    explanation: '$h = -\\frac{b}{2a} = -\\frac{6}{2} = -3$. $k = (-3)^2 + 6(-3) + 5 = 9 - 18 + 5 = -4$. Vertex $(-3, -4)$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'The parabola $x^2 = 16y$ opens in which direction?',
+    options: ['Up', 'Down', 'Left', 'Right'],
+    correctIndex: 0,
+    explanation: 'For $x^2 = 4py$ with $4p = 16$ ($p > 0$), the parabola opens upward.'
+  },
+
+  // Additional Hard questions (26-30)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'Find the equation of the parabola with focus $(2, 0)$ and directrix $x = -2$.',
+    options: ['$y^2 = 8x$', '$y^2 = 4x$', '$x^2 = 8y$', '$y^2 = -8x$'],
+    correctIndex: 0,
+    explanation: 'The vertex is midway at $(0, 0)$. $p = 2$, so $y^2 = 4(2)x = 8x$.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'For the parabola $(y - 2)^2 = 12(x + 1)$, find the focus.',
+    options: ['$(2, 2)$', '$(-1, 2)$', '$(3, 2)$', '$(-4, 2)$'],
+    correctIndex: 0,
+    explanation: 'Vertex is $(-1, 2)$. $4p = 12$, so $p = 3$. Focus is at $(-1 + 3, 2) = (2, 2)$.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'A point moves so its distance from $(0, 4)$ equals its distance from the line $y = -4$. What curve does it trace?',
+    options: ['Parabola $x^2 = 16y$', 'Parabola $y^2 = 16x$', 'Circle', 'Ellipse'],
+    correctIndex: 0,
+    explanation: 'By definition, equal distance from focus $(0, 4)$ and directrix ($y = -4$) gives a parabola with $p = 4$: $x^2 = 4(4)y = 16y$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'Find the equation of the tangent to $y^2 = 8x$ at the point $(2, 4)$.',
+    options: ['$y = x + 2$', '$y = 2x$', '$y = x + 4$', '$y = 2x + 4$'],
+    correctIndex: 0,
+    explanation: 'For $y^2 = 4px$, tangent at $(x_0, y_0)$ is $yy_0 = 2p(x + x_0)$. Here $p = 2$: $4y = 4(x + 2)$, so $y = x + 2$.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'The parametric equations $x = 3t$, $y = t^2$ describe which parabola?',
+    options: ['$x^2 = 9y$', '$y^2 = 9x$', '$x^2 = 3y$', '$y = 3x^2$'],
+    correctIndex: 0,
+    explanation: 'From $x = 3t$, we get $t = \\frac{x}{3}$. Then $y = t^2 = \\frac{x^2}{9}$, so $x^2 = 9y$.'
   }
 ];

@@ -125,5 +125,131 @@ export const section56Questions: SectionQuizQuestion[] = [
     options: ['$(n-1) \\cdot 2^{n+1} + 2$', '$2^{n+1} - 2$', '$n \\cdot 2^{n+1}$', '$2^n(n-1)$'],
     correctIndex: 0,
     explanation: 'Using the formula for $\\sum k \\cdot r^k$: the result is $(n-1) \\cdot 2^{n+1} + 2$.'
+  },
+
+  // Additional Easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'What is $\\sum_{k=1}^{3} k$?',
+    options: ['$6$', '$3$', '$9$', '$5$'],
+    correctIndex: 0,
+    explanation: '$1 + 2 + 3 = 6$.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'What is $\\sum_{i=1}^{5} 2$?',
+    options: ['$10$', '$2$', '$5$', '$7$'],
+    correctIndex: 0,
+    explanation: 'Sum of constant $2$ repeated $5$ times: $5 \\cdot 2 = 10$.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'In $\\sum_{k=1}^{10} k^2$, what is the upper limit?',
+    options: ['$10$', '$1$', '$k$', '$k^2$'],
+    correctIndex: 0,
+    explanation: 'The upper limit is the ending value of the index, which is $10$.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'How many terms are in $\\sum_{k=1}^{5} a_k$?',
+    options: ['$5$', '$4$', '$6$', '$1$'],
+    correctIndex: 0,
+    explanation: 'From $k=1$ to $k=5$: $1, 2, 3, 4, 5$. That\'s $5$ terms.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'What is $1 + 2 + 3 + \\cdots + 20$?',
+    options: ['$210$', '$200$', '$100$', '$400$'],
+    correctIndex: 0,
+    explanation: '$\\frac{n(n+1)}{2} = \\frac{20(21)}{2} = 210$.'
+  },
+
+  // Additional Medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'Compute $\\sum_{k=1}^{6} k^2$.',
+    options: ['$91$', '$21$', '$36$', '$60$'],
+    correctIndex: 0,
+    explanation: '$\\frac{n(n+1)(2n+1)}{6} = \\frac{6(7)(13)}{6} = 91$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'Compute $\\sum_{k=1}^{4} (3k + 1)$.',
+    options: ['$34$', '$30$', '$40$', '$24$'],
+    correctIndex: 0,
+    explanation: '$4 + 7 + 10 + 13 = 34$. Or: $3\\sum k + \\sum 1 = 3(10) + 4 = 34$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'Simplify $\\sum_{k=1}^{n} (k^2 + k)$.',
+    options: ['$\\frac{n(n+1)(n+2)}{3}$', '$\\frac{n(n+1)}{2}$', '$n^3$', '$\\frac{n^2(n+1)}{2}$'],
+    correctIndex: 0,
+    explanation: '$\\sum k^2 + \\sum k = \\frac{n(n+1)(2n+1)}{6} + \\frac{n(n+1)}{2} = \\frac{n(n+1)(n+2)}{3}$.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'What is $\\sum_{k=0}^{n} 1$?',
+    options: ['$n+1$', '$n$', '$1$', '$0$'],
+    correctIndex: 0,
+    explanation: 'From $k=0$ to $k=n$: that\'s $n+1$ terms, each equal to $1$. Sum $= n+1$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'Compute $\\sum_{k=1}^{3} k^3$.',
+    options: ['$36$', '$27$', '$30$', '$14$'],
+    correctIndex: 0,
+    explanation: '$1 + 8 + 27 = 36$. Or: $\\left(\\frac{3(4)}{2}\\right)^2 = 6^2 = 36$.'
+  },
+
+  // Additional Hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'Compute $\\sum_{k=1}^{n} (2k-1)^2$.',
+    options: ['$\\frac{n(2n-1)(2n+1)}{3}$', '$\\frac{n(n+1)(2n+1)}{6}$', '$4n^2 - 2n$', '$n^3$'],
+    correctIndex: 0,
+    explanation: 'Expand: $4k^2 - 4k + 1$. Sum: $4\\sum k^2 - 4\\sum k + \\sum 1 = \\frac{n(2n-1)(2n+1)}{3}$.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'If $\\sum_{k=1}^{n} k^2 = 140$, find $n$.',
+    options: ['$7$', '$6$', '$8$', '$10$'],
+    correctIndex: 0,
+    explanation: '$\\frac{n(n+1)(2n+1)}{6} = 140$, so $n(n+1)(2n+1) = 840 = 7 \\cdot 8 \\cdot 15$. Thus $n = 7$.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'Compute $\\sum_{k=1}^{n} k(k+2)$.',
+    options: ['$\\frac{n(n+1)(2n+7)}{6}$', '$\\frac{n(n+1)(n+2)}{3}$', '$\\frac{n^2(n+1)}{2}$', '$n^2 + 2n$'],
+    correctIndex: 0,
+    explanation: '$k(k+2) = k^2 + 2k$. Sum: $\\frac{n(n+1)(2n+1)}{6} + 2\\frac{n(n+1)}{2} = \\frac{n(n+1)(2n+7)}{6}$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'Compute $\\sum_{k=1}^{49} (-1)^{k+1} \\cdot k$.',
+    options: ['$25$', '$-25$', '$0$', '$49$'],
+    correctIndex: 0,
+    explanation: '$1 - 2 + 3 - 4 + \\cdots + 47 - 48 + 49 = (1-2) + (3-4) + \\cdots + (47-48) + 49 = -1 \\times 24 + 49 = 25$.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'Find $\\sum_{k=1}^{n} \\frac{k}{2^k}$ in closed form (given $n$ is large).',
+    options: ['Approaches $2$ as $n \\to \\infty$', 'Approaches $1$', 'Approaches $\\infty$', 'Approaches $0$'],
+    correctIndex: 0,
+    explanation: 'The infinite series $\\sum_{k=1}^{\\infty} \\frac{k}{2^k} = 2$ (using standard formula).'
   }
 ];

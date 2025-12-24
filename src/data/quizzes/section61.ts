@@ -125,5 +125,131 @@ export const section61Questions: SectionQuizQuestion[] = [
     options: ['$a(ei-fh) - d(bi-ch) + g(bf-ce)$', '$a(ei-fh) + d(bi-ch) + g(bf-ce)$', '$aei - bfg + cdh$', '$a + d + g$'],
     correctIndex: 0,
     explanation: 'Column $1$: $a \\cdot C_{11} + d \\cdot C_{21} + g \\cdot C_{31}$ with alternating signs.'
+  },
+
+  // Additional Easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'What is $\\det\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$?',
+    options: ['$6$', '$3$', '$1$', '$5$'],
+    correctIndex: 0,
+    explanation: 'Diagonal matrix: $\\det = 1 \\cdot 2 \\cdot 3 = 6$.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'What is $\\det\\begin{pmatrix} 5 & 0 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$?',
+    options: ['$0$', '$10$', '$5$', '$7$'],
+    correctIndex: 0,
+    explanation: 'A row of zeros makes the determinant zero.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'The minor $M_{12}$ is obtained by removing:',
+    options: ['Row $1$ and column $2$', 'Row $2$ and column $1$', 'Entry $(1,2)$ only', 'The first two rows'],
+    correctIndex: 0,
+    explanation: '$M_{ij}$ is obtained by deleting row $i$ and column $j$.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'What is the sign of cofactor $C_{12}$?',
+    options: ['$-$', '$+$', '$0$', 'Depends on matrix'],
+    correctIndex: 0,
+    explanation: '$C_{12} = (-1)^{1+2} M_{12} = (-1)^3 M_{12} = -M_{12}$.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'For a lower triangular $3 \\times 3$ matrix, $\\det$ equals:',
+    options: ['Product of diagonal entries', 'Sum of diagonal', 'Zero', 'Negative of diagonal product'],
+    correctIndex: 0,
+    explanation: 'Any triangular matrix has determinant equal to the product of its diagonal entries.'
+  },
+
+  // Additional Medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'What is $\\det\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 4 & 5 \\\\ 0 & 0 & 6 \\end{pmatrix}$?',
+    options: ['$24$', '$12$', '$6$', '$30$'],
+    correctIndex: 0,
+    explanation: 'Upper triangular: $\\det = 1 \\cdot 4 \\cdot 6 = 24$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'What is $\\det\\begin{pmatrix} 3 & 0 & 0 \\\\ 1 & 2 & 0 \\\\ 4 & 5 & 1 \\end{pmatrix}$?',
+    options: ['$6$', '$3$', '$2$', '$8$'],
+    correctIndex: 0,
+    explanation: 'Lower triangular: $\\det = 3 \\cdot 2 \\cdot 1 = 6$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'What is the sign of cofactor $C_{33}$?',
+    options: ['$+$', '$-$', '$0$', 'Variable'],
+    correctIndex: 0,
+    explanation: '$C_{33} = (-1)^{3+3} M_{33} = (-1)^6 M_{33} = +M_{33}$.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'Using Sarrus: $\\det\\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 3 & 1 \\end{pmatrix}$?',
+    options: ['$1$', '$0$', '$2$', '$6$'],
+    correctIndex: 0,
+    explanation: 'Down: $1 \\cdot 1 \\cdot 1 = 1$. Up: $0$. $\\det = 1$. Or use triangular property.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'The trace of a matrix is the sum of:',
+    options: ['Diagonal entries', 'All entries', 'First row', 'Determinant values'],
+    correctIndex: 0,
+    explanation: 'Trace is the sum of diagonal entries: $\\text{tr}(A) = a_{11} + a_{22} + a_{33}$.'
+  },
+
+  // Additional Hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'Compute $\\det\\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 1 & 0 \\\\ 3 & 4 & 1 \\end{pmatrix}$.',
+    options: ['$1$', '$0$', '$2$', '$10$'],
+    correctIndex: 0,
+    explanation: 'Lower triangular with all diagonal entries $= 1$: $\\det = 1 \\cdot 1 \\cdot 1 = 1$.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'Compute $\\det\\begin{pmatrix} 2 & 3 & 1 \\\\ 0 & 1 & 4 \\\\ 0 & 0 & 5 \\end{pmatrix}$.',
+    options: ['$10$', '$5$', '$2$', '$40$'],
+    correctIndex: 0,
+    explanation: 'Upper triangular: $\\det = 2 \\cdot 1 \\cdot 5 = 10$.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'If $\\det(A) = 3$ for a $3 \\times 3$ matrix, what is $\\det(4A)$?',
+    options: ['$192$', '$12$', '$64$', '$48$'],
+    correctIndex: 0,
+    explanation: '$\\det(cA) = c^3 \\cdot \\det(A)$ for $3 \\times 3$. So $4^3 \\cdot 3 = 64 \\cdot 3 = 192$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'Compute $\\det\\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 5 & 7 & 8 \\end{pmatrix}$.',
+    options: ['$0$', '$6$', '$-6$', '$12$'],
+    correctIndex: 0,
+    explanation: 'Row $2$ is $2 \\times$ Row $1$, so rows are linearly dependent. $\\det = 0$.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'What is the cofactor expansion of $\\det(A)$ along row $2$ for a $3 \\times 3$ matrix?',
+    options: ['$-a_{21}C_{21} + a_{22}C_{22} - a_{23}C_{23}$', '$a_{21}C_{21} + a_{22}C_{22} + a_{23}C_{23}$', '$a_{21}M_{21} + a_{22}M_{22} + a_{23}M_{23}$', '$-a_{21}M_{21} - a_{22}M_{22} - a_{23}M_{23}$'],
+    correctIndex: 0,
+    explanation: 'Row $2$: $a_{21}C_{21} + a_{22}C_{22} + a_{23}C_{23}$ where $C_{21} = -M_{21}$, $C_{22} = +M_{22}$, $C_{23} = -M_{23}$.'
   }
 ];

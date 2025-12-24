@@ -125,5 +125,131 @@ export const section51Questions: SectionQuizQuestion[] = [
     options: ['$3$', '$2$', '$4$', '$5$'],
     correctIndex: 0,
     explanation: '$S_2$ has only $2$ elements and is abelian. $S_3$ has $6$ elements and is non-abelian (e.g., $(1\\;2)(2\\;3) \\neq (2\\;3)(1\\;2)$).'
+  },
+
+  // Additional Easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'What is $5!$?',
+    options: ['$120$', '$100$', '$60$', '$25$'],
+    correctIndex: 0,
+    explanation: '$5! = 5 \\times 4 \\times 3 \\times 2 \\times 1 = 120$.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'How many permutations of $\\{1, 2\\}$ are there?',
+    options: ['$2$', '$1$', '$4$', '$3$'],
+    correctIndex: 0,
+    explanation: '$2! = 2$ permutations: identity and the swap $(1\\;2)$.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'What is $0!$?',
+    options: ['$1$', '$0$', 'Undefined', '$-1$'],
+    correctIndex: 0,
+    explanation: 'By convention, $0! = 1$.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'A permutation that leaves every element unchanged is called:',
+    options: ['Identity', 'Transposition', 'Cycle', 'Bijection'],
+    correctIndex: 0,
+    explanation: 'The identity permutation fixes all elements.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'Which of these is a property of all permutations?',
+    options: ['Invertible', 'Fixes at least one element', 'Is a transposition', 'Has order $2$'],
+    correctIndex: 0,
+    explanation: 'Every permutation is a bijection and thus invertible.'
+  },
+
+  // Additional Medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'If $\\sigma$ is a permutation on $\\{1,2,3,4\\}$ with $\\sigma(1)=4$, $\\sigma(2)=1$, $\\sigma(3)=3$, $\\sigma(4)=2$, what is $\\sigma^{-1}(4)$?',
+    options: ['$1$', '$2$', '$3$', '$4$'],
+    correctIndex: 0,
+    explanation: '$\\sigma^{-1}(4)$ is the element sent to $4$ by $\\sigma$. Since $\\sigma(1)=4$, we have $\\sigma^{-1}(4)=1$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'How many elements does $S_6$ have?',
+    options: ['$720$', '$120$', '$360$', '$36$'],
+    correctIndex: 0,
+    explanation: '$|S_6| = 6! = 720$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'What is $(2\\;3)(2)$?',
+    options: ['$3$', '$2$', '$1$', '$4$'],
+    correctIndex: 0,
+    explanation: 'The transposition $(2\\;3)$ swaps $2$ and $3$, so $(2\\;3)(2) = 3$.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'If $\\sigma \\circ \\tau = \\tau \\circ \\sigma$ for all $\\tau$ in $S_n$, then $\\sigma$ must be:',
+    options: ['Identity', 'Transposition', 'Any permutation', 'A cycle'],
+    correctIndex: 0,
+    explanation: 'Only the identity commutes with all permutations in $S_n$ for $n \\geq 3$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'How many ways are there to arrange $4$ distinct objects in a row?',
+    options: ['$24$', '$16$', '$12$', '$4$'],
+    correctIndex: 0,
+    explanation: 'This is $4! = 24$ permutations.'
+  },
+
+  // Additional Hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'If $\\sigma$ is a permutation on $\\{1,2,3,4,5\\}$ with exactly two fixed points, what is the maximum possible order of $\\sigma$?',
+    options: ['$3$', '$2$', '$4$', '$5$'],
+    correctIndex: 0,
+    explanation: 'With $2$ fixed points, $\\sigma$ acts on $3$ elements. Maximum order is $3$ (a $3$-cycle).'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'If $\\sigma$ and $\\tau$ are both transpositions in $S_n$, what can be said about $\\sigma \\circ \\tau$?',
+    options: ['Could be identity, transposition, or $3$-cycle', 'Always identity', 'Always a $3$-cycle', 'Always another transposition'],
+    correctIndex: 0,
+    explanation: 'If disjoint: identity. If they share one element: $3$-cycle. If identical: identity.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'Compute $(1\\;3) \\circ (2\\;3)$ on $\\{1, 2, 3\\}$. What is the result applied to $2$?',
+    options: ['$1$', '$2$', '$3$', 'Undefined'],
+    correctIndex: 0,
+    explanation: 'Apply right to left: $(2\\;3)(2) = 3$, then $(1\\;3)(3) = 1$. So $((1\\;3) \\circ (2\\;3))(2) = 1$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'If $\\sigma$ is a permutation of $\\{1,2,3,4\\}$ with order $4$, how many fixed points does $\\sigma$ have?',
+    options: ['$0$', '$1$', '$2$', '$3$'],
+    correctIndex: 0,
+    explanation: 'Order $4$ requires a $4$-cycle, which has no fixed points.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'What fraction of permutations in $S_5$ are transpositions?',
+    options: ['$\\frac{1}{12}$', '$\\frac{1}{6}$', '$\\frac{1}{10}$', '$\\frac{1}{5}$'],
+    correctIndex: 0,
+    explanation: 'There are $\\binom{5}{2} = 10$ transpositions in $S_5$. Total: $5! = 120$. Fraction: $\\frac{10}{120} = \\frac{1}{12}$.'
   }
 ];

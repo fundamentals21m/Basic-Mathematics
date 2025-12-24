@@ -125,5 +125,131 @@ export const section63Questions: SectionQuizQuestion[] = [
     options: ['$3$', '$1$', '$2$', '$-1$'],
     correctIndex: 0,
     explanation: '$x = \\frac{10}{5} = 2$, $y = \\frac{-5}{5} = -1$. $x - y = 2 - (-1) = 3$.'
+  },
+
+  // Additional Easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'In Cramer\'s Rule, what does $D$ equal for the system $ax + by = e$, $cx + dy = f$?',
+    options: ['$ad - bc$', '$ae - bf$', '$ac - bd$', '$a + d$'],
+    correctIndex: 0,
+    explanation: '$D = \\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc$.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'For $3$ equations in $3$ unknowns, how many determinants are computed?',
+    options: ['$4$', '$3$', '$6$', '$9$'],
+    correctIndex: 0,
+    explanation: 'Compute $D$, $D_x$, $D_y$, $D_z$ ($4$ determinants).'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'If $D \\neq 0$ in Cramer\'s Rule, the system has:',
+    options: ['Exactly one unique solution', 'No solution', 'Infinitely many solutions', 'Two solutions'],
+    correctIndex: 0,
+    explanation: '$D \\neq 0$ guarantees a unique solution.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'To find $y$ using Cramer\'s Rule, compute:',
+    options: ['$D_y / D$', '$D / D_y$', '$D_y - D$', '$D_y + D$'],
+    correctIndex: 0,
+    explanation: '$y = D_y / D$ where $D_y$ has the $y$-column replaced by constants.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'For $D_y$ in a $2 \\times 2$ system, which column is replaced?',
+    options: ['Column $2$ ($y$-coefficients)', 'Column $1$', 'Both columns', 'Neither column'],
+    correctIndex: 0,
+    explanation: '$D_y$ replaces the column containing $y$-coefficients with the constant vector.'
+  },
+
+  // Additional Medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'Solve: $2x + y = 8$, $x - y = 1$. Find $x$.',
+    options: ['$3$', '$2$', '$4$', '$5$'],
+    correctIndex: 0,
+    explanation: '$D = 2(-1) - 1(1) = -3$. $D_x = 8(-1) - 1(1) = -9$. $x = \\frac{-9}{-3} = 3$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'Solve: $2x + y = 8$, $x - y = 1$. Find $y$.',
+    options: ['$2$', '$3$', '$1$', '$4$'],
+    correctIndex: 0,
+    explanation: '$D = -3$. $D_y = 2(1) - 8(1) = -6$. $y = \\frac{-6}{-3} = 2$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'For a $4 \\times 4$ system, how many determinants are needed?',
+    options: ['$5$', '$4$', '$8$', '$16$'],
+    correctIndex: 0,
+    explanation: 'Compute $D$, $D_1$, $D_2$, $D_3$, $D_4$ ($5$ determinants total).'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'If $D \\neq 0$ but $D_x = 0$, then:',
+    options: ['$x = 0$', '$x$ is undefined', '$x = 1$', 'No solution'],
+    correctIndex: 0,
+    explanation: '$x = \\frac{D_x}{D} = \\frac{0}{D} = 0$ when $D \\neq 0$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'For $3x - y = 4$, $x + y = 0$, what is $D$?',
+    options: ['$4$', '$3$', '$-4$', '$0$'],
+    correctIndex: 0,
+    explanation: '$D = 3(1) - (-1)(1) = 3 + 1 = 4$.'
+  },
+
+  // Additional Hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'Solve: $x + 2y + z = 3$, $2x - y = 1$, $x + y + 2z = 4$. Find $D$.',
+    options: ['$-9$', '$9$', '$0$', '$3$'],
+    correctIndex: 0,
+    explanation: 'Compute $D = \\det\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & -1 & 0 \\\\ 1 & 1 & 2 \\end{pmatrix} = -9$.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'In $2x + y - z = 1$, $x + 3y + z = 5$, $x - y + 2z = 3$, if $D = 15$, $D_x = 30$, what is $x$?',
+    options: ['$2$', '$1$', '$3$', '$\\frac{1}{2}$'],
+    correctIndex: 0,
+    explanation: '$x = \\frac{D_x}{D} = \\frac{30}{15} = 2$.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'Solve: $3x - 2y = 5$, $6x - 4y = 10$. What can you conclude?',
+    options: ['Infinitely many solutions', 'No solution', 'Unique solution: $x=1, y=-1$', '$D \\neq 0$'],
+    correctIndex: 0,
+    explanation: '$D = 3(-4) - (-2)(6) = 0$. Equations are identical (second is $2 \\times$ first), so infinitely many solutions.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'Solve: $x + y = 3$, $2x + y = 5$. What is $2x - y$?',
+    options: ['$3$', '$1$', '$2$', '$0$'],
+    correctIndex: 0,
+    explanation: '$D = 1(1) - 1(2) = -1$. $D_x = 3(1) - 1(5) = -2$, so $x = 2$. $D_y = 1(5) - 3(2) = -1$, so $y = 1$. $2x - y = 2(2) - 1 = 3$.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'For which type of system is Cramer\'s Rule most efficient?',
+    options: ['Small systems with $n \\leq 3$', 'Large sparse systems', 'Systems with $n > 100$', 'All systems equally'],
+    correctIndex: 0,
+    explanation: 'Cramer\'s Rule is practical for small systems ($2 \\times 2$ or $3 \\times 3$). For larger systems, Gaussian elimination is more efficient.'
   }
 ];

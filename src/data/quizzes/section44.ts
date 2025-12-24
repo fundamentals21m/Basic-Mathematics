@@ -125,5 +125,131 @@ export const section44Questions: SectionQuizQuestion[] = [
     options: ['$3$', '$1$', '$0$', '$2$'],
     correctIndex: 0,
     explanation: 'By the Remainder Theorem, the remainder is $f(1) = 1^{100} + 1^{50} + 1 = 1 + 1 + 1 = 3$.'
+  },
+
+  // Additional easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'What is the degree of $f(x) = 7$?',
+    options: ['$0$', '$1$', '$7$', 'Undefined'],
+    correctIndex: 0,
+    explanation: 'A nonzero constant polynomial has degree $0$.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'A cubic polynomial has degree:',
+    options: ['$3$', '$2$', '$4$', '$1$'],
+    correctIndex: 0,
+    explanation: 'Cubic means degree $3$.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'What is the leading coefficient of $-x^2 + 3x + 1$?',
+    options: ['$-1$', '$1$', '$3$', '$0$'],
+    correctIndex: 0,
+    explanation: 'The coefficient of the highest-degree term $x^2$ is $-1$.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'If $f(x) = x^2 - 9$, what are the zeros?',
+    options: ['$\\pm 3$', '$\\pm 9$', '$3$', '$9$'],
+    correctIndex: 0,
+    explanation: '$x^2 - 9 = 0$ gives $x^2 = 9$, so $x = \\pm 3$.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'As $x \\to +\\infty$, what happens to $f(x) = x^4$?',
+    options: ['$f(x) \\to +\\infty$', '$f(x) \\to -\\infty$', '$f(x) \\to 0$', '$f(x) \\to 1$'],
+    correctIndex: 0,
+    explanation: 'For even degree with positive leading coefficient, $f(x) \\to +\\infty$ as $x \\to +\\infty$.'
+  },
+
+  // Additional medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'Compute $(x + 2)(x - 3)$.',
+    options: ['$x^2 - x - 6$', '$x^2 + x - 6$', '$x^2 - x + 6$', '$x^2 - 6$'],
+    correctIndex: 0,
+    explanation: '$(x + 2)(x - 3) = x^2 - 3x + 2x - 6 = x^2 - x - 6$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'Find the roots of $x^2 + 7x + 12$.',
+    options: ['$x = -3$ and $x = -4$', '$x = 3$ and $x = 4$', '$x = -2$ and $x = -6$', '$x = 2$ and $x = 6$'],
+    correctIndex: 0,
+    explanation: 'Factor: $(x + 3)(x + 4) = 0$, so $x = -3$ or $x = -4$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'If $(x - 5)$ is a factor of $f(x)$, what is $f(5)$?',
+    options: ['$0$', '$5$', '$-5$', 'Cannot determine'],
+    correctIndex: 0,
+    explanation: 'By the Factor Theorem, if $(x - a)$ is a factor, then $f(a) = 0$.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'Expand $(x - 1)^3$.',
+    options: ['$x^3 - 3x^2 + 3x - 1$', '$x^3 - 1$', '$x^3 - 3x + 1$', '$x^3 + 3x^2 + 3x + 1$'],
+    correctIndex: 0,
+    explanation: '$(x - 1)^3 = x^3 - 3x^2(1) + 3x(1)^2 - 1^3 = x^3 - 3x^2 + 3x - 1$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'As $x \\to -\\infty$, what happens to $f(x) = x^5$?',
+    options: ['$f(x) \\to -\\infty$', '$f(x) \\to +\\infty$', '$f(x) \\to 0$', '$f(x) \\to 1$'],
+    correctIndex: 0,
+    explanation: 'For odd degree, as $x \\to -\\infty$, $f(x) \\to -\\infty$ (since leading coefficient is positive).'
+  },
+
+  // Additional hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'How many complex roots does $x^3 + 1$ have?',
+    options: ['$3$', '$1$', '$2$', '$0$'],
+    correctIndex: 0,
+    explanation: 'By the Fundamental Theorem of Algebra, a degree-$3$ polynomial has exactly $3$ complex roots (counting multiplicity).'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'Factor $x^3 + 8$ completely over the reals.',
+    options: ['$(x + 2)(x^2 - 2x + 4)$', '$(x + 2)^3$', '$(x + 8)(x^2 + 1)$', '$(x + 2)(x - 2)^2$'],
+    correctIndex: 0,
+    explanation: '$x^3 + 8 = x^3 + 2^3 = (x + 2)(x^2 - 2x + 4)$ using sum of cubes formula.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'If $f(x) = x^4 - 5x^2 + 4$, find all real roots.',
+    options: ['$\\pm 1, \\pm 2$', '$\\pm 2$', '$\\pm 1$', '$0, \\pm 2$'],
+    correctIndex: 0,
+    explanation: 'Let $u = x^2$: $u^2 - 5u + 4 = (u-1)(u-4) = 0$, so $u = 1$ or $u = 4$. Thus $x^2 = 1$ or $x^2 = 4$, giving $x = \\pm 1, \\pm 2$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'Find the quotient when $x^3 + 2x^2 - 5x - 6$ is divided by $(x + 1)$.',
+    options: ['$x^2 + x - 6$', '$x^2 - x - 6$', '$x^2 + 2x - 6$', '$x^2 + x + 6$'],
+    correctIndex: 0,
+    explanation: 'By synthetic or long division, the quotient is $x^2 + x - 6$. Check: $(x+1)(x^2+x-6) = x^3 + 2x^2 - 5x - 6$.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'A polynomial $f(x)$ has degree $4$ and exactly two real roots. How many complex (non-real) roots does it have?',
+    options: ['$2$', '$0$', '$4$', '$1$'],
+    correctIndex: 0,
+    explanation: 'Total roots = $4$. With $2$ real roots, the remaining $2$ must be complex (occurring in conjugate pairs).'
   }
 ];

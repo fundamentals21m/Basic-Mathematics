@@ -125,5 +125,131 @@ export const section62Questions: SectionQuizQuestion[] = [
     options: ['$16$', '$4$', '$64$', '$8$'],
     correctIndex: 0,
     explanation: 'For $n \\times n$: $\\det(\\text{adj}(A)) = (\\det(A))^{n-1}$. So $4^2 = 16$.'
+  },
+
+  // Additional Easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'Swapping two rows in a $3 \\times 3$ matrix changes $\\det$ how?',
+    options: ['Negates it', 'Doubles it', 'No change', 'Makes it zero'],
+    correctIndex: 0,
+    explanation: 'Swapping two rows multiplies the determinant by $-1$.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'What is $\\det(AB)$ if $\\det(A) = 5$ and $\\det(B) = 2$?',
+    options: ['$10$', '$7$', '$3$', '$25$'],
+    correctIndex: 0,
+    explanation: '$\\det(AB) = \\det(A) \\cdot \\det(B) = 5 \\cdot 2 = 10$.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'What is $\\det(A^T)$ if $\\det(A) = 8$?',
+    options: ['$8$', '$-8$', '$\\frac{1}{8}$', '$64$'],
+    correctIndex: 0,
+    explanation: '$\\det(A^T) = \\det(A)$ for any matrix. Transpose preserves determinant.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'If two columns of a $3 \\times 3$ matrix are identical, $\\det =$',
+    options: ['$0$', '$1$', '$2$', 'Product of identical column'],
+    correctIndex: 0,
+    explanation: 'Identical columns mean linear dependence, so $\\det = 0$.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'What is $\\det(A^{-1})$ if $\\det(A) = 10$?',
+    options: ['$\\frac{1}{10}$', '$10$', '$-10$', '$100$'],
+    correctIndex: 0,
+    explanation: '$\\det(A^{-1}) = \\frac{1}{\\det(A)} = \\frac{1}{10}$.'
+  },
+
+  // Additional Medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'For a $3 \\times 3$ matrix with $\\det(A) = 1$, what is $\\det(5A)$?',
+    options: ['$125$', '$5$', '$15$', '$25$'],
+    correctIndex: 0,
+    explanation: '$\\det(cA) = c^3 \\cdot \\det(A) = 5^3 \\cdot 1 = 125$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'If $\\det(A) = 3$, what is $\\det(A^2)$?',
+    options: ['$9$', '$6$', '$3$', '$27$'],
+    correctIndex: 0,
+    explanation: '$\\det(A^2) = (\\det(A))^2 = 3^2 = 9$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'Subtracting $2 \\times (\\text{row } 1)$ from row $3$ changes $\\det$ by:',
+    options: ['Nothing', 'Multiplies by $2$', 'Subtracts $2$', 'Negates it'],
+    correctIndex: 0,
+    explanation: 'Adding or subtracting a multiple of one row to another preserves the determinant.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'Multiplying row $3$ by $-2$ in a $3 \\times 3$ matrix multiplies $\\det$ by:',
+    options: ['$-2$', '$2$', '$-8$', '$8$'],
+    correctIndex: 0,
+    explanation: 'Scaling one row by $k$ multiplies $\\det$ by $k$, so by $-2$ here.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'What is $\\det(-A)$ for a $4 \\times 4$ matrix if $\\det(A) = 5$?',
+    options: ['$5$', '$-5$', '$625$', '$-625$'],
+    correctIndex: 0,
+    explanation: '$\\det(-A) = (-1)^4 \\cdot \\det(A) = 1 \\cdot 5 = 5$.'
+  },
+
+  // Additional Hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'If $\\det(A) = 2$, what is $\\det(A^{-1} \\cdot A^T \\cdot A)$?',
+    options: ['$2$', '$1$', '$4$', '$\\frac{1}{2}$'],
+    correctIndex: 0,
+    explanation: '$\\det(A^{-1} \\cdot A^T \\cdot A) = \\frac{1}{2} \\cdot 2 \\cdot 2 = 2$.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'For $3 \\times 3$ matrix $A$, if $\\det(3A^{-1}) = 27$, what is $\\det(A)$?',
+    options: ['$1$', '$3$', '$9$', '$\\frac{1}{3}$'],
+    correctIndex: 0,
+    explanation: '$\\det(3A^{-1}) = 27 \\cdot \\det(A^{-1}) = \\frac{27}{\\det(A)} = 27$. So $\\det(A) = 1$.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'If $\\det(A) = 5$ and $\\det(B) = -2$, what is $\\det(A^3 B^2)$?',
+    options: ['$500$', '$-500$', '$250$', '$-250$'],
+    correctIndex: 0,
+    explanation: '$\\det(A^3 B^2) = (\\det(A))^3 \\cdot (\\det(B))^2 = 125 \\cdot 4 = 500$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'If $A$ is $3 \\times 3$ with $\\det(A) = 2$, then $\\det(A^{-1} \\cdot \\text{adj}(A))$ equals:',
+    options: ['$8$', '$2$', '$4$', '$1$'],
+    correctIndex: 0,
+    explanation: 'Since $A \\cdot \\text{adj}(A) = \\det(A) \\cdot I$, we have $\\text{adj}(A) = \\det(A) \\cdot A^{-1}$, so $A^{-1} \\cdot \\text{adj}(A) = \\det(A) \\cdot I = 2I$. Thus $\\det(2I) = 2^3 = 8$ for $3 \\times 3$.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'What is $\\det(\\text{adj}(A))$ for a $4 \\times 4$ matrix if $\\det(A) = 3$?',
+    options: ['$27$', '$9$', '$3$', '$81$'],
+    correctIndex: 0,
+    explanation: 'For $n \\times n$: $\\det(\\text{adj}(A)) = (\\det(A))^{n-1}$. For $4 \\times 4$: $3^{4-1} = 3^3 = 27$.'
   }
 ];

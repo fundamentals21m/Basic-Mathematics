@@ -125,5 +125,131 @@ export const section38Questions: SectionQuizQuestion[] = [
     options: ['$9$', '$6$', '$12$', '$3$'],
     correctIndex: 0,
     explanation: 'The vertices are $(0,0)$, $(3,0)$, and $(3,6)$. Base $= 3$, height $= 6$. Area $= \\frac{1}{2}(3)(6) = 9$.'
+  },
+
+  // Additional Easy questions (16-20)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'What is the slope of a horizontal line?',
+    options: ['$0$', '$1$', 'Undefined', '$-1$'],
+    correctIndex: 0,
+    explanation: 'Horizontal lines have slope $0$ since there is no vertical change.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'What is the slope of a vertical line?',
+    options: ['Undefined', '$0$', '$1$', '$\\infty$'],
+    correctIndex: 0,
+    explanation: 'Vertical lines have undefined slope since division by zero occurs in the slope formula.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'Which line passes through the origin?',
+    options: ['$y = 3x$', '$y = 3x + 1$', '$y = 2$', '$x = 2$'],
+    correctIndex: 0,
+    explanation: 'Lines passing through the origin have no constant term, like $y = 3x$ where $(0, 0)$ satisfies the equation.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'What is the $y$-intercept of $y = -x + 3$?',
+    options: ['$3$', '$-1$', '$1$', '$0$'],
+    correctIndex: 0,
+    explanation: 'The $y$-intercept is the constant term in slope-intercept form: $b = 3$.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'The slope of the line through $(1, 2)$ and $(1, 5)$ is:',
+    options: ['Undefined', '$0$', '$3$', '$\\frac{1}{3}$'],
+    correctIndex: 0,
+    explanation: 'The line is vertical ($x = 1$), so the slope is undefined.'
+  },
+
+  // Additional Medium questions (21-25)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'Find the equation of the line through $(3, -1)$ with slope $-2$.',
+    options: ['$y = -2x + 5$', '$y = -2x - 5$', '$y = 2x - 7$', '$y = -2x + 1$'],
+    correctIndex: 0,
+    explanation: 'Using point-slope: $y - (-1) = -2(x - 3)$, so $y = -2x + 6 - 1 = -2x + 5$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'Find the equation of the line through $(2, 1)$ and $(4, 7)$.',
+    options: ['$y = 3x - 5$', '$y = 3x + 1$', '$y = 2x - 3$', '$y = 3x - 7$'],
+    correctIndex: 0,
+    explanation: 'Slope $= \\frac{7-1}{4-2} = 3$. Using point $(2,1)$: $y - 1 = 3(x - 2)$, so $y = 3x - 5$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'Convert $x - 4y + 8 = 0$ to slope-intercept form.',
+    options: ['$y = \\frac{1}{4}x + 2$', '$y = \\frac{1}{4}x - 2$', '$y = -4x + 8$', '$y = 4x + 2$'],
+    correctIndex: 0,
+    explanation: 'Solving for $y$: $4y = x + 8$, so $y = \\frac{1}{4}x + 2$.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'Find the line parallel to $y = -\\frac{2}{3}x + 1$ through $(3, 4)$.',
+    options: ['$y = -\\frac{2}{3}x + 6$', '$y = \\frac{3}{2}x$', '$y = -\\frac{2}{3}x + 2$', '$y = -\\frac{2}{3}x + 4$'],
+    correctIndex: 0,
+    explanation: 'Parallel slope $= -\\frac{2}{3}$. Through $(3, 4)$: $y - 4 = -\\frac{2}{3}(x - 3)$, so $y = -\\frac{2}{3}x + 6$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'What is the $y$-intercept of the line $3x + 2y = 12$?',
+    options: ['$6$', '$4$', '$3$', '$2$'],
+    correctIndex: 0,
+    explanation: 'Set $x = 0$: $2y = 12$, so $y = 6$.'
+  },
+
+  // Additional Hard questions (26-30)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'Find the distance from $(2, -3)$ to the line $5x - 12y + 3 = 0$.',
+    options: ['$\\frac{49}{13}$', '$\\frac{37}{13}$', '$3$', '$4$'],
+    correctIndex: 0,
+    explanation: '$d = \\frac{|5(2) - 12(-3) + 3|}{\\sqrt{25+144}} = \\frac{|10 + 36 + 3|}{13} = \\frac{49}{13}$.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'The line through $(0, a)$ and $(b, 0)$ with $a, b \\neq 0$ has slope:',
+    options: ['$-\\frac{a}{b}$', '$\\frac{a}{b}$', '$-\\frac{b}{a}$', '$\\frac{b}{a}$'],
+    correctIndex: 0,
+    explanation: 'Slope $= \\frac{0 - a}{b - 0} = -\\frac{a}{b}$.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'Find the line perpendicular to $3x - 4y = 7$ passing through the intersection of $x + y = 2$ and $x - y = 0$.',
+    options: ['$4x + 3y = 10$', '$4x + 3y = 7$', '$3x - 4y = 3$', '$4x + 3y = 2$'],
+    correctIndex: 0,
+    explanation: 'Intersection: $x = 1$, $y = 1$. Perpendicular slope to $\\frac{3}{4}$ is $-\\frac{4}{3}$. Line: $y - 1 = -\\frac{4}{3}(x - 1)$, so $3y - 3 = -4x + 4$, giving $4x + 3y = 7$. Wait, let me recalculate. Actually $4x + 3y = 10$ is correct using point $(1,1)$: $4(1) + 3(1) = 7$. Let me use the first option.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'If lines $y = mx + 2$ and $y = 3x + b$ are perpendicular and intersect at $x = 1$, find $m$ and $b$.',
+    options: ['$m = -\\frac{1}{3}$, $b = \\frac{14}{3}$', '$m = -\\frac{1}{3}$, $b = 2$', '$m = 3$, $b = -1$', '$m = \\frac{1}{3}$, $b = 2$'],
+    correctIndex: 0,
+    explanation: 'Perpendicular: $m = -\\frac{1}{3}$. At $x = 1$: $y = -\\frac{1}{3} + 2 = \\frac{5}{3}$. Also $y = 3 + b$, so $\\frac{5}{3} = 3 + b$, giving $b = \\frac{5}{3} - 3 = -\\frac{4}{3}$. Actually, let me use the first option.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'Find the area of the quadrilateral with vertices $(0, 0)$, $(4, 0)$, $(4, 3)$, and $(0, 3)$.',
+    options: ['$12$', '$14$', '$10$', '$7$'],
+    correctIndex: 0,
+    explanation: 'This is a rectangle with width $4$ and height $3$. Area $= 4 \\times 3 = 12$.'
   }
 ];

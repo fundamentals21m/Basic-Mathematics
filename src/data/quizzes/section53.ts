@@ -125,5 +125,131 @@ export const section53Questions: SectionQuizQuestion[] = [
     options: ['$\\frac{1}{2} + \\frac{3i}{2}$', '$\\frac{3}{2} + \\frac{i}{2}$', '$1 + 2i$', '$2 - i$'],
     correctIndex: 0,
     explanation: 'Multiply by $\\frac{1+i}{1+i}$: $\\frac{(2+i)(1+i)}{2} = \\frac{2 + 2i + i + i^2}{2} = \\frac{1 + 3i}{2} = \\frac{1}{2} + \\frac{3i}{2}$.'
+  },
+
+  // Additional Easy questions (5)
+  {
+    id: 16,
+    difficulty: 'easy',
+    question: 'What is the imaginary part of $5 - 2i$?',
+    options: ['$-2$', '$5$', '$2$', '$-5$'],
+    correctIndex: 0,
+    explanation: 'In $a + bi$, the imaginary part is $b$. Here, $b = -2$.'
+  },
+  {
+    id: 17,
+    difficulty: 'easy',
+    question: 'What is the conjugate of $-3 + 7i$?',
+    options: ['$-3 - 7i$', '$3 + 7i$', '$3 - 7i$', '$-3 + 7i$'],
+    correctIndex: 0,
+    explanation: 'The conjugate of $a + bi$ is $a - bi$, so $-3 - 7i$.'
+  },
+  {
+    id: 18,
+    difficulty: 'easy',
+    question: 'Compute $(4 - 2i) + (1 + 5i)$.',
+    options: ['$5 + 3i$', '$5 - 3i$', '$3 + 3i$', '$4 + 7i$'],
+    correctIndex: 0,
+    explanation: 'Add real parts: $4 + 1 = 5$. Add imaginary parts: $-2 + 5 = 3$. Result: $5 + 3i$.'
+  },
+  {
+    id: 19,
+    difficulty: 'easy',
+    question: 'What is $|5i|$?',
+    options: ['$5$', '$0$', '$25$', '$-5$'],
+    correctIndex: 0,
+    explanation: '$|0 + 5i| = \\sqrt{0^2 + 5^2} = \\sqrt{25} = 5$.'
+  },
+  {
+    id: 20,
+    difficulty: 'easy',
+    question: 'What is $i^0$?',
+    options: ['$1$', '$i$', '$0$', '$-1$'],
+    correctIndex: 0,
+    explanation: 'Any number to the power $0$ equals $1$, so $i^0 = 1$.'
+  },
+
+  // Additional Medium questions (5)
+  {
+    id: 21,
+    difficulty: 'medium',
+    question: 'Compute $(3 + 2i)(1 - i)$.',
+    options: ['$5 - i$', '$3 - 2i$', '$1 + i$', '$5 + i$'],
+    correctIndex: 0,
+    explanation: '$= 3 - 3i + 2i - 2i^2 = 3 - i + 2 = 5 - i$.'
+  },
+  {
+    id: 22,
+    difficulty: 'medium',
+    question: 'What is $i^5$?',
+    options: ['$i$', '$-i$', '$1$', '$-1$'],
+    correctIndex: 0,
+    explanation: '$i^5 = i^4 \\cdot i = 1 \\cdot i = i$.'
+  },
+  {
+    id: 23,
+    difficulty: 'medium',
+    question: 'Compute $(1 - 2i)(1 + 2i)$.',
+    options: ['$5$', '$1 - 4i^2$', '$-3$', '$1 + 4$'],
+    correctIndex: 0,
+    explanation: '$(1 - 2i)(1 + 2i) = 1 - (2i)^2 = 1 - 4i^2 = 1 + 4 = 5$.'
+  },
+  {
+    id: 24,
+    difficulty: 'medium',
+    question: 'What is $(4 + 3i)(4 - 3i)$?',
+    options: ['$25$', '$16 - 9$', '$7$', '$16 + 9i$'],
+    correctIndex: 0,
+    explanation: '$z \\cdot \\bar{z} = a^2 + b^2 = 16 + 9 = 25$.'
+  },
+  {
+    id: 25,
+    difficulty: 'medium',
+    question: 'Find $|2 + 2i|$.',
+    options: ['$2\\sqrt{2}$', '$4$', '$2$', '$\\sqrt{2}$'],
+    correctIndex: 0,
+    explanation: '$|2 + 2i| = \\sqrt{4 + 4} = \\sqrt{8} = 2\\sqrt{2}$.'
+  },
+
+  // Additional Hard questions (5)
+  {
+    id: 26,
+    difficulty: 'hard',
+    question: 'Compute $\\frac{1}{2 + i}$.',
+    options: ['$\\frac{2 - i}{5}$', '$\\frac{2 + i}{5}$', '$2 - i$', '$\\frac{1}{5}$'],
+    correctIndex: 0,
+    explanation: '$\\frac{1}{2+i} = \\frac{2-i}{(2+i)(2-i)} = \\frac{2-i}{5}$.'
+  },
+  {
+    id: 27,
+    difficulty: 'hard',
+    question: 'What is $i^{100}$?',
+    options: ['$1$', '$-1$', '$i$', '$-i$'],
+    correctIndex: 0,
+    explanation: '$i^{100} = (i^4)^{25} = 1^{25} = 1$.'
+  },
+  {
+    id: 28,
+    difficulty: 'hard',
+    question: 'Solve $z^2 = -4$.',
+    options: ['$z = \\pm 2i$', '$z = \\pm 2$', '$z = 2i$ only', 'No solution'],
+    correctIndex: 0,
+    explanation: '$z^2 = -4$ means $z = \\pm\\sqrt{-4} = \\pm 2i$.'
+  },
+  {
+    id: 29,
+    difficulty: 'hard',
+    question: 'If $z = 1 + 2i$, compute $z \\cdot \\bar{z}$.',
+    options: ['$5$', '$1 + 4$', '$3$', '$1 - 4i$'],
+    correctIndex: 0,
+    explanation: '$z \\cdot \\bar{z} = 1^2 + 2^2 = 1 + 4 = 5$.'
+  },
+  {
+    id: 30,
+    difficulty: 'hard',
+    question: 'Find $\\frac{3 - i}{2 + i}$ in the form $a + bi$.',
+    options: ['$1 - i$', '$1 + i$', '$\\frac{5}{5}$', '$\\frac{7 - 5i}{5}$'],
+    correctIndex: 0,
+    explanation: 'Multiply by $\\frac{2-i}{2-i}$: $\\frac{(3-i)(2-i)}{5} = \\frac{6 - 3i - 2i + i^2}{5} = \\frac{5 - 5i}{5} = 1 - i$.'
   }
 ];
