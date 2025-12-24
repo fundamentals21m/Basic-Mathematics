@@ -8,7 +8,7 @@ export default defineConfig({
   base: '/math_academy/ba/',
   resolve: {
     alias: {
-      '@shared': path.resolve(__dirname, '../shared'),
+      '@shared': path.resolve(__dirname, './src/shared'),
     },
   },
 })

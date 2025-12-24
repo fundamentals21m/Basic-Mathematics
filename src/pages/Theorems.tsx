@@ -129,15 +129,6 @@ const getSectionTitle = (sectionId: number): string => {
   return `Section ${sectionId}`;
 };
 
-const getChapterForSection = (sectionId: number): string => {
-  for (const chapter of curriculum) {
-    if (chapter.sections.some(s => s.id === sectionId)) {
-      return chapter.title;
-    }
-  }
-  return '';
-};
-
 // Group theorems by chapter
 const groupedTheorems = curriculum.map(chapter => ({
   chapter,
