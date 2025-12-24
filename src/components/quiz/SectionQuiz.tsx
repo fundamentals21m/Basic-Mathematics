@@ -55,6 +55,21 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
+// Shuffle options within a question and return new question with updated correctIndex
+function shuffleQuestionOptions(question: SectionQuizQuestion): SectionQuizQuestion {
+  const indices = question.options.map((_, i) => i);
+  const shuffledIndices = shuffleArray(indices);
+
+  const shuffledOptions = shuffledIndices.map(i => question.options[i]);
+  const newCorrectIndex = shuffledIndices.indexOf(question.correctIndex);
+
+  return {
+    ...question,
+    options: shuffledOptions,
+    correctIndex: newCorrectIndex,
+  };
+}
+
 const difficultyConfig = {
   easy: {
     label: 'Easy',
@@ -90,7 +105,9 @@ export function SectionQuiz({ sectionId, sectionTitle, questions, questionsPerQu
     const filtered = questions.filter(q => q.difficulty === difficulty);
     const shuffled = shuffleArray(filtered);
     // Take only questionsPerQuiz questions (or all if fewer available)
-    return shuffled.slice(0, Math.min(questionsPerQuiz, shuffled.length));
+    const selected = shuffled.slice(0, Math.min(questionsPerQuiz, shuffled.length));
+    // Also shuffle the options within each question
+    return selected.map(shuffleQuestionOptions);
   }, [questions, questionsPerQuiz]);
 
   const current = shuffledQuestions[currentQuestion];
