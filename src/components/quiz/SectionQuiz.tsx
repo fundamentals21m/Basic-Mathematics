@@ -180,6 +180,43 @@ export function SectionQuiz({ sectionId, sectionTitle, questions, questionsPerQu
     hasReportedRef.current = false;
   };
 
+  // Early return if no questions provided at all
+  if (!questions || questions.length === 0) {
+    return (
+      <div className="mt-12 p-6 rounded-2xl bg-dark-800/40 border border-dark-700/50">
+        <h3 className="text-xl font-semibold text-dark-100 mb-2">Section Quiz</h3>
+        <p className="text-dark-400">No quiz questions available for this section yet.</p>
+      </div>
+    );
+  }
+
+  // Early return if no questions available after selecting difficulty
+  if (selectedDifficulty && shuffledQuestions.length === 0 && !showResults) {
+    return (
+      <div className="mt-12 p-6 rounded-2xl bg-dark-800/40 border border-dark-700/50">
+        <h3 className="text-xl font-semibold text-dark-100 mb-4">No Questions Available</h3>
+        <p className="text-dark-400 mb-6">
+          There are no {selectedDifficulty} questions available for this section yet.
+        </p>
+        <button
+          onClick={handleChangeDifficulty}
+          className="py-3 px-6 bg-primary-600 hover:bg-primary-500 text-white rounded-lg transition-colors"
+        >
+          Choose Different Difficulty
+        </button>
+      </div>
+    );
+  }
+
+  // Guard against undefined current question
+  if (selectedDifficulty && !current && !showResults) {
+    return (
+      <div className="mt-12 p-6 rounded-2xl bg-dark-800/40 border border-dark-700/50">
+        <p className="text-dark-400 text-center">Loading quiz...</p>
+      </div>
+    );
+  }
+
   // Difficulty selection screen
   if (!selectedDifficulty) {
     const easyCount = questions.filter(q => q.difficulty === 'easy').length;
